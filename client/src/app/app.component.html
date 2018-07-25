@@ -1,0 +1,28 @@
+<section class="mat-typography">
+  <div class="fixed-header">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span class="header-spacer"></span>
+        <span style="align-content: flex-end"><!--*ngIf="userSession.token" >-->
+          <mat-chip-list>
+              <mat-chip color="accent" selected [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></mat-chip>
+              <mat-chip color="accent" (click)="voltar()" style="float: right;"><mat-icon>keyboard_backspace</mat-icon></mat-chip>
+          </mat-chip-list>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1 user</button>
+            <button mat-menu-item>Item 2 user</button>
+          </mat-menu>
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+
+  <div class="content-center" ngClass.lg="content-lg">
+
+    <!-- <main [@routerTransition]="getState(o)"> -->
+    <router-outlet #o="outlet"></router-outlet>
+    <!-- </main> -->
+
+  </div>
+
+</section>

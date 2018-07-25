@@ -1,0 +1,8 @@
+# Docker PostGres
+docker run --name postgresdb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=dbexemplo -p 5432:5432 -d postgres
+
+# Docker Mongo 
+docker run --name mongodb -p 27017:27017 -d mongo
+
+# Docker Redis
+docker run --name redisdb -p 6379:6379 -d redis
