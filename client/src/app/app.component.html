@@ -13,8 +13,8 @@
     <button mat-button (click)="start.close()">Close</button>
 
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['pessoa']">Pessoa</a>
-      <a mat-list-item [routerLink]="['pessoa/cadastro']">Pessoa Cadastrp</a>
+      <a mat-list-item [routerLink]="['pessoa']" (click)="start.close()">Pessoa</a>
+      <a mat-list-item [routerLink]="['pessoa/cadastro']" (click)="start.close()">Pessoa Cadastrp</a>
       <a mat-list-item>Link</a>
       <a mat-list-item>Initially focused</a>
       <a mat-list-item>Focus region end</a>
@@ -26,35 +26,3 @@
       <router-outlet #o="outlet"></router-outlet>
     </div>
 </mat-drawer-container>
-
-<!--
-<section class="mat-typography">
-  <div class="fixed-header">
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <span class="header-spacer"></span>
-        <span>
-          <mat-chip-list>
-              <mat-chip color="accent" selected [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></mat-chip>
-              <mat-chip color="accent" (click)="voltar()"><mat-icon>keyboard_backspace</mat-icon></mat-chip>
-          </mat-chip-list>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Item 1 user</button>
-            <button mat-menu-item>Item 2 user</button>
-          </mat-menu>
-        </span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div>
-
-  <div class="content-center" ngClass.lg="content-lg">
-
-    
-    <router-outlet #o="outlet"></router-outlet>
-
-
-  </div>
-
-</section>
-
--->
