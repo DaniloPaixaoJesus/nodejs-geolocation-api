@@ -8,11 +8,17 @@
     </mat-card-title>
 
     <mat-card-content>
+      <div *ngIf="isError">
+        <mat-chip-list >
+          <mat-chip style="margin-left: 30%" color="warn" selected="true"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>
+        </mat-chip-list>
+      </div>
       <form class="form">
         <mat-form-field color="accent" style="width: 80%">
           <input matInput type="text" placeholder="Pesquisar Pessoas" style="width: 80%">
         </mat-form-field>
-        <button mat-fab color="primary" style="margin: 5px">
+        <mat-spinner diameter="55" *ngIf="exibeProgress"></mat-spinner>
+        <button mat-fab color="primary" *ngIf="!exibeProgress" style="margin: 5px">
           <mat-icon>search</mat-icon>
         </button>
       </form>

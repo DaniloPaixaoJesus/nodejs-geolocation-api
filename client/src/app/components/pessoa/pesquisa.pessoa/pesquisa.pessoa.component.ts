@@ -9,7 +9,15 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 })
 export class PesquisaPessoaComponent implements OnInit {
   
-  private pessoas = [];
+  private pessoas = []
+
+  //exibicao de mensagem de erro na tela
+  isError: boolean = false
+  error: string
+  
+  //exibicao de loader na tela
+  exibeProgress: boolean = false
+  value: number = 0
 
   constructor(
     private pessoaService: PessoaService,
@@ -21,25 +29,25 @@ export class PesquisaPessoaComponent implements OnInit {
   }
 
   voltar() {
-    window.history.back();
+    window.history.back()
   }
 
   ngOnInit() {
     let isMobile = /Android|iPhone/i.test(window.navigator.userAgent)
     console.log(`Plataforma ${window.navigator.userAgent}`)
-    this.pessoas = this.pessoaService.getPessoas()
-    /*$(document).ready(function(){
-      var ua = navigator.userAgent;
-  
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua))
-         $('a.mobile-other').show();
-  
-      else if(/Chrome/i.test(ua))
-         $('a.chrome').show();
-  
-      else
-         $('a.desktop-other').show();
-  });
-  */
+    this.pessoas = 
+    this.pessoaService.getPessoas()
+      .subscribe(res => {
+        console.log('>>>> get pessoas res=', res)
+        this.exibeProgress = false
+        //this.router.navigate(['/pessoa'])
+    },
+    error =>{
+      console.log('erro ao chamar o servico get pessoas ==>', error)
+      this.exibeProgress = false
+      this.isError = true
+      this.error = `Não foi possível consutar pessoas`
+    })
+
   }
 }
