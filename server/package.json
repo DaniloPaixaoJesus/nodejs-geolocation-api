@@ -1,21 +1,23 @@
 {
-  "name": "simple-api",
-  "version": "0.0.1",
-  "private": true,
+  "name": "payfast",
+  "version": "1.0.0",
+  "description": "gateway de pagamentos utilizando recursos http.",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "api",
+    "gateway",
+    "javascript"
+  ],
+  "author": "juliocvidal",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "~1.0.1",
-    "express": "^4.0.0",
-    "mongoose": "^5.2.5",
-    "swagger-ui": "^3.17.5",
-    "swagger-ui-express": "^3.0.10"
-  },
-  "engines": {
-    "node": "8.11.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.3"
+    "body-parser": "^1.15.2",
+    "consign": "^0.1.2",
+    "express": "^4.14.0",
+    "express-validator": "^2.20.8",
+    "mysql": "^2.11.1"
   }
 }
