@@ -4,6 +4,19 @@ module.exports = function(app){
     res.send('OK.');
   });
 
+  /**
+  res.status(400);
+  res.format({
+    html: function(){
+        res.render("produtos/form",{validationErrors:errors,produto:produto});
+    },
+    json: function(){
+        res.send(errors);
+    }
+  });
+   */
+
+  //Content negotiation -> ver retornos de formatos json e xml
   app.post('/pagamentos/pagamento', function(req, res){
 
     req.assert("forma_de_pagamento",
