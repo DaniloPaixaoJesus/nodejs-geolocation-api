@@ -7,7 +7,7 @@ module.exports = function(){
   var app = express();
 
   app.set('view engine','ejs'); //set EJS module as a PAGE DYNAMIC ENGINE
-  //app.set('views','./app/views'); //set onde estao as VIEWS - O default é sempre /views
+  app.set('views','./static'); //set onde estao as VIEWS - O default é sempre /views
   //mantive o default
 
   app.use(bodyParser.urlencoded({extended: true}));

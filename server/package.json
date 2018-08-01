@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app",
-    "_comments":"npm install -g nodemon para ativar o WATCH do node.js"
+    "start": "nodemon index",
+    "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
   "keywords": [
     "api",
