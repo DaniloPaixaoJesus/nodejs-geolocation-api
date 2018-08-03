@@ -1,8 +1,22 @@
 # Docker PostGres
-docker run --name postgresdb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=dbexemplo -p 5432:5432 -d postgres
+docker run --name postgresdb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=payfast -p 5432:5432 -d postgres
 
 # Docker Mongo 
 docker run --name mongodb -p 27017:27017 -d mongo
 
 # Docker Redis
 docker run --name redisdb -p 6379:6379 -d redis
+
+# Docker MySQL
+docker run --name=mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=payfast -e MYSQL_ROOT_HOST=% -p 3306:3306 -d mysql/mysql-server
+
+**** create table on postgres
+CREATE TABLE pagamentos (
+        id serial primary key,
+       forma_de_pagamento varchar(255) NOT NULL,
+       valor decimal(10,2) NOT NULL,
+       moeda varchar(3) NOT NULL,
+       status varchar(255) NOT NULL,
+       data date,
+       descricao text
+       );

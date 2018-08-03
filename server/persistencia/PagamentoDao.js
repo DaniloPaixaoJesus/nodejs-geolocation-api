@@ -1,8 +1,15 @@
 function PagamentoDao(connection) {
     this._connection = connection;
 }
-
 PagamentoDao.prototype.salva = function(pagamento,callback) {
+    const query = {
+        text: 'INSERT INTO pagamentos(forma_de_pagamento, valor, moeda, status) VALUES ( $1, $2, $3, $4 )',
+        values: [pagamento.forma_de_pagamento, pagamento.valor, 'R', 'CONFIRMADO'],
+      }
+    this._connection.query(query, callback)
+}
+
+PagamentoDao.prototype.salvaOld = function(pagamento,callback) {
     this._connection.query('INSERT INTO pagamentos SET ?', pagamento, callback);
 }
 

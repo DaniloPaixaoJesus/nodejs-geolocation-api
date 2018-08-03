@@ -36,11 +36,13 @@ module.exports = function(app){
       res.status(400).send(erros);
       return;
     }
-
+    
+    console.log('req.body==>', req.body)
+    
     var pagamento = req.body;
     console.log('processando uma requisicao de um novo pagamento');
 
-    var cartoesClient = new app.servicos.CartoesClient();
+    /*var cartoesClient = new app.servicos.CartoesClient();
     cartoesClient.autoriza(req.body['cartao'], function (err, request, response, retorno) {
       if (err){
         console.log("Erro ao consultar serviço de cartões.");
@@ -48,12 +50,12 @@ module.exports = function(app){
         return;
       }
       console.log('Retorno do servico de cartoes: %j', retorno);
-    });
+    });*/
 
     pagamento.status = PAGAMENTO_CRIADO;
     pagamento.data = new Date;
 
-    var connection = app.persistencia.connectionFactory();
+    var connection = app.persistencia.connectionFactoryPostGres();
     var pagamentoDao = new app.persistencia.PagamentoDao(connection);
 
     pagamentoDao.salva(pagamento, function(erro, resultado){
@@ -66,24 +68,9 @@ module.exports = function(app){
             resultado.insertId);
 
       res.status(201).json(pagamento);
-      var responseHATEOAS = {
-        dados_do_pagamento: pagamento,
-        links: [
-                {
-                    href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
-                    rel: "confirmar",
-                    method: "PUT"
-                },
-                {
-                    href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
-                    rel: "cancelar",
-                    method: "DELETE"
-                }
-            ]
-        }
-      res.status(201).json(responseHATEOAS);
     }
     });
+
 
   });
 
