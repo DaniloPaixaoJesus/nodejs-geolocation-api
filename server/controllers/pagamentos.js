@@ -1,7 +1,20 @@
 module.exports = function(app){
   app.get('/pagamentos', function(req, res){
     console.log('Recebida requisicao de teste na porta 3000.')
-    res.send('OK.');
+
+    var connection = app.persistencia.connectionFactoryPostGres();
+    var pagamentoDao = new app.persistencia.PagamentoDao(connection);
+
+    pagamentoDao.lista(function(erro, resultado){
+      if(erro){
+        console.log('erro ao consultar no banco: ' + erro);
+        res.status(500).send(erro);
+        return;
+      }
+      console.log('pagamento encontrado: ' + JSON.stringify(resultado));
+      res.status(200).send(resultado.rows);
+      //return;
+    });
   });
 
   /**
@@ -30,7 +43,7 @@ module.exports = function(app){
       if (erro || !retorno){
         console.log('MISS - chave nao encontrada');
 
-        var connection = app.persistencia.connectionFactory();
+        var connection = app.persistencia.connectionFactoryPostGres();
         var pagamentoDao = new app.persistencia.PagamentoDao(connection);
 
         pagamentoDao.buscaPorId(id, function(erro, resultado){

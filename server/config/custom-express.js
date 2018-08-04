@@ -3,8 +3,20 @@ var consign = require('consign');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
+var morgan = require('morgan');
+var logger = require('../servicos/logger.js');
+
 module.exports = function(){
   var app = express();
+
+  //Middleware do Morgan
+  app.use(morgan("common", {
+    stream: {
+      write: function(mensagem){
+          logger.info(mensagem);
+      }
+    }
+  }));
 
   app.set('view engine','ejs'); //set EJS module as a PAGE DYNAMIC ENGINE
   app.set('views','./static'); //set onde estao as VIEWS - O default é sempre /views
