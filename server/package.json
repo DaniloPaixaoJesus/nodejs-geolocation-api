@@ -21,6 +21,7 @@
     "ejs": "^2.6.1",
     "express": "^4.14.0",
     "express-validator": "^2.20.8",
+    "memcached": "^2.2.2",
     "mysql": "^2.11.1",
     "pg": "^7.4.3",
     "restify": "^7.2.1",

@@ -7,6 +7,9 @@ docker run --name mongodb -p 27017:27017 -d mongo
 # Docker Redis
 docker run --name redisdb -p 6379:6379 -d redis
 
+# MemCache server
+docker run --name memcache -d memcached
+
 # Docker MySQL
 docker run --name=mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=payfast -e MYSQL_ROOT_HOST=% -p 3306:3306 -d mysql/mysql-server
 

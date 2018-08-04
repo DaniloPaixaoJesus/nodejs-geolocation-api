@@ -3,8 +3,8 @@ function PagamentoDao(connection) {
 }
 PagamentoDao.prototype.salva = function(pagamento,callback) {
     const query = {
-        text: 'INSERT INTO pagamentos(forma_de_pagamento, valor, moeda, status) VALUES ( $1, $2, $3, $4 )',
-        values: [pagamento.forma_de_pagamento, pagamento.valor, 'R', 'CONFIRMADO'],
+        text: 'INSERT INTO pagamentos(id, forma_de_pagamento, valor, moeda, status) VALUES ( $1, $2, $3, $4, $5)',
+        values: [pagamento.id, pagamento.forma_de_pagamento, pagamento.valor, 'R', 'CONFIRMADO'],
       }
     this._connection.query(query, callback)
 }
