@@ -2,20 +2,25 @@
   <mat-card>
     <mat-card-content >
         <mat-card-title >
-          Pessoa
+          Partner
         </mat-card-title>
     </mat-card-content>
 
     <mat-card-content>
       <div fxLayout="row" fxLayout="column">
         <mat-form-field>
-          <input matInput placeholder="Nome" id="nome" required>
+          <input matInput placeholder="Name" id="name" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Description" id="description" required>
         </mat-form-field>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="end">
         <span class="send">
-          <button mat-fab>
+          <button mat-fab> 
             <mat-icon>send</mat-icon>
           </button>
         </span>

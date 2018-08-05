@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {PesquisaPessoaComponent} from './components/pessoa/pesquisa.pessoa/pesquisa.pessoa.component';
-import {CadastroPessoaComponent} from './components/pessoa/cadastro.pessoa/cadastro.pessoa.component';
+import {SearchPartnerComponent} from './components/partner/search.partner/search.partner.component';
+import {FormPartnerComponent} from './components/partner/form.partner/form.partner.component';
 import {LoginComponent} from './components/login/login.component';
 
 
@@ -13,12 +13,12 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'pessoa',
-    component: PesquisaPessoaComponent
+    path: 'partner',
+    component: SearchPartnerComponent
   },
   {
-    path: 'pessoa/cadastro',
-    component: CadastroPessoaComponent
+    path: 'partner/form',
+    component: FormPartnerComponent
   }
 ];
 

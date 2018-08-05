@@ -20,7 +20,7 @@ export class LoginComponent {
 
   login() {
     console.log('efetuando login')
-    this.router.navigate(['/pessoa'])
+    this.router.navigate(['/partner'])
   }
 
   reduceParaAgrupar() {

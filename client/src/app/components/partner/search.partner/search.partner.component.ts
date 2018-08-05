@@ -3,11 +3,11 @@ import { PessoaService } from '../../../services/pessoa/pessoa.service'
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 
 @Component({
-  selector: 'pesquisa-pessoa-component',
-  templateUrl: './pesquisa.pessoa.component.html',
-  styleUrls: ['./pesquisa.pessoa.component.scss']
+  selector: 'search-partner-component',
+  templateUrl: './search.partner.component.html',
+  styleUrls: ['./search.partner.component.scss']
 })
-export class PesquisaPessoaComponent implements OnInit {
+export class SearchPartnerComponent implements OnInit {
   
   private pessoas = []
 
@@ -25,7 +25,7 @@ export class PesquisaPessoaComponent implements OnInit {
   ) { }
 
   routeCadastroPessoa(){
-    this.router.navigate(['/pessoa/cadastro'])
+    this.router.navigate(['/partner/form'])
   }
 
   voltar() {

@@ -23,3 +23,14 @@ CREATE TABLE pagamentos (
        data date,
        descricao text
        );
+
+CREATE TABLE partner (
+       id serial primary key,
+       name varchar(255) NOT NULL,
+       description text,
+       activated boolean NOT NULL,
+       created_at TIMESTAMP,
+       created_by numeric,
+       updated_at TIMESTAMP,
+       updated_by numeric
+);

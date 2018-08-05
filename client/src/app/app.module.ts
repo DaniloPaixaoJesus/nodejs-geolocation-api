@@ -36,17 +36,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent} from './app.component';
-import {PesquisaPessoaComponent} from './components/pessoa/pesquisa.pessoa/pesquisa.pessoa.component';
+import {SearchPartnerComponent} from './components/partner/search.partner/search.partner.component';
 import {LoginComponent} from './components/login/login.component';
-import { CadastroPessoaComponent } from './components/pessoa/cadastro.pessoa/cadastro.pessoa.component';
+import { FormPartnerComponent } from './components/partner/form.partner/form.partner.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PesquisaPessoaComponent,
-    CadastroPessoaComponent
+    SearchPartnerComponent,
+    FormPartnerComponent
   ],
   imports: [
     //##CORE
