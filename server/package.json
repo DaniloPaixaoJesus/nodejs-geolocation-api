@@ -4,7 +4,7 @@
   "description": "api para teste do nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules/mocha/bin/mocha",
     "start": "nodemon cluster",
     "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
@@ -28,5 +28,8 @@
     "restify": "^7.2.1",
     "soap": "^0.24.0",
     "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
