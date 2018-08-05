@@ -1,8 +1,8 @@
 module.exports = (app)=>{
-  app.get('/pagamentos', (req, res)=>{
-    var connection = app.persistencia.connectionFactoryPostGres()
-    var pagamentoDao = new app.persistencia.PagamentoDao(connection)
-    pagamentoDao.lista((erro, resultado)=>{
+  app.get('/api/partners', (req, res)=>{
+    var connection = app.persistence.connectionFactoryPostGres()
+    var partnerDao = new app.persistence.PartnerDao(connection)
+    partnerDao.getAll((erro, resultado)=>{
       if(erro){
         console.log('erro ao consultar no banco: ' + erro)
         res.status(500).send(erro)
@@ -26,18 +26,19 @@ module.exports = (app)=>{
   })
    */
 
-  const PAGAMENTO_CRIADO = "CRIADO"
-  const PAGAMENTO_CONFIRMADO = "CONFIRMADO"
-  const PAGAMENTO_CANCELADO = "CANCELADO"
+  const API_URL = '/api/partners'
+  const PAGAMENTO_CRIADO = 'CRIADO'
+  const PAGAMENTO_CONFIRMADO = 'CONFIRMADO'
+  const PAGAMENTO_CANCELADO = 'CANCELADO'
 
-  app.get('/pagamentos/pagamento/:id', (req, res)=>{
+  app.get(`${API_URL}/:id`, (req, res)=>{
     var id = req.params.id
     console.log('consultando pagamento: ' + id)
 
     /**
     busca primeiro no cache
      */
-    var memcachedClient = app.servicos.memcachedClient()
+    var memcachedClient = app.service.memcachedClient()
     memcachedClient.get('pagamento-' + id, (erro, retorno)=>{
       if (erro || !retorno){
         console.log('MISS - chave nao encontrada')
@@ -45,9 +46,9 @@ module.exports = (app)=>{
         /**
         pesquisa na base dados
          */
-        var connection = app.persistencia.connectionFactoryPostGres()
-        var pagamentoDao = new app.persistencia.PagamentoDao(connection)
-        pagamentoDao.buscaPorId(id, function(erro, resultado){
+        var connection = app.persistence.connectionFactoryPostGres()
+        var partnerDao = new app.persistence.PartnerDao(connection)
+        partnerDao.findById(id, function(erro, resultado){
           if(erro){
             console.log('erro ao consultar no banco: ' + erro)
             res.status(500).send(erro)
@@ -68,13 +69,13 @@ module.exports = (app)=>{
   })
 
   //Content negotiation -> ver retornos de formatos json e xml
-  app.post('/pagamentos/pagamento', (req, res)=>{
+  app.post(`${API_URL}`, (req, res)=>{
     /**
      * validacao do servico
      */
-    req.assert("forma_de_pagamento",
+    /*req.assert("name",
         "Forma de pagamento eh obrigatorio").notEmpty()
-    req.assert("valor",
+    req.assert("description",
       "Valor eh obrigatorio e deve ser um decimal")
         .notEmpty().isFloat()
     var erros = req.validationErrors()
@@ -83,14 +84,14 @@ module.exports = (app)=>{
       console.log('Erros de validacao encontrados')
       res.status(400).send(erros)
       return
-    }
+    }*/
     
     console.log('pagamento->req.body==>', req.body)
     
     var pagamento = req.body
     console.log('processando uma requisicao de um novo pagamento')
 
-    /*var cartoesClient = new app.servicos.CartoesClient()
+    /*var cartoesClient = new app.service.CartoesClient()
     cartoesClient.autoriza(req.body['cartao'], function (err, request, response, retorno) {
       if (err){
         console.log("Erro ao consultar serviço de cartões.")
@@ -103,17 +104,17 @@ module.exports = (app)=>{
     pagamento.status = PAGAMENTO_CRIADO
     pagamento.data = new Date
 
-    var connection = app.persistencia.connectionFactoryPostGres()
-    var pagamentoDao = new app.persistencia.PagamentoDao(connection)
+    var connection = app.persistence.connectionFactoryPostGres()
+    var partnerDao = new app.persistence.PartnerDao(connection)
 
-    pagamentoDao.salva(pagamento, (erro, resultado)=>{
+    partnerDao.save(pagamento, (erro, resultado)=>{
       if(erro){
         console.log('Erro ao inserir no banco:' + erro)
         res.status(500).send(erro)
       } else {
         console.log('pagamento criado')
         // ISERINDO NO CACHE
-        var cache = app.servicos.memcachedClient()
+        var cache = app.service.memcachedClient()
         cache.set('pagamento-' + pagamento.id, pagamento, 100000, (err)=> {
            console.log('nova chave: pagamento-' + pagamento.id)
         })
@@ -126,7 +127,7 @@ module.exports = (app)=>{
 
   })
 
-  app.put('/pagamentos/pagamento/:id', (req, res)=>{
+  app.put(`${API_URL}/:id`, (req, res)=>{
 
     var pagamento = {}
     var id = req.params.id
@@ -134,10 +135,10 @@ module.exports = (app)=>{
     pagamento.id = id
     pagamento.status = PAGAMENTO_CONFIRMADO
 
-    var connection = app.persistencia.connectionFactory()
-    var pagamentoDao = new app.persistencia.PagamentoDao(connection)
+    var connection = app.persistence.connectionFactory()
+    var partnerDao = new app.persistence.PartnerDao(connection)
 
-    pagamentoDao.atualiza(pagamento, (erro)=>{
+    partnerDao.update(pagamento, (erro)=>{
         if (erro){
           res.status(500).send(erro)
           return
@@ -148,17 +149,17 @@ module.exports = (app)=>{
 
   })
 
-  app.delete('/pagamentos/pagamento/:id', (req, res)=>{
+  app.delete(`${API_URL}/:id`, (req, res)=>{
     var pagamento = {}
     var id = req.params.id
 
     pagamento.id = id
     pagamento.status = CANCELADO
 
-    var connection = app.persistencia.connectionFactory()
-    var pagamentoDao = new app.persistencia.PagamentoDao(connection)
+    var connection = app.persistence.connectionFactory()
+    var partnerDao = new app.persistence.PartnerDao(connection)
 
-    pagamentoDao.atualiza(pagamento, (erro)=>{
+    partnerDao.update(pagamento, (erro)=>{
         if (erro){
           res.status(500).send(erro)
           return

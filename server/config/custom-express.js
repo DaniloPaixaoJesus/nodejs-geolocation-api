@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var expressValidator = require('express-validator')
 
 var morgan = require('morgan')
-var logger = require('../servicos/logger.js')
+var logger = require('../service/logger.js')
 
 module.exports = ()=>{
   var app = express()
@@ -32,8 +32,8 @@ module.exports = ()=>{
   //antes era usado o express-load, evitando-se assim tanto require na pagina inicial do app
   consign()
    .include('controllers')
-   .then('persistencia')
-   .then('servicos')
+   .then('persistence')
+   .then('service')
    .then('util')
    .into(app)
 

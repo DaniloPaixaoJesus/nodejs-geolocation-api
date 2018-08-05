@@ -25,3 +25,16 @@
 {"level":"info","message":"::1 - - [05/Aug/2018:16:20:57 +0000] \"GET /pagamentos/pagamento/5 HTTP/1.1\" 200 123\n","timestamp":"2018-08-05T16:20:57.146Z"}
 {"level":"info","message":"::1 - - [05/Aug/2018:16:20:58 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150\n","timestamp":"2018-08-05T16:20:58.157Z"}
 {"level":"info","message":"::1 - - [05/Aug/2018:16:23:12 +0000] \"GET /pagamentos/pagamento/4 HTTP/1.1\" 200 123\n","timestamp":"2018-08-05T16:23:12.383Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:20:57 +0000] \"GET /partners HTTP/1.1\" 404 147\n","timestamp":"2018-08-05T17:20:57.843Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:21:08 +0000] \"GET /api/partners HTTP/1.1\" 200 855\n","timestamp":"2018-08-05T17:21:08.493Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:21:13 +0000] \"GET /api/partners/5 HTTP/1.1\" 200 123\n","timestamp":"2018-08-05T17:21:13.108Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:31:46 +0000] \"GET /api/partners HTTP/1.1\" 200 855\n","timestamp":"2018-08-05T17:31:46.676Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:33:39 +0000] \"POST /api/partners HTTP/1.1\" 400 212\n","timestamp":"2018-08-05T17:33:39.378Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:34:14 +0000] \"POST /api/partners HTTP/1.1\" 400 98\n","timestamp":"2018-08-05T17:34:14.871Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:34:35 +0000] \"POST /api/partners HTTP/1.1\" 500 3122\n","timestamp":"2018-08-05T17:34:35.878Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:35:25 +0000] \"POST /api/partners HTTP/1.1\" 500 189\n","timestamp":"2018-08-05T17:35:25.555Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:36:05 +0000] \"POST /api/partners HTTP/1.1\" 201 95\n","timestamp":"2018-08-05T17:36:05.190Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:36:09 +0000] \"POST /api/partners HTTP/1.1\" 201 95\n","timestamp":"2018-08-05T17:36:09.029Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:36:10 +0000] \"POST /api/partners HTTP/1.1\" 201 95\n","timestamp":"2018-08-05T17:36:10.219Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:36:11 +0000] \"POST /api/partners HTTP/1.1\" 201 95\n","timestamp":"2018-08-05T17:36:11.467Z"}
+{"level":"info","message":"::1 - - [05/Aug/2018:17:36:38 +0000] \"GET /api/partners HTTP/1.1\" 200 649\n","timestamp":"2018-08-05T17:36:38.477Z"}
