@@ -1,19 +1,6 @@
 module.exports = (app)=>{
-  app.get('/api/partners', (req, res)=>{
-    var connection = app.persistence.connectionFactoryPostGres()
-    var partnerDao = new app.persistence.PartnerDao(connection)
-    partnerDao.getAll((erro, resultado)=>{
-      if(erro){
-        console.log('erro ao consultar no banco: ' + erro)
-        res.status(500).send(erro)
-        return
-      }
-      console.log('pagamento encontrado: ' + JSON.stringify(resultado))
-      res.status(200).send(resultado.rows)
-      return
-    })
-  })
-
+  
+  //Content negotiation -> ver retornos de formatos json e xml
   /**
   res.status(400)
   res.format({
@@ -21,46 +8,52 @@ module.exports = (app)=>{
         res.render("produtos/form",{validationErrors:errors,produto:produto})
     },
     json: function(){
-        res.send(errors)
+      res.send(errors)
     }
   })
-   */
-
+  */
+ 
   const API_URL = '/api/partners'
-  const PAGAMENTO_CRIADO = 'CRIADO'
-  const PAGAMENTO_CONFIRMADO = 'CONFIRMADO'
-  const PAGAMENTO_CANCELADO = 'CANCELADO'
+ 
+  app.get('/api/partners', (req, res)=>{
+    var connection = app.persistence.connectionFactoryPostGres()
+    var partnerDao = new app.persistence.PartnerDao(connection)
+    partnerDao.getAll((erro, partnerResultSet)=>{
+      if(erro){
+        console.log('api-partners-> database error=>', erro)
+        res.status(500).send(erro)
+        return
+      }
+      console.log('partner=>', JSON.stringify(partnerResultSet))
+      res.status(200).send(partnerResultSet.rows)
+      return
+    })
+  })
 
+  
   app.get(`${API_URL}/:id`, (req, res)=>{
     var id = req.params.id
-    console.log('consultando pagamento: ' + id)
+    console.log('partner=>', id)
 
-    /**
-    busca primeiro no cache
-     */
     var memcachedClient = app.service.memcachedClient()
-    memcachedClient.get('pagamento-' + id, (erro, retorno)=>{
+    memcachedClient.get('partner-' + id, (erro, retorno)=>{
       if (erro || !retorno){
-        console.log('MISS - chave nao encontrada')
-
-        /**
-        pesquisa na base dados
-         */
+        console.log('MISS - key not found', id)
         var connection = app.persistence.connectionFactoryPostGres()
         var partnerDao = new app.persistence.PartnerDao(connection)
         partnerDao.findById(id, function(erro, resultado){
           if(erro){
-            console.log('erro ao consultar no banco: ' + erro)
+            console.log('api-partners-> database error=>', erro)
             res.status(500).send(erro)
             return
           }
-          console.log('pagamento encontrado: ' + JSON.stringify(resultado))
+          console.log('partner=>', JSON.stringify(resultado))
           res.json(resultado.rows)
           return
         })
         //HIT no cache
       } else {
-        console.log('HIT - valor: ' + JSON.stringify(retorno))
+        console.log('HIT - partner=>', JSON.stringify(retorno))
         res.json(retorno)
         return
       }
@@ -68,14 +61,14 @@ module.exports = (app)=>{
 
   })
 
-  //Content negotiation -> ver retornos de formatos json e xml
   app.post(`${API_URL}`, (req, res)=>{
-    /**
-     * validacao do servico
-     */
-    /*req.assert("name",
-        "Forma de pagamento eh obrigatorio").notEmpty()
+    // validacao do servico
+    req.assert("name",
+        "partner name cannot be empty").notEmpty()
     req.assert("description",
+        "partner description cannot be empty").notEmpty()
+    /*
+    req.assert("value",
       "Valor eh obrigatorio e deve ser um decimal")
         .notEmpty().isFloat()
     var erros = req.validationErrors()
@@ -86,10 +79,9 @@ module.exports = (app)=>{
       return
     }*/
     
-    console.log('pagamento->req.body==>', req.body)
+    console.log('partner->req.body==>', req.body)
     
-    var pagamento = req.body
-    console.log('processando uma requisicao de um novo pagamento')
+    var partner = req.body
 
     /*var cartoesClient = new app.service.CartoesClient()
     cartoesClient.autoriza(req.body['cartao'], function (err, request, response, retorno) {
@@ -101,26 +93,23 @@ module.exports = (app)=>{
       console.log('Retorno do servico de cartoes: %j', retorno)
     })*/
 
-    pagamento.status = PAGAMENTO_CRIADO
-    pagamento.data = new Date
-
     var connection = app.persistence.connectionFactoryPostGres()
     var partnerDao = new app.persistence.PartnerDao(connection)
 
-    partnerDao.save(pagamento, (erro, resultado)=>{
+    partnerDao.save(partner, (erro, resultPartner)=>{
       if(erro){
-        console.log('Erro ao inserir no banco:' + erro)
+        console.log('api-partners-> database error=>', erro)
         res.status(500).send(erro)
       } else {
-        console.log('pagamento criado')
+        console.log('partner created', resultPartner.insertId)
         // ISERINDO NO CACHE
         var cache = app.service.memcachedClient()
-        cache.set('pagamento-' + pagamento.id, pagamento, 100000, (err)=> {
-           console.log('nova chave: pagamento-' + pagamento.id)
-        })
-        res.location('/pagamentos/pagamento/' +
-            resultado.insertId)
-        res.status(201).json(pagamento)
+        cache.set('partner-' + resultPartner.insertId, resultPartner, 100000, 
+            (err)=> {
+                console.log('new key: partner=>', resultPartner.insertId)
+            })
+        res.location(`${API_URL}/${resultPartner.insertId}`)
+        res.status(201).json(resultPartner.rows)
       }
     })
 
@@ -128,44 +117,23 @@ module.exports = (app)=>{
   })
 
   app.put(`${API_URL}/:id`, (req, res)=>{
-
-    var pagamento = {}
-    var id = req.params.id
-
-    pagamento.id = id
-    pagamento.status = PAGAMENTO_CONFIRMADO
-
-    var connection = app.persistence.connectionFactory()
+    console.log('partner->req.body==>', req.body)
+    console.log('partner->id==>', req.params.id)
+    var partner = req.body
+    partner.id = req.params.id
+    var connection = app.persistence.connectionFactoryPostGres()
     var partnerDao = new app.persistence.PartnerDao(connection)
 
-    partnerDao.update(pagamento, (erro)=>{
+    partnerDao.update(partner, (erro)=>{
         if (erro){
+          console.log('api-partners-> database error=>', erro)
           res.status(500).send(erro)
           return
         }
-        console.log('pagamento criado')
-        res.send(pagamento)
+        console.log('partner updated=>', partner)
+        res.send(partner)
     })
 
   })
 
-  app.delete(`${API_URL}/:id`, (req, res)=>{
-    var pagamento = {}
-    var id = req.params.id
-
-    pagamento.id = id
-    pagamento.status = CANCELADO
-
-    var connection = app.persistence.connectionFactory()
-    var partnerDao = new app.persistence.PartnerDao(connection)
-
-    partnerDao.update(pagamento, (erro)=>{
-        if (erro){
-          res.status(500).send(erro)
-          return
-        }
-        console.log('pagamento cancelado')
-        res.status(204).send(pagamento)
-    })
-  })
 }

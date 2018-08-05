@@ -16,7 +16,7 @@ updated_by numeric
                 partner(name, description, activated, created_at) 
                 VALUES ($1, $2, $3, now())`,
         values: [partner.name, partner.description, true],
-      }
+      } //new Date
     this._connection.query(query, callback)
 }
 
@@ -30,16 +30,16 @@ PartnerDao.prototype.getAll = function(callback) {
 
 PartnerDao.prototype.findById = function (id,callback) {
     const query = {
-        text: 'SELECT * FROM pagamentos WHERE id = $1',
+        text: 'SELECT * FROM partner WHERE id = $1',
         values: [id],
       }
     this._connection.query(query, callback)
 }
 
-PartnerDao.prototype.update = function(pagamento,callback) {
+PartnerDao.prototype.update = function(partner,callback) {
     const query = {
-        text: 'UPDATE pagamentos SET forma_de_pagamento = $1, valor = $2, moeda = $3, status = $4',
-        values: [pagamento.forma_de_pagamento, pagamento.valor, 'R', 'CONFIRMADO']
+        text: 'UPDATE partner SET name = $1, description = $2 WHERE id = $3',
+        values: [partner.name, partner.description, partner.id]
       }
     this._connection.query(query, callback)
     //this._connection.query('UPDATE pagamentos SET status = ? where id = ?', [pagamento.status, pagamento.id], callback)
