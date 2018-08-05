@@ -1,4 +1,4 @@
-var mysql  = require('mysql');
+var mysql  = require('mysql')
 
 function createDBConnection(){
 		return mysql.createConnection({
@@ -6,9 +6,9 @@ function createDBConnection(){
 			user: 'root',
 			password: 'root',
 			database: 'payfast'
-		});
+		})
 }
 
 module.exports = function() {
-	return createDBConnection;
+	return createDBConnection
 }

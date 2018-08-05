@@ -1,7 +1,6 @@
-module.exports = function(app){
-  app.get('/posts', function(req, res){
+module.exports = (app)=>{
+  app.get('/posts', (req, res)=>{
     console.log('Recebida requisicao para vir todos os posts.')
-    
     let posts = [
       {
         id:"4578fghet235gsdg24512324fdgf3",

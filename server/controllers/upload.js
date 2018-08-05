@@ -1,17 +1,17 @@
-var fs = require('fs');
-module.exports = function(app){
+var fs = require('fs')
+module.exports = (app)=>{
 
-  app.post("/upload/imagem", function(req, res){
-    console.log('recebendo imagem');
+  app.post("/upload/imagem", (req, res)=>{
+    console.log('recebendo imagem')
 
-    var filename = req.headers.filename;
+    var filename = req.headers.filename
 
     req.pipe(fs.createWriteStream('files/' + filename))
-    .on('finish', function(){
-      console.log('arquivo escrito');
-      res.status(201).send('ok');
-    });
+    .on('finish', ()=>{
+      console.log('arquivo escrito')
+      res.status(201).send('ok')
+    })
 
-  });
+  })
 
 }

@@ -1,4 +1,4 @@
-var memcached = require('memcached');
+var memcached = require('memcached')
 
 function createMencachedClient(){
     var client = new memcached('localhost:11211',
@@ -6,10 +6,8 @@ function createMencachedClient(){
             retries:10,
             retry:10000,
             remove:true
-          });
-    return client;
-};
-
-module.exports = function() {
-    return createMencachedClient;
+          })
+    return client
 }
+
+module.exports = ()=> createMencachedClient

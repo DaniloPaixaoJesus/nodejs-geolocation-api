@@ -1,27 +1,27 @@
-var cluster = require('cluster');
-var os = require('os');
+var cluster = require('cluster')
+var os = require('os')
 
-var cpus = os.cpus();
+var cpus = os.cpus()
 
-console.log('executando thread');
+console.log('executando thread')
 
 if(cluster.isMaster){
-  console.log('thread master');
+  console.log('thread master')
 
   cpus.forEach(function(){
-      cluster.fork();
-  });
+      cluster.fork()
+  })
 
   cluster.on('listening', function(worker){
-    console.log('cluster conectado ' + worker.process.pid );
-  });
+    console.log('cluster conectado ' + worker.process.pid )
+  })
 
   cluster.on('exit', worker => {
-    console.log('cluster %d desconectado', worker.process.pid);
-    cluster.fork();
+    console.log('cluster %d desconectado', worker.process.pid)
+    cluster.fork()
   })
 
 } else {
-  console.log('thread slave');
-  require('./index.js')
+  console.log('thread slave')
+  require('./app.js')
 }

@@ -11,7 +11,4 @@ function createDBConnectionPostGres(){
 	  client.connect()
 	return client;
 }
-
-module.exports = function() {
-	return createDBConnectionPostGres;
-}
+module.exports = ()=> createDBConnectionPostGres
