@@ -4,8 +4,8 @@
   "description": "api para teste do nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha",
-    "start": "nodemon cluster",
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha",
+    "start": "nodemon cluster NODE_ENV=dev",
     "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
   "keywords": [
@@ -30,6 +30,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
   }
 }

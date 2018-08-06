@@ -59,3 +59,10 @@
 {"level":"info","message":"::1 - - [05/Aug/2018:19:51:11 +0000] \"GET /api/partners/2 HTTP/1.1\" 200 169\n","timestamp":"2018-08-05T19:51:11.951Z"}
 {"level":"info","message":"::1 - - [05/Aug/2018:21:22:50 +0000] \"GET /api/partners HTTP/1.1\" 200 655\n","timestamp":"2018-08-05T21:22:50.904Z"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [05/Aug/2018:21:23:13 +0000] \"GET /api/partners HTTP/1.1\" 200 655\n","timestamp":"2018-08-05T21:23:13.761Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:43:49 +0000] \"GET /api/partners HTTP/1.1\" - -\n","timestamp":"2018-08-06T02:43:49.436Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:47:35 +0000] \"POST /partners HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:47:35.539Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:47:35 +0000] \"POST /produtos HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:47:35.559Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:52:19 +0000] \"POST /partners HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:52:19.752Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:52:19 +0000] \"POST /produtos HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:52:19.766Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:53:01 +0000] \"POST /partners HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:53:01.509Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Aug/2018:02:53:01 +0000] \"POST /produtos HTTP/1.1\" 404 148\n","timestamp":"2018-08-06T02:53:01.523Z"}

@@ -22,7 +22,7 @@ module.exports = (app)=>{
       if(erro){
         console.log('api-partners-> database error=>', erro)
         res.status(500).send(erro)
-        return
+        return next(erros);
       }
       console.log('partner=>', JSON.stringify(partnerResultSet))
       res.status(200).send(partnerResultSet.rows)

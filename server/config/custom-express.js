@@ -34,7 +34,7 @@ module.exports = ()=>{
    .include('controllers')
    .then('persistence')
    .then('service')
-   .then('util')
+   //.then('util')
    .into(app)
 
    //a ordem do consign deve seguir a ordem de 'dependencia'
