@@ -2,10 +2,10 @@ const { Pool, Client } = require('pg')
 
 function createDBConnectionPostGres(){
 	const client = new Client({
-		user: 'postgres',
-		host: 'localhost',
-		database: 'payfast',
-		password: '123456',
+		user: 'fzxhpuct',
+		host: 'stampy.db.elephantsql.com',
+		database: 'fzxhpuct',
+		password: 'GX-5ocQbQQByTu_ehCdqlUWutvZKvI21',
 		port: 5432,
 	  })
 	  client.connect()

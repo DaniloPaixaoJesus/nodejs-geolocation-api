@@ -5,6 +5,7 @@ var expressValidator = require('express-validator')
 
 var morgan = require('morgan')
 var logger = require('../service/logger.js')
+var customLogger = require('../middleware/middleware.logger')
 
 module.exports = ()=>{
   var app = express()
@@ -36,8 +37,23 @@ module.exports = ()=>{
    .then('service')
    //.then('util')
    .into(app)
-
    //a ordem do consign deve seguir a ordem de 'dependencia'
+
+   app.use(customLogger({ option1: '1', option2: '2' }))
+
+  app.use(function(req, res, next){
+    res.status(404).render("erros/404")
+  })
+
+  app.use(function(error, req, res, next){
+    if(process.env.NODE_ENV == 'production') {
+      res.status(500).render('erros/500')
+      return
+    }
+    next(error)
+  })
+  //tem que colocar na ordem, caso contrário ele passa pelo middleware e 
+  //ainda não vai ter acontecido nenhum erro.
 
   return app
 }

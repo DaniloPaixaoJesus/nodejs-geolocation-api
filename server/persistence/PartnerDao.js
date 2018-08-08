@@ -13,8 +13,8 @@ updated_by numeric
 */
     const query = {
         text: `INSERT INTO 
-                partner(name, description, activated, created_at) 
-                VALUES ($1, $2, $3, now())`,
+                partner(name, description, activated, created_at, created_by) 
+                VALUES ($1, $2, $3, now(), 1)`,
         values: [partner.name, partner.description, true],
       } //new Date
     this._connection.query(query, callback)

@@ -34,3 +34,14 @@ CREATE TABLE partner (
        updated_at TIMESTAMP,
        updated_by numeric
 );
+
+# Heroku -> install
+
+brew install heroku/brew/heroku
+---> app should be managed by git
+heroku apps:create partner-nodejs
+--> https://partner-nodejs.herokuapp.com/
+
+http://w2.cleardb.net/ --> DBasAServce
+
+https://api.elephantsql.com/console/387ae628-6d28-4505-b17b-d5ba8259ae2e/details?

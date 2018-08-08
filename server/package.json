@@ -8,6 +8,9 @@
     "start": "nodemon cluster NODE_ENV=dev",
     "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
+  "engines": {
+    "node": "8.11.3"
+  },
   "keywords": [
     "api",
     "gateway",
