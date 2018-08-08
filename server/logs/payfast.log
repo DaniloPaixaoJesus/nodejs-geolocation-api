@@ -72,3 +72,7 @@
 {"level":"info","message":"::1 - - [08/Aug/2018:21:54:16 +0000] \"POST /api/partners HTTP/1.1\" 500 294\n","timestamp":"2018-08-08T21:54:16.982Z"}
 {"level":"info","message":"::1 - - [08/Aug/2018:21:56:58 +0000] \"POST /api/partners HTTP/1.1\" 201 2\n","timestamp":"2018-08-08T21:56:58.453Z"}
 {"level":"info","message":"::1 - - [08/Aug/2018:21:59:24 +0000] \"GET /api/partners HTTP/1.1\" 200 168\n","timestamp":"2018-08-08T21:59:24.284Z"}
+{"level":"info","message":"::1 - - [08/Aug/2018:22:42:14 +0000] \"GET /view HTTP/1.1\" 500 3950\n","timestamp":"2018-08-08T22:42:14.659Z"}
+{"level":"info","message":"::1 - - [08/Aug/2018:22:42:14 +0000] \"GET /favicon.ico HTTP/1.1\" 404 3933\n","timestamp":"2018-08-08T22:42:14.854Z"}
+{"level":"info","message":"::1 - - [08/Aug/2018:22:42:45 +0000] \"GET /view HTTP/1.1\" 500 3930\n","timestamp":"2018-08-08T22:42:45.380Z"}
+{"level":"info","message":"::1 - - [08/Aug/2018:22:43:00 +0000] \"GET /view HTTP/1.1\" 200 55\n","timestamp":"2018-08-08T22:43:00.807Z"}
