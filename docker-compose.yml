@@ -1,17 +1,36 @@
 version: '2'
 services:
+
+    mongodb:
+        image: mongo
+        container_name: commute-mongo
+        restart: always
+        #environment:
+        #    MONGO_INITDB_ROOT_USERNAME: root
+        #    MONGO_INITDB_ROOT_PASSWORD: example
+
     nginx:
         build:
             dockerfile: ./docker/nginx.dockerfile
             context: .
-        container_name: nginx
+        container_name: commute-nginx
         ports:
             - "80:80"
+        networks: 
+            - commute-network
     node:
         build:
             dockerfile: ./docker/node-api.dockerfile
             context: .
-        container_name: node
+        container_name: commute-node-api
         ports:
             - "3000:3000"
-          
+        networks: 
+            - commute-network
+        depends_on: 
+            - "mongodb"
+            - "nginx"
+
+networks: 
+    commute-network:
+        driver: bridge

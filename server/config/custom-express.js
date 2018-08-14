@@ -31,6 +31,24 @@ module.exports = ()=>{
   //o modulo consign vai INJETAR a variavel APP para os arquivos desses diretorios, nao sendo necessario o
   // var rota = require('./app/controllers/rota')(app) para usar CADA arquivo de rota
   //antes era usado o express-load, evitando-se assim tanto require na pagina inicial do app
+
+/*
+let env = process.env.NODE_ENV;
+if(!env){
+	env = 'development'
+}
+let config = require(`./config.${env}.json`);
+let uri = `mongodb://${config.databaseConfig.host}:27017/${config.databaseConfig.database}`
+var mongoose = require('mongoose');
+mongoose.connect(uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log(' ===> MONGODB connected')
+})*/
+
+
   consign()
    .include('controllers')
    .then('persistence')
