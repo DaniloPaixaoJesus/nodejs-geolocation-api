@@ -3,17 +3,23 @@ services:
 
     mongodb:
         image: mongo
-        container_name: commute-mongo
-        restart: always
-        #environment:
+        container_name: mongodb
+        environment:
+            MONGO_INITDB_DATABASE: cummutedb
         #    MONGO_INITDB_ROOT_USERNAME: root
         #    MONGO_INITDB_ROOT_PASSWORD: example
+        ports:
+            - '27017:27017'
+        #volumes:
+        #    - '/my/own/datadir:/data/db'
+        networks: 
+            - commute-network
 
     nginx:
         build:
             dockerfile: ./docker/nginx.dockerfile
             context: .
-        container_name: commute-nginx
+        container_name: nginx
         ports:
             - "80:80"
             - "443:443"
@@ -23,7 +29,7 @@ services:
         build:
             dockerfile: ./docker/node-api.dockerfile
             context: .
-        container_name: commute-node-api
+        container_name: node-api
         ports:
             - "3000:3000"
         networks: 

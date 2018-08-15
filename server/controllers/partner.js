@@ -15,6 +15,46 @@ module.exports = (app)=>{
  
   const API_URL = '/api/partners'
  
+  app.get('/api/pessoas/view', (req, res) => {
+    
+    if(app.persistence.connectionFactoryMongoDb().readyState){
+      app.models.Pessoa.find({}).then((pessoas) => {
+            res.send(pessoas)
+        })
+    }else{
+        res.send('NO CONNECT WHEN FIND PEOPLE')
+    }
+  })
+
+  app.get('/api/pessoas', (req, res)=>{
+    let pessoas = [
+      new app.models.Pessoa({
+          name: "Arduino prático",
+          description: "10 projetos para executar, aprender, modificar e dominar o mundo"
+      }),
+      new app.models.Pessoa(
+      {
+          name: "MongoDB", 
+          description: "Construa novas aplicações com novas tecnologias"
+      }),
+       new app.models.Pessoa({
+          name: "Mean", 
+          description: "Full stack JavaScript com MongoDB, Express, Angular e Node" 
+      }),
+      new app.models.Pessoa({
+          name: "Node.js", 
+          description: "Os primeiros passos com Node.js"
+      })
+    ]
+    app.models.Pessoa.insertMany(pessoas).then(moogoseDocuments => {
+        console.log(moogoseDocuments, "Inseridos com sucesso")
+    }).catch(err => {
+        console.log(err)
+    })  
+    res.send("pessoas salvos");
+    
+  })
+
   app.get('/api/partners', (req, res)=>{
     var connection = app.persistence.connectionFactoryPostGres()
     var partnerDao = new app.persistence.PartnerDao(connection)
