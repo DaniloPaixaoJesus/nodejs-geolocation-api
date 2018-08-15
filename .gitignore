@@ -10,6 +10,9 @@
 /client/dist
 /server/node_modules
 
+# data
+/data/*
+
 # IDEs and editors
 /.idea
 .project
