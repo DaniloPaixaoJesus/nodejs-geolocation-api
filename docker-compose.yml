@@ -10,8 +10,9 @@ services:
         #    MONGO_INITDB_ROOT_PASSWORD: example
         ports:
             - '27017:27017'
-        #volumes:
-        #    - '/my/own/datadir:/data/db'
+        volumes:
+            #- '/data/db'
+            - './data/monbodb:/data/db'
         networks: 
             - commute-network
 

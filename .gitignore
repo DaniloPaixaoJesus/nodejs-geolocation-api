@@ -9,6 +9,9 @@
 /client/node_modules
 /server/node_modules
 
+# data
+/data/*
+
 # IDEs and editors
 /.idea
 .project
