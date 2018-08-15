@@ -14,6 +14,8 @@ export class LoginComponent {
   password: String
   loginError: String
 
+  imgUrl = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg'
+
   constructor(
     private router: Router,
   ) { }

@@ -6,6 +6,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// teste zoom image on IE
+import { ImageViewerComponent } from './components/imageviewer/imageviewer.component';
+import { ImageViewerModule } from '@hallysonh/ngx-imageviewer';
 
 // Material UI
 import {
@@ -46,7 +49,9 @@ import { FormPartnerComponent } from './components/partner/form.partner/form.par
     AppComponent,
     LoginComponent,
     SearchPartnerComponent,
-    FormPartnerComponent
+    FormPartnerComponent,
+
+    ImageViewerComponent,
   ],
   imports: [
     //##CORE
@@ -77,6 +82,10 @@ import { FormPartnerComponent } from './components/partner/form.partner/form.par
     MatBadgeModule,
     MatDialogModule,
     //##MATERIAL
+
+    //##IMAGE VIEWER
+    ImageViewerModule,
+    
     AppRoutingModule //ROTAS
   ],
   bootstrap: [
