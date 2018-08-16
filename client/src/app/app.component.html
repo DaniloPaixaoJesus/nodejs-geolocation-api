@@ -10,15 +10,9 @@
 </mat-toolbar>
 <mat-drawer-container class="demo-drawer-container">
     <mat-drawer #start mode="over">
-    <button mat-button (click)="start.close()">Close</button>
-
     <mat-nav-list>
       <a mat-list-item [routerLink]="['partner']" (click)="start.close()">Pessoa</a>
-      <a mat-list-item [routerLink]="['partner/form']" (click)="start.close()">Pessoa Cadastrp</a>
-      <a mat-list-item>Link</a>
-      <a mat-list-item>Initially focused</a>
-      <a mat-list-item>Focus region end</a>
-      <a mat-list-item>Link</a>
+      <a mat-list-item [routerLink]="['partner/form']" (click)="start.close()">Pessoa Cadastro</a>
     </mat-nav-list>
     </mat-drawer>
 

@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageViewerComponent } from './components/imageviewer/imageviewer.component';
 import { ImageViewerModule } from '@hallysonh/ngx-imageviewer';
 
+import { OnlyForDevComponent } from './components/only-for-dev/only-for-dev.component';
+
 // Material UI
 import {
   MatToolbarModule,
@@ -52,16 +54,17 @@ import { FormPartnerComponent } from './components/partner/form.partner/form.par
     FormPartnerComponent,
 
     ImageViewerComponent,
+    OnlyForDevComponent
   ],
   imports: [
-    //##CORE
+    // ##CORE
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     CdkTableModule,
     FormsModule,
     ReactiveFormsModule,
-    //##MATERIAL
+    // ##MATERIAL
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
@@ -81,12 +84,12 @@ import { FormPartnerComponent } from './components/partner/form.partner/form.par
     MatSidenavModule,
     MatBadgeModule,
     MatDialogModule,
-    //##MATERIAL
+    // ##MATERIAL
 
-    //##IMAGE VIEWER
+    // ##IMAGE VIEWER
     ImageViewerModule,
-    
-    AppRoutingModule //ROTAS
+
+    AppRoutingModule // ROTAS
   ],
   bootstrap: [
     AppComponent

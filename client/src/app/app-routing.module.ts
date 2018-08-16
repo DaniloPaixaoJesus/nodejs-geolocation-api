@@ -6,11 +6,13 @@ import {SearchPartnerComponent} from './components/partner/search.partner/search
 import {FormPartnerComponent} from './components/partner/form.partner/form.partner.component';
 import {LoginComponent} from './components/login/login.component';
 
+import { OnlyForDevComponent } from './components/only-for-dev/only-for-dev.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    // component: LoginComponent
+    component: OnlyForDevComponent
   },
   {
     path: 'partner',
