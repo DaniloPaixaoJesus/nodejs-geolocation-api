@@ -37,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/partner/search.partner/search.partner.component */ "./src/app/components/partner/search.partner/search.partner.component.ts");
 /* harmony import */ var _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/partner/form.partner/form.partner.component */ "./src/app/components/partner/form.partner/form.partner.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/only-for-dev/only-for-dev.component */ "./src/app/components/only-for-dev/only-for-dev.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,7 +52,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var appRoutes = [
     {
         path: '',
-        component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
+        // component: LoginComponent
+        component: _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_4__["OnlyForDevComponent"]
     },
     {
         path: 'partner',
@@ -102,7 +103,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span class=\"header-spacer\"></span>\n    <span>\n      <mat-chip-list>\n          <mat-chip color=\"accent\" selected (click)=\"start.toggle()\"><mat-icon>menu</mat-icon></mat-chip>\n      </mat-chip-list>\n    </span>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-drawer-container class=\"demo-drawer-container\">\n    <mat-drawer #start mode=\"over\">\n    <button mat-button (click)=\"start.close()\">Close</button>\n\n    <mat-nav-list>\n      <a mat-list-item [routerLink]=\"['partner']\" (click)=\"start.close()\">Pessoa</a>\n      <a mat-list-item [routerLink]=\"['partner/form']\" (click)=\"start.close()\">Pessoa Cadastrp</a>\n      <a mat-list-item>Link</a>\n      <a mat-list-item>Initially focused</a>\n      <a mat-list-item>Focus region end</a>\n      <a mat-list-item>Link</a>\n    </mat-nav-list>\n    </mat-drawer>\n\n    <div class=\"demo-drawer-content\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n</mat-drawer-container>"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span class=\"header-spacer\"></span>\n    <span>\n      <mat-chip-list>\n          <mat-chip color=\"accent\" selected (click)=\"start.toggle()\"><mat-icon>menu</mat-icon></mat-chip>\n      </mat-chip-list>\n    </span>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-drawer-container class=\"demo-drawer-container\">\n    <mat-drawer #start mode=\"over\">\n    <mat-nav-list>\n      <a mat-list-item [routerLink]=\"['partner']\" (click)=\"start.close()\">Pessoa</a>\n      <a mat-list-item [routerLink]=\"['partner/form']\" (click)=\"start.close()\">Pessoa Cadastro</a>\n    </mat-nav-list>\n    </mat-drawer>\n\n    <div class=\"demo-drawer-content\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n</mat-drawer-container>"
 
 /***/ }),
 
@@ -203,12 +204,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _components_imageviewer_imageviewer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/imageviewer/imageviewer.component */ "./src/app/components/imageviewer/imageviewer.component.ts");
 /* harmony import */ var _hallysonh_ngx_imageviewer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @hallysonh/ngx-imageviewer */ "./node_modules/@hallysonh/ngx-imageviewer/fesm5/hallysonh-ngx-imageviewer.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/partner/search.partner/search.partner.component */ "./src/app/components/partner/search.partner/search.partner.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/partner/form.partner/form.partner.component */ "./src/app/components/partner/form.partner/form.partner.component.ts");
+/* harmony import */ var _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/only-for-dev/only-for-dev.component */ "./src/app/components/only-for-dev/only-for-dev.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/partner/search.partner/search.partner.component */ "./src/app/components/partner/search.partner/search.partner.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/partner/form.partner/form.partner.component */ "./src/app/components/partner/form.partner/form.partner.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -223,6 +225,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // teste zoom image on IE
+
 
 
 // Material UI
@@ -240,47 +243,48 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
-                _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_11__["SearchPartnerComponent"],
-                _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_13__["FormPartnerComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
+                _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_12__["SearchPartnerComponent"],
+                _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_14__["FormPartnerComponent"],
                 _components_imageviewer_imageviewer_component__WEBPACK_IMPORTED_MODULE_6__["ImageViewerComponent"],
+                _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_8__["OnlyForDevComponent"]
             ],
             imports: [
-                //##CORE
+                // ##CORE
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
                 _angular_cdk_table__WEBPACK_IMPORTED_MODULE_4__["CdkTableModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                //##MATERIAL
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatAutocompleteModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSidenavModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatBadgeModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"],
-                //##MATERIAL
-                //##IMAGE VIEWER
+                // ##MATERIAL
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatBadgeModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"],
+                // ##MATERIAL
+                // ##IMAGE VIEWER
                 _hallysonh_ngx_imageviewer__WEBPACK_IMPORTED_MODULE_7__["ImageViewerModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"] //ROTAS
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"] // ROTAS
             ],
             bootstrap: [
-                _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]
             ]
         })
     ], AppModule);
@@ -518,6 +522,92 @@ var LoginComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/only-for-dev/only-for-dev.component.css":
+/*!********************************************************************!*\
+  !*** ./src/app/components/only-for-dev/only-for-dev.component.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tab-solicitation{\n    width: 100%;\n}\n\n.zoom-beta-0{\n    width: 100px;\n    height: 100px;\n}\n\n.zoom-beta-1{\n    width: 100px;\n    height: 100px;\n}\n\n.zoom-beta-2{\n    width: 200px;\n    height: 200px;\n}\n\n.zoom-beta-3{\n    width: 300px;\n    height: 300px;\n}\n\n.zoom-beta-4{\n    width: 400px;\n    height: 400px;\n}\n\n.zoom-beta-5{\n    width: 500px;\n    height: 500px;\n}\n\n.zoom-beta-6{\n    width: 600px;\n    height: 600px;\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/only-for-dev/only-for-dev.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/only-for-dev/only-for-dev.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"form-register\">\n\n\n \n   <div style=\"width: 200px; height: 200px; overflow: scroll;\">\n    <img [src]=\"imgSrc\" id=\"imgTeste\" name=\"imgTeste\" class=\"zoom-beta-0\"  >\n   </div>\n    \n    \n    <div>\n        <button mat-button warn color=\"warn\" (click)=\"zoomLess()\">\n            <mat-icon>zoom_out</mat-icon>\n          </button>\n  \n          <button mat-button primary color=\"primary\" (click)=\"zoomMore()\" >\n            <mat-icon>zoom_in</mat-icon>\n          </button>\n    </div>\n\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/only-for-dev/only-for-dev.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/only-for-dev/only-for-dev.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: OnlyForDevComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnlyForDevComponent", function() { return OnlyForDevComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var OnlyForDevComponent = /** @class */ (function () {
+    function OnlyForDevComponent() {
+        this.zoomIndex = 1;
+        this.imgSrc = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg'; // './assets/img/interfile-site.png';
+    }
+    OnlyForDevComponent.prototype.ngOnInit = function () {
+    };
+    OnlyForDevComponent.prototype.zoomMore = function () {
+        console.log('CHAMOU ZOOM+');
+        var imgTeste = document.getElementsByName('imgTeste')[0];
+        this.zoomIndex++;
+        imgTeste.classList.add("zoom-beta-" + this.zoomIndex);
+    };
+    OnlyForDevComponent.prototype.zoomLess = function () {
+        console.log('CHAMOU ZOOM-');
+        var imgTeste = document.getElementsByName('imgTeste')[0];
+        console.log('imgTeste', imgTeste);
+        imgTeste.classList.remove("zoom-beta-" + this.zoomIndex);
+        this.zoomIndex--;
+    };
+    OnlyForDevComponent.prototype.zoom = function (e) {
+        if (e.deltaY < 0) {
+            this.zoomLess();
+        }
+        else {
+            this.zoomMore();
+        }
+    };
+    OnlyForDevComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-only-for-dev',
+            template: __webpack_require__(/*! ./only-for-dev.component.html */ "./src/app/components/only-for-dev/only-for-dev.component.html"),
+            styles: [__webpack_require__(/*! ./only-for-dev.component.css */ "./src/app/components/only-for-dev/only-for-dev.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], OnlyForDevComponent);
+    return OnlyForDevComponent;
 }());
 
 

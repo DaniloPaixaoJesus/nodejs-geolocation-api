@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class OnlyForDevComponent implements OnInit {
 
   zoomIndex = 1;
-  imgSrc = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg'; // './assets/img/interfile-site.png';
+  imgSrc = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg';
+  // './assets/img/interfile-site.png';
 
   constructor(
   ) { }
