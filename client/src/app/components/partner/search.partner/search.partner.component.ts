@@ -1,53 +1,53 @@
-import { Component, OnInit } from '@angular/core'
-import { PessoaService } from '../../../services/pessoa/pessoa.service'
-import { ActivatedRoute, ParamMap, Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { PessoaService } from '../../../services/pessoa/pessoa.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
-  selector: 'search-partner-component',
+  selector: 'app-search-partner-component',
   templateUrl: './search.partner.component.html',
   styleUrls: ['./search.partner.component.scss']
 })
 export class SearchPartnerComponent implements OnInit {
-  
-  private pessoas = []
 
-  //exibicao de mensagem de erro na tela
-  isError: boolean = false
-  error: string
-  
-  //exibicao de loader na tela
-  exibeProgress: boolean = false
-  value: number = 0
+  private pessoas = [];
+
+  // exibicao de mensagem de erro na tela
+  isError: Boolean = false;
+  error: string;
+
+  // exibicao de loader na tela
+  exibeProgress: Boolean = false;
+  value: Number = 0;
 
   constructor(
     private pessoaService: PessoaService,
     private router: Router
   ) { }
 
-  routeCadastroPessoa(){
-    this.router.navigate(['/partner/form'])
+  routeCadastroPessoa() {
+    this.router.navigate(['/partner/form']);
   }
 
   voltar() {
-    window.history.back()
+    window.history.back();
   }
 
   ngOnInit() {
-    let isMobile = /Android|iPhone/i.test(window.navigator.userAgent)
-    console.log(`Plataforma ${window.navigator.userAgent}`)
-    this.pessoas = 
+    const isMobile = /Android|iPhone/i.test(window.navigator.userAgent);
+    console.log(`Plataforma ${window.navigator.userAgent}`);
+    this.pessoas =
     this.pessoaService.getPessoas()
       .subscribe(res => {
-        console.log('>>>> get pessoas res=', res)
-        this.exibeProgress = false
-        //this.router.navigate(['/pessoa'])
+        console.log('>>>> get pessoas res=', res);
+        this.exibeProgress = false;
+        // this.router.navigate(['/pessoa'])
     },
-    error =>{
-      console.log('erro ao chamar o servico get pessoas ==>', error)
-      this.exibeProgress = false
-      this.isError = true
-      this.error = `Não foi possível consutar pessoas`
-    })
+    error => {
+      console.log('erro ao chamar o servico get pessoas ==>', error);
+      this.exibeProgress = false;
+      this.isError = true;
+      this.error = `Não foi possível consutar pessoas`;
+    });
 
   }
 }

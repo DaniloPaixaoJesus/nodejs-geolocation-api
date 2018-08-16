@@ -688,7 +688,7 @@ var FormPartnerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <mat-card-title>\n        <button mat-icon-button color=\"accent\" (click)=\"routeCadastroPessoa()\">\n            <mat-icon>person_add</mat-icon>\n            Adicionar Pessoa\n        </button>\n    </mat-card-title>\n\n    <mat-card-content>\n      <div *ngIf=\"isError\">\n        <mat-chip-list >\n          <mat-chip style=\"margin-left: 30%\" color=\"warn\" selected=\"true\"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>\n        </mat-chip-list>\n      </div>\n      <form class=\"form\">\n        <mat-form-field color=\"accent\" style=\"width: 80%\">\n          <input matInput type=\"text\" placeholder=\"Pesquisar Pessoas\" style=\"width: 80%\">\n        </mat-form-field>\n        <mat-spinner diameter=\"55\" *ngIf=\"exibeProgress\"></mat-spinner>\n        <button mat-fab color=\"primary\" *ngIf=\"!exibeProgress\" style=\"margin: 5px\">\n          <mat-icon>search</mat-icon>\n        </button>\n      </form>\n    </mat-card-content>\n\n    <mat-card-content>\n      <mat-list-item *ngFor=\"let p of pessoas\">\n        <mat-divider [inset]=\"true\"></mat-divider>\n        <h4 mat-line (click)=\"routeCadastroPessoa()\" >{{p.nome}}</h4>\n        <mat-divider inset *ngIf=\"!last\"></mat-divider>\n      </mat-list-item>\n    </mat-card-content>\n  </mat-card>\n</div>"
+module.exports = "<div>\n  <mat-card>\n    <mat-card-title>\n        <button mat-icon-button color=\"accent\" (click)=\"routeCadastroPessoa()\">\n            <mat-icon>person_add</mat-icon>\n            Adicionar Pessoa\n        </button>\n    </mat-card-title>\n\n    <mat-card-content>\n      <div *ngIf=\"isError\">\n        <mat-chip-list >\n          <mat-chip style=\"margin-left: 30%\" color=\"warn\" selected=\"true\"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>\n        </mat-chip-list>\n      </div>\n      <form class=\"form\">\n        <mat-form-field color=\"accent\" style=\"width: 80%\">\n          <input matInput type=\"text\" placeholder=\"Pesquisar Pessoas\" style=\"width: 80%\">\n        </mat-form-field>\n        <mat-spinner diameter=\"55\" ></mat-spinner>\n        <button mat-fab color=\"primary\" style=\"margin: 5px\">\n          <mat-icon>search</mat-icon>\n        </button>\n      </form>\n    </mat-card-content>\n\n    <mat-card-content>\n      <!-- <mat-list-item *ngFor=\"let p of pessoas\">\n        <mat-divider [inset]=\"true\"></mat-divider>\n        <h4 mat-line (click)=\"routeCadastroPessoa()\" >{{p.nome}}</h4>\n        <mat-divider inset *ngIf=\"!last\"></mat-divider>\n      </mat-list-item> -->\n    </mat-card-content>\n  </mat-card>\n</div>"
 
 /***/ }),
 
@@ -733,9 +733,9 @@ var SearchPartnerComponent = /** @class */ (function () {
         this.pessoaService = pessoaService;
         this.router = router;
         this.pessoas = [];
-        //exibicao de mensagem de erro na tela
+        // exibicao de mensagem de erro na tela
         this.isError = false;
-        //exibicao de loader na tela
+        // exibicao de loader na tela
         this.exibeProgress = false;
         this.value = 0;
     }
@@ -754,7 +754,7 @@ var SearchPartnerComponent = /** @class */ (function () {
                 .subscribe(function (res) {
                 console.log('>>>> get pessoas res=', res);
                 _this.exibeProgress = false;
-                //this.router.navigate(['/pessoa'])
+                // this.router.navigate(['/pessoa'])
             }, function (error) {
                 console.log('erro ao chamar o servico get pessoas ==>', error);
                 _this.exibeProgress = false;
@@ -764,7 +764,7 @@ var SearchPartnerComponent = /** @class */ (function () {
     };
     SearchPartnerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'search-partner-component',
+            selector: 'app-search-partner-component',
             template: __webpack_require__(/*! ./search.partner.component.html */ "./src/app/components/partner/search.partner/search.partner.component.html"),
             styles: [__webpack_require__(/*! ./search.partner.component.scss */ "./src/app/components/partner/search.partner/search.partner.component.scss")]
         }),

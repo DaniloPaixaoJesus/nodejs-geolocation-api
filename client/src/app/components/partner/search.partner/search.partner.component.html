@@ -17,19 +17,19 @@
         <mat-form-field color="accent" style="width: 80%">
           <input matInput type="text" placeholder="Pesquisar Pessoas" style="width: 80%">
         </mat-form-field>
-        <mat-spinner diameter="55" *ngIf="exibeProgress"></mat-spinner>
-        <button mat-fab color="primary" *ngIf="!exibeProgress" style="margin: 5px">
+        <mat-spinner diameter="55" ></mat-spinner>
+        <button mat-fab color="primary" style="margin: 5px">
           <mat-icon>search</mat-icon>
         </button>
       </form>
     </mat-card-content>
 
     <mat-card-content>
-      <mat-list-item *ngFor="let p of pessoas">
+      <!-- <mat-list-item *ngFor="let p of pessoas">
         <mat-divider [inset]="true"></mat-divider>
         <h4 mat-line (click)="routeCadastroPessoa()" >{{p.nome}}</h4>
         <mat-divider inset *ngIf="!last"></mat-divider>
-      </mat-list-item>
+      </mat-list-item> -->
     </mat-card-content>
   </mat-card>
 </div>
