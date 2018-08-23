@@ -1,6 +1,25 @@
 version: '2'
 services:
-
+  tomcat:
+    image: tomcat:7.0
+    ports:
+     - "8080:8080"
+     - "8000:8000"
+    volumes:
+     - ./web:/usr/local/tomcat/webapps/ROOT
+     - ${HOME}/.jrebel:/root/.jrebel
+    # env_file: .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+    command: catalina.sh jpda run
+    environment:
+      JAVA_OPTS: >
+       -Ddatabase.jdbcUrl=jdbc:mysql://mysql/vw-vendascorp-local?useSSL=false
+       -Ddatabase.credential.user=vw-feirao
+       -Ddatabase.credential.password=vw-feirao
+       -Dcluster-master=true
     mongodb:
         image: mongo
         container_name: mongodb
