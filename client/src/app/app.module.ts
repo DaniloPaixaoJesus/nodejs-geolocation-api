@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageViewerComponent } from './components/imageviewer/imageviewer.component';
 import { ImageViewerModule } from '@hallysonh/ngx-imageviewer';
 
-import { OnlyForDevComponent } from './components/only-for-dev/only-for-dev.component';
+import { CustomToolBarComponent } from './components/custom-toolbar/custom.toolbar.component';
 
 // Material UI
 import {
@@ -36,25 +36,30 @@ import {
   MatTreeModule
 } from '@angular/material';
 
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 // Rotas
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent} from './app.component';
-import {SearchPartnerComponent} from './components/partner/search.partner/search.partner.component';
 import {LoginComponent} from './components/login/login.component';
-import { FormPartnerComponent } from './components/partner/form.partner/form.partner.component';
+import {SearchDriverComponent} from './components/driver/search.driver/search.driver.component';
+import { FormDriverComponent } from './components/driver/form.driver/form.driver.component';
 
+import {SearchVehicleComponent} from './components/vehicle/search.vehicle/search.vehicle.component';
+import { FormVehicleComponent } from './components/vehicle/form.vehicle/form.vehicle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SearchPartnerComponent,
-    FormPartnerComponent,
-
+    SearchDriverComponent,
+    FormDriverComponent,
+    SearchVehicleComponent,
+    FormVehicleComponent,
     ImageViewerComponent,
-    OnlyForDevComponent
+    CustomToolBarComponent
   ],
   imports: [
     // ##CORE
@@ -84,6 +89,7 @@ import { FormPartnerComponent } from './components/partner/form.partner/form.par
     MatSidenavModule,
     MatBadgeModule,
     MatDialogModule,
+    FlexLayoutModule,
     // ##MATERIAL
 
     // ##IMAGE VIEWER

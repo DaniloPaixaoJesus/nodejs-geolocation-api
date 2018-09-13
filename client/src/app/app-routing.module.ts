@@ -2,25 +2,40 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {SearchPartnerComponent} from './components/partner/search.partner/search.partner.component';
-import {FormPartnerComponent} from './components/partner/form.partner/form.partner.component';
-import {LoginComponent} from './components/login/login.component';
-
-import { OnlyForDevComponent } from './components/only-for-dev/only-for-dev.component';
+import {SearchDriverComponent} from './components/driver/search.driver/search.driver.component';
+import {FormDriverComponent} from './components/driver/form.driver/form.driver.component';
+import {SearchVehicleComponent} from './components/vehicle/search.vehicle/search.vehicle.component';
+import {FormVehicleComponent} from './components/vehicle/form.vehicle/form.vehicle.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     // component: LoginComponent
-    component: OnlyForDevComponent
+     component: SearchDriverComponent
   },
   {
-    path: 'partner',
-    component: SearchPartnerComponent
+    path: 'driver',
+    component: SearchDriverComponent
   },
   {
-    path: 'partner/form',
-    component: FormPartnerComponent
+    path: 'driver/form',
+    component: FormDriverComponent
+  },
+  {
+    path: 'driver/form/:id',
+    component: FormDriverComponent
+  },
+  {
+    path: 'vehicle',
+    component: SearchVehicleComponent
+  },
+  {
+    path: 'vehicle/form',
+    component: FormVehicleComponent
+  },
+  {
+    path: 'vehicle/form/:id',
+    component: FormVehicleComponent
   }
 ];
 

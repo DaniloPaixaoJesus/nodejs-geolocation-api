@@ -1,0 +1,55 @@
+<div>
+  <mat-card>
+    <mat-card-content >
+        <mat-card-title >
+          <button mat-icon-button color="accent" (click)="voltar()"><mat-icon>keyboard_backspace</mat-icon> </button>
+          &nbsp;Parecer Jurídico
+        </mat-card-title>
+    </mat-card-content>
+
+    <mat-card-content>
+
+      <div fxLayout="row" fxLayout="column" *ngIf="legalAdvice.id && !legalAdvice.idFinishedBy">
+          <button mat-button color="accent"  (click)="redirectProcess()" > 
+              <mat-icon>library_books</mat-icon> {{legalAdvice.processCode}}
+          </button>
+      </div>
+        
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <textarea matInput placeholder="Descrição" id="description" [(ngModel)]="legalAdvice.description" required></textarea>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+        <mat-select style="margin-top: 30px" placeholder="Usuário Responsável" [(ngModel)]="legalAdvice.idResponsableFor">
+          <mat-option *ngFor="let u of users" [value]="u.id">
+            {{u.name}}
+        </mat-option>
+        </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayout="column" *ngIf="legalAdvice.idFinishedBy"> 
+          <div style="color: red"> 
+              <mat-icon>info</mat-icon>Parecer Finalizado!
+          </div>
+    </div>
+      
+      <div fxLayout="row" fxLayout="column" *ngIf="legalAdvice.id && !legalAdvice.idFinishedBy">
+          <button mat-button color="warn"> 
+                  <mat-icon>info</mat-icon> Finalizar Parecer
+              </button>
+      </div>
+
+      <div fxLayout="row" fxLayout="column" *ngIf="legalAdvice.id && !legalAdvice.idFinishedBy">
+          <button mat-button color="accent"  (click)="save()" > 
+              <mat-icon>save</mat-icon> Salvar
+          </button>
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>

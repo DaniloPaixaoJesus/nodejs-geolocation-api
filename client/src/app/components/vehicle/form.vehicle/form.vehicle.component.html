@@ -1,0 +1,34 @@
+<div>
+  <mat-card>
+    <mat-card-content >
+        <mat-card-title >
+          <button mat-icon-button color="accent" (click)="voltar()"><mat-icon>keyboard_backspace</mat-icon> </button>
+          &nbsp;Vehicle
+        </mat-card-title>
+    </mat-card-content>
+
+    <mat-card-content>
+        <div fxLayout="row" fxLayout="column">
+            <mat-form-field>
+              <input matInput placeholder="Number" id="code" [(ngModel)]="vehicle.code" required>
+            </mat-form-field>
+        </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Summary" id="summary" [(ngModel)]="vehicle.summary" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+            <textarea matInput placeholder="Description" id="description" [(ngModel)]="vehicle.description" required></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column" *ngIf="!vehicle.idUserFinishedBy">
+          <button mat-button color="accent" (click)="save()"> 
+              <mat-icon>save</mat-icon> Save
+          </button>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>

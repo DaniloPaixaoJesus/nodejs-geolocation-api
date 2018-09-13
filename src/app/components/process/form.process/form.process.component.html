@@ -1,0 +1,77 @@
+<div>
+  <mat-card>
+    <mat-card-content >
+        <mat-card-title >
+          <button mat-icon-button color="accent" (click)="voltar()"><mat-icon>keyboard_backspace</mat-icon> </button>
+          &nbsp;Processo
+        </mat-card-title>
+    </mat-card-content>
+
+    <mat-card-content>
+        <div fxLayout="row" fxLayout="column">
+            <mat-form-field>
+              <input matInput placeholder="Número" id="code" [(ngModel)]="process.code" required>
+            </mat-form-field>
+        </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Resumo" id="summary" [(ngModel)]="process.summary" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+            <textarea matInput placeholder="Descrição" id="description" [(ngModel)]="process.description" required></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+          <mat-card-content>
+            <div *ngIf="listLegalAdvice.length > 0">Parecer:</div>
+              <mat-list-item *ngFor="let l of listLegalAdvice">
+                <!--
+                <mat-divider [inset]="true"></mat-divider>
+                <h4 mat-line ></h4><mat-icon class="material-icons">person_outline</mat-icon> {{l.loginResponsableFor}}  </h4>
+                <mat-divider inset *ngIf="!last"></mat-divider>
+                -->
+                <mat-divider [inset]="true"></mat-divider>
+                <h4 mat-line> <mat-icon matListIcon>person_outline</mat-icon>{{l.nameResponsableFor}}</h4>
+                <p matLine>
+                  <span> {{l.description | slice:0:55}} ... <mat-icon (click)="redirectLegalAdvice(l.id)">playlist_add_check</mat-icon></span>
+                </p>
+                <mat-divider inset *ngIf="!last"></mat-divider>
+              </mat-list-item>
+          </mat-card-content>
+          <mat-card-content *ngIf="!process.id">
+              <div fxLayout="row" fxLayoutAlign="center">
+                <mat-select style="margin-top: 30px" placeholder="Usuário Responsável pelo Parecer" [(ngModel)]="legalAdvice.idResponsableFor">
+                  <mat-option *ngFor="let u of users" [value]="u.id">
+                    {{u.name}}
+                </mat-option>
+                </mat-select>
+                <button style="margin-top: 30px" mat-button color="accent" fxLayoutAlign="end"  (click)="addLegalAdvice()"> 
+                    <mat-icon>person_add</mat-icon>
+                      Incluir 
+                </button>
+              </div>
+          </mat-card-content>
+      </div>
+      <div fxLayout="row" fxLayout="column" *ngIf="process.idUserFinishedBy"> 
+          <div style="color: red"> 
+              <mat-icon>info</mat-icon>Processo Finalizado!
+          </div>
+    </div>
+      
+      <div style="margin-top: 30px" fxLayout="row" fxLayout="column" *ngIf="process.id && !process.idUserFinishedBy">
+              <button mat-button color="warn"> 
+                  <mat-icon>info</mat-icon> Finalizar Processo
+              </button>
+      </div>
+
+      <div fxLayout="row" fxLayout="column" *ngIf="!process.idUserFinishedBy">
+          <button mat-button color="accent" (click)="save()"> 
+              <mat-icon>save</mat-icon> Salvar
+          </button>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>

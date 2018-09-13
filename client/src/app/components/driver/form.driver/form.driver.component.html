@@ -1,0 +1,46 @@
+<div>
+  <mat-card>
+    <mat-card-content >
+        <mat-card-title >
+          <button mat-icon-button color="accent" (click)="voltar()"><mat-icon>keyboard_backspace</mat-icon> </button>
+          &nbsp;Driver
+        </mat-card-title>
+    </mat-card-content>
+
+    <mat-card-content>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Name" id="name" [(ngModel)]="driver.name" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Login" id="login" [(ngModel)]="driver.login" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout="column">
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="driver.password" required>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayout="column">
+          <mat-form-field>
+              <mat-select placeholder="Status" [(ngModel)]="driver.status">
+                  <mat-option value="ATIVO" >ATIVO</mat-option>
+                  <mat-option value="INATIVO">INATIVO</mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <span class="send">
+          <button mat-fab (click)="save()"> 
+            <mat-icon>send</mat-icon>
+          </button>
+        </span>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
