@@ -22,8 +22,18 @@ export class VehicleService {
 
   getVehiclesMock(){
     let vehicles = [
-      { id: '1', code: 'ASD-3658', summary: 'LSILVA', description: 'dasdasd'}
+      { id: '1', identification: 'ASD-3658', name: 'Mercedes-Benz Sprinter Executiva Van', model: 'Sprinter', brand: 'Mercedes', category: 'VAN', status: 'ATIVO', geoLocation:{lat: '', lon: ''}}
     ]
+    return Observable.create(observer => {
+           observer.next(vehicles)
+           observer.complete()
+    })
+  }
+
+  getOneVehiclesMock(){
+    let vehicles = 
+      { id: '1', identification: 'ASD-3658', name: 'Mercedes-Benz Sprinter Executiva Van', model: 'Sprinter', brand: 'Mercedes', category: 'VAN', status: 'ATIVO', geoLocation:{lat: '', lon: ''}}
+    
     return Observable.create(observer => {
            observer.next(vehicles)
            observer.complete()
@@ -32,19 +42,19 @@ export class VehicleService {
 
   getVehicleById(id){
     console.log('getVehicleById URL=>', URL);
-    return this.getVehiclesMock(); // this.http.get<Vehicle>(`${URL}/${id}`);
+    return this.getOneVehiclesMock(); // this.http.get<Vehicle>(`${URL}/${id}`);
   }
 
   createVehicle(vehicle) {
     console.log('user=>', vehicle);
     console.log('createVehicle URL=>', URL);
-    return this.getVehiclesMock(); // this.http.post(`${URL}`, vehicle);
+    return this.getOneVehiclesMock(); // this.http.post(`${URL}`, vehicle);
   }
 
   updateVehicle(id, vehicle) {
     console.log('user=>', vehicle);
     console.log('updateVehicle URL=>', `${URL}/${id}`);
-    return this.getVehiclesMock(); // this.http.post(`${URL}/${id}`, vehicle);
+    return this.getOneVehiclesMock(); // this.http.post(`${URL}/${id}`, vehicle);
   }
   
 }

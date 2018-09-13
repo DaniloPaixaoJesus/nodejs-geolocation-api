@@ -6,12 +6,18 @@ import {SearchDriverComponent} from './components/driver/search.driver/search.dr
 import {FormDriverComponent} from './components/driver/form.driver/form.driver.component';
 import {SearchVehicleComponent} from './components/vehicle/search.vehicle/search.vehicle.component';
 import {FormVehicleComponent} from './components/vehicle/form.vehicle/form.vehicle.component';
+import {SearchMapComponent} from './components/map/search.map/search.map.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     // component: LoginComponent
-     component: SearchDriverComponent
+     component: SearchMapComponent
+  },
+  {
+    path: 'map',
+    // component: LoginComponent
+     component: SearchMapComponent
   },
   {
     path: 'driver',

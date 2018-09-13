@@ -18,7 +18,7 @@
     <mat-card-content>
       <mat-list-item *ngFor="let d of drivers">
         <mat-divider [inset]="true"></mat-divider>
-        <h4 mat-line (click)="routeFormDriver(d.id)" ><mat-icon>account_circle</mat-icon> {{d.login}} | {{d.name}}</h4>
+        <h4 mat-line (click)="routeFormDriver(d.id)" ><mat-icon>account_circle</mat-icon> {{d.name}} | {{d.email}}</h4>
         <mat-divider inset *ngIf="!last"></mat-divider>
       </mat-list-item>
     </mat-card-content>

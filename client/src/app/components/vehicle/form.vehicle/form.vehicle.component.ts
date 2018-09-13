@@ -31,23 +31,14 @@ export class FormVehicleComponent implements OnInit {
       if(params.get('id')){
         this.vehicleId = Number(params.get('id'))
         this.vehicleService.getVehicleById(this.vehicleId).subscribe(
-          p =>{
-            console.log('getvehicleById==>', p)
-            this.vehicle = p;
+          v =>{
+            console.log('getvehicleById==>', v)
+            this.vehicle = v;
           }
         )
       }else{
         this.vehicle = new Vehicle();
       }
-    });
-
-    this.driverService.getAllDrivers()
-      .subscribe(res => {
-        console.log('>>>> get drivers res=', res);
-        this.drivers = res; 
-    },
-    error => {
-      console.log('error service get drivers ==>', error);
     });
   }
 

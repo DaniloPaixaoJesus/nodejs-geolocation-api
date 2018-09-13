@@ -22,24 +22,34 @@ export class DriverService {
 
   getDriverById(id){
     console.log('getAllDrivers URL=>', URL);
-    return this.getDriversMock(); //this.http.get<Driver>(`${URL}/${id}`);
+    return this.getOneDriversMock(); //this.http.get<Driver>(`${URL}/${id}`);
   }
 
   createDriver(driver) {
     console.log('Driver=>', driver);
     console.log('createDriver URL=>', URL);
-    return this.getDriversMock(); //this.http.post(`${URL}`, driver);
+    return this.getOneDriversMock(); //this.http.post(`${URL}`, driver);
   }
 
   updateDriver(id, driver) {
     console.log('Driver=>', driver);
     console.log('updateDriver URL=>', `${URL}/${id}`);
-    return this.getDriversMock(); //this.http.post(`${URL}/${id}`, driver);
+    return this.getOneDriversMock(); //this.http.post(`${URL}/${id}`, driver);
+  }
+
+  getOneDriversMock(){
+    let drivers =
+      { id: '1', name: 'Danilo de Jesus', email: 'danilo@gmail.com', cellPhoneNumber: '+5511961692905', status: 'ATIVO'}
+
+    return Observable.create(observer => {
+           observer.next(drivers)
+           observer.complete()
+    })
   }
 
   getDriversMock(){
     let drivers = [
-      { id: '1', name: 'Luana', login: 'LSILVA', password: 'dasdasd', profile: 'ADMINISTRADOR', status: 'ATIVO'}
+      { id: '1', name: 'Danilo de Jesus', email: 'danilo@gmail.com', cellPhoneNumber: '+5511961692905'}
     ]
     return Observable.create(observer => {
            observer.next(drivers)

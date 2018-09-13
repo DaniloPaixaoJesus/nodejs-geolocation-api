@@ -50,6 +50,10 @@ import { FormDriverComponent } from './components/driver/form.driver/form.driver
 import {SearchVehicleComponent} from './components/vehicle/search.vehicle/search.vehicle.component';
 import { FormVehicleComponent } from './components/vehicle/form.vehicle/form.vehicle.component';
 
+import {SearchMapComponent} from './components/map/search.map/search.map.component';
+
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +62,7 @@ import { FormVehicleComponent } from './components/vehicle/form.vehicle/form.veh
     FormDriverComponent,
     SearchVehicleComponent,
     FormVehicleComponent,
+    SearchMapComponent,
     ImageViewerComponent,
     CustomToolBarComponent
   ],
@@ -94,6 +99,11 @@ import { FormVehicleComponent } from './components/vehicle/form.vehicle/form.veh
 
     // ##IMAGE VIEWER
     ImageViewerModule,
+
+    // ## MAP COMPONENT
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDxITfICi9qrSzx1d4TQH_fK_nq0oZraRA'
+    }),
 
     AppRoutingModule // ROTAS
   ],

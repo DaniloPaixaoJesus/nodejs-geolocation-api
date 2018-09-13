@@ -1,7 +1,14 @@
 export class Driver {
-    id: number
+    id: string
     name: string
-    login: string
-    password: string
-    status: string
+    socialSecurity: string
+    driveLicence: string
+    address: string
+    country: string
+    state: string
+    city: string
+    smsVerify: string
+    emailVerify: string
+    cellPhoneNumber: string
+    email: string
 }

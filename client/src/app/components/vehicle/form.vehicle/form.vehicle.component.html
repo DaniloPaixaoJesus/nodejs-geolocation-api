@@ -10,23 +10,30 @@
     <mat-card-content>
         <div fxLayout="row" fxLayout="column">
             <mat-form-field>
-              <input matInput placeholder="Number" id="code" [(ngModel)]="vehicle.code" required>
+              <input matInput placeholder="Brand" id="brand" [(ngModel)]="vehicle.brand" required>
             </mat-form-field>
         </div>
       <div fxLayout="row" fxLayout="column">
         <mat-form-field>
-          <input matInput placeholder="Summary" id="summary" [(ngModel)]="vehicle.summary" required>
+          <input matInput placeholder="Name" id="name" [(ngModel)]="vehicle.name" required>
         </mat-form-field>
       </div>
       <div fxLayout="row" fxLayout="column">
         <mat-form-field>
-            <textarea matInput placeholder="Description" id="description" [(ngModel)]="vehicle.description" required></textarea>
+            <textarea matInput placeholder="Model" id="model" [(ngModel)]="vehicle.model" required></textarea>
         </mat-form-field>
       </div>
-      <div fxLayout="row" fxLayout="column" *ngIf="!vehicle.idUserFinishedBy">
+      <!-- <div fxLayout="row" fxLayout="column" *ngIf="!vehicle.idUserFinishedBy">
           <button mat-button color="accent" (click)="save()"> 
               <mat-icon>save</mat-icon> Save
           </button>
+      </div> -->
+      <div fxLayout="row" fxLayoutAlign="end">
+        <span class="send">
+          <button mat-fab (click)="save()"> 
+            <mat-icon>send</mat-icon>
+          </button>
+        </span>
       </div>
     </mat-card-content>
 
