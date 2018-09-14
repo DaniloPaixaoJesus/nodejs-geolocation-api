@@ -35,9 +35,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/partner/search.partner/search.partner.component */ "./src/app/components/partner/search.partner/search.partner.component.ts");
-/* harmony import */ var _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/partner/form.partner/form.partner.component */ "./src/app/components/partner/form.partner/form.partner.component.ts");
-/* harmony import */ var _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/only-for-dev/only-for-dev.component */ "./src/app/components/only-for-dev/only-for-dev.component.ts");
+/* harmony import */ var _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/driver/search.driver/search.driver.component */ "./src/app/components/driver/search.driver/search.driver.component.ts");
+/* harmony import */ var _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/driver/form.driver/form.driver.component */ "./src/app/components/driver/form.driver/form.driver.component.ts");
+/* harmony import */ var _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/vehicle/search.vehicle/search.vehicle.component */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts");
+/* harmony import */ var _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/vehicle/form.vehicle/form.vehicle.component */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts");
+/* harmony import */ var _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/map/search.map/search.map.component */ "./src/app/components/map/search.map/search.map.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,19 +51,42 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
     {
         path: '',
         // component: LoginComponent
-        component: _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_4__["OnlyForDevComponent"]
+        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__["SearchMapComponent"]
     },
     {
-        path: 'partner',
-        component: _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_2__["SearchPartnerComponent"]
+        path: 'map',
+        // component: LoginComponent
+        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__["SearchMapComponent"]
     },
     {
-        path: 'partner/form',
-        component: _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_3__["FormPartnerComponent"]
+        path: 'driver',
+        component: _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_2__["SearchDriverComponent"]
+    },
+    {
+        path: 'driver/form',
+        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__["FormDriverComponent"]
+    },
+    {
+        path: 'driver/form/:id',
+        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__["FormDriverComponent"]
+    },
+    {
+        path: 'vehicle',
+        component: _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_4__["SearchVehicleComponent"]
+    },
+    {
+        path: 'vehicle/form',
+        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__["FormVehicleComponent"]
+    },
+    {
+        path: 'vehicle/form/:id',
+        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__["FormVehicleComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -85,17 +110,6 @@ var AppRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/app.component.css":
-/*!***********************************!*\
-  !*** ./src/app/app.component.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/app.component.html":
 /*!************************************!*\
   !*** ./src/app/app.component.html ***!
@@ -103,7 +117,18 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span class=\"header-spacer\"></span>\n    <span>\n      <mat-chip-list>\n          <mat-chip color=\"accent\" selected (click)=\"start.toggle()\"><mat-icon>menu</mat-icon></mat-chip>\n      </mat-chip-list>\n    </span>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-drawer-container class=\"demo-drawer-container\">\n    <mat-drawer #start mode=\"over\">\n    <mat-nav-list>\n      <a mat-list-item [routerLink]=\"['partner']\" (click)=\"start.close()\">Pessoa</a>\n      <a mat-list-item [routerLink]=\"['partner/form']\" (click)=\"start.close()\">Pessoa Cadastro</a>\n    </mat-nav-list>\n    </mat-drawer>\n\n    <div class=\"content-center\" ngClass.lg=\"content-lg\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n</mat-drawer-container>"
+module.exports = "<mat-sidenav-container>\n  <mat-sidenav  #sidenav role=\"navigation\">\n   <mat-nav-list>\n    <a mat-list-item\n      routerLink=\"/map\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">map</mat-icon>  \n      &nbsp;<span class=\"label\">Map</span>\n    </a>\n    <a mat-list-item\n        routerLink=\"/driver\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>  \n      &nbsp;<span class=\"label\">Driver</span>\n    </a>\n    <a mat-list-item\n      routerLink=\"/vehicle\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">directions_bus</mat-icon>  \n      &nbsp;<span class=\"label\">Vehicle</span>\n    </a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n     <div fxHide.gt-xs>\n       <button mat-icon-button (click)=\"sidenav.toggle()\">\n        <mat-icon>menu</mat-icon>\n      </button>\n    </div>\n     <div>\n       <a routerLink=\"/\">\n          Where is my VAN ?\n       </a>\n     </div>\n     <div fxFlex fxLayout fxLayoutAlign=\"flex-end\"  fxHide.xs>\n        <ul fxLayout fxLayoutGap=\"20px\" class=\"navigation-items\">\n            <li>\n                <a\n                  routerLink=\"/map\">\n                    <mat-icon class=\"icon\">map</mat-icon>\n                    &nbsp;<span class=\"label\">Map</span>\n                </a>\n            </li>\n            <li>\n              <a\n                routerLink=\"/driver\">\n                  <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>\n                  &nbsp;<span class=\"label\">Driver</span>\n              </a>\n            </li>\n            <li>\n                <a\n                  routerLink=\"/vehicle\">\n                    <mat-icon class=\"icon\">directions_bus</mat-icon>\n                    &nbsp;<span class=\"label\">Vehicle</span>\n                </a>\n            </li>\n        </ul>\n     </div>\n    </mat-toolbar>\n    <main>\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </main>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+
+/***/ }),
+
+/***/ "./src/app/app.component.scss":
+/*!************************************!*\
+  !*** ./src/app/app.component.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "mat-sidenav-container, mat-sidenav-content, mat-sidenav {\n  height: 100%; }\n\nmat-sidenav {\n  width: 250px; }\n\na {\n  text-decoration: none;\n  color: black; }\n\na:hover,\na:active {\n  color: lightgray; }\n\n.navigation-items {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  cursor: pointer; }\n\n.icon {\n  display: inline-block;\n  height: 30px;\n  margin: 0 auto;\n  padding-right: 5px;\n  text-align: center;\n  vertical-align: middle;\n  width: 15%; }\n\n.label {\n  display: inline-block;\n  line-height: 30px;\n  margin: 0;\n  width: 85%; }\n"
 
 /***/ }),
 
@@ -174,7 +199,7 @@ var AppComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")],
+            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")],
             animations: [routerTransition],
         }),
         __metadata("design:paramtypes", [])
@@ -204,13 +229,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _components_imageviewer_imageviewer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/imageviewer/imageviewer.component */ "./src/app/components/imageviewer/imageviewer.component.ts");
 /* harmony import */ var _hallysonh_ngx_imageviewer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @hallysonh/ngx-imageviewer */ "./node_modules/@hallysonh/ngx-imageviewer/fesm5/hallysonh-ngx-imageviewer.js");
-/* harmony import */ var _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/only-for-dev/only-for-dev.component */ "./src/app/components/only-for-dev/only-for-dev.component.ts");
+/* harmony import */ var _components_custom_toolbar_custom_toolbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/custom-toolbar/custom.toolbar.component */ "./src/app/components/custom-toolbar/custom.toolbar.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/partner/search.partner/search.partner.component */ "./src/app/components/partner/search.partner/search.partner.component.ts");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/partner/form.partner/form.partner.component */ "./src/app/components/partner/form.partner/form.partner.component.ts");
+/* harmony import */ var _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/driver/search.driver/search.driver.component */ "./src/app/components/driver/search.driver/search.driver.component.ts");
+/* harmony import */ var _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/driver/form.driver/form.driver.component */ "./src/app/components/driver/form.driver/form.driver.component.ts");
+/* harmony import */ var _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/vehicle/search.vehicle/search.vehicle.component */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts");
+/* harmony import */ var _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/vehicle/form.vehicle/form.vehicle.component */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts");
+/* harmony import */ var _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/map/search.map/search.map.component */ "./src/app/components/map/search.map/search.map.component.ts");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -230,9 +260,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 // Material UI
 
+
 // Rotas
 
 // Components
+
+
+
+
 
 
 
@@ -243,12 +278,15 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
                 _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-                _components_partner_search_partner_search_partner_component__WEBPACK_IMPORTED_MODULE_12__["SearchPartnerComponent"],
-                _components_partner_form_partner_form_partner_component__WEBPACK_IMPORTED_MODULE_14__["FormPartnerComponent"],
+                _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_14__["SearchDriverComponent"],
+                _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_15__["FormDriverComponent"],
+                _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_16__["SearchVehicleComponent"],
+                _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_17__["FormVehicleComponent"],
+                _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_18__["SearchMapComponent"],
                 _components_imageviewer_imageviewer_component__WEBPACK_IMPORTED_MODULE_6__["ImageViewerComponent"],
-                _components_only_for_dev_only_for_dev_component__WEBPACK_IMPORTED_MODULE_8__["OnlyForDevComponent"]
+                _components_custom_toolbar_custom_toolbar_component__WEBPACK_IMPORTED_MODULE_8__["CustomToolBarComponent"]
             ],
             imports: [
                 // ##CORE
@@ -278,17 +316,300 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatSidenavModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatBadgeModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_10__["FlexLayoutModule"],
                 // ##MATERIAL
                 // ##IMAGE VIEWER
                 _hallysonh_ngx_imageviewer__WEBPACK_IMPORTED_MODULE_7__["ImageViewerModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"] // ROTAS
+                // ## MAP COMPONENT
+                _agm_core__WEBPACK_IMPORTED_MODULE_19__["AgmCoreModule"].forRoot({
+                    apiKey: 'AIzaSyDxITfICi9qrSzx1d4TQH_fK_nq0oZraRA'
+                }),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"] // ROTAS
             ],
             bootstrap: [
-                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]
             ]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/custom-toolbar/custom.toolbar.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/custom-toolbar/custom.toolbar.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "mat-sidenav-container, mat-sidenav-content, mat-sidenav {\n    height: 100%;\n  }\n  \n  mat-sidenav {\n    width: 250px;\n  }\n  \n  a {\n    text-decoration: none;\n    color: white;\n  }\n  \n  a:hover,\n  a:active {\n    color: lightgray;\n  }\n  \n  .navigation-items {\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    cursor: pointer;\n  }\n  \n  .icon {\n    display: inline-block;\n    height: 30px;\n    margin: 0 auto;\n    padding-right: 5px;\n    text-align: center;\n    vertical-align: middle;\n    width: 15%;\n  }\n  \n  .label {\n    display: inline-block;\n    line-height: 30px;\n    margin: 0;\n    width: 85%;\n  }"
+
+/***/ }),
+
+/***/ "./src/app/components/custom-toolbar/custom.toolbar.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/custom-toolbar/custom.toolbar.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-sidenav-container>\n  <mat-sidenav  #sidenav role=\"navigation\">\n   <mat-nav-list>\n    <a mat-list-item>\n      <mat-icon class=\"icon\">dashboard</mat-icon>&nbsp;\n      <span class=\"label\">Processo</span>\n    </a>\n    <a  mat-list-item type=\"button\" (click)=\"routeFormUser()\">\n      <mat-icon class=\"icon\">person</mat-icon>&nbsp;\n      <span class=\"label\">Usuário</span>\n    </a>  \n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n     <div fxHide.gt-xs>\n       <button mat-icon-button>\n        <mat-icon>menu</mat-icon>\n      </button>\n    </div>\n     <div>\n       <a>\n          Sistema de Processo\n       </a>\n     </div>\n     <div fxFlex fxLayout fxLayoutAlign=\"flex-end\"  fxHide.xs>\n        <ul fxLayout fxLayoutGap=\"20px\" class=\"navigation-items\">\n            <li>\n              <a (click)=\"routeFormUser()\">\n                  <mat-icon class=\"icon\">person</mat-icon>&nbsp;\n                  <span class=\"label\">Usuário</span>\n              </a>\n            </li>\n            <li>\n                <a>\n                    <mat-icon class=\"icon\">dashboard</mat-icon>&nbsp;\n                    <span class=\"label\">Processo</span>\n                </a>\n              </li>\n        </ul>\n     </div>\n    </mat-toolbar>\n    <main>\n    </main>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+
+/***/ }),
+
+/***/ "./src/app/components/custom-toolbar/custom.toolbar.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/custom-toolbar/custom.toolbar.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: CustomToolBarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomToolBarComponent", function() { return CustomToolBarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomToolBarComponent = /** @class */ (function () {
+    function CustomToolBarComponent(router) {
+        this.router = router;
+    }
+    CustomToolBarComponent.prototype.routeFormUser = function () {
+        this.router.navigate(["/user"]);
+    };
+    CustomToolBarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-custom-tool-bar',
+            template: __webpack_require__(/*! ./custom.toolbar.component.html */ "./src/app/components/custom-toolbar/custom.toolbar.component.html"),
+            styles: [__webpack_require__(/*! ./custom.toolbar.component.css */ "./src/app/components/custom-toolbar/custom.toolbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], CustomToolBarComponent);
+    return CustomToolBarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/driver/form.driver/form.driver.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/driver/form.driver/form.driver.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n  <mat-card>\n    <mat-card-content >\n        <mat-card-title >\n          <button mat-icon-button color=\"accent\" (click)=\"voltar()\"><mat-icon>keyboard_backspace</mat-icon> </button>\n          &nbsp;Driver\n        </mat-card-title>\n    </mat-card-content>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Name\" id=\"name\" [(ngModel)]=\"driver.name\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"email\" id=\"email\" [(ngModel)]=\"driver.email\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput type=\"text\" placeholder=\"CellPhone Number\" id=\"cellPhoneNumber\" [(ngModel)]=\"driver.cellPhoneNumber\" required>\n        </mat-form-field>\n      </div>\n\n      <div fxLayout=\"row\" fxLayout=\"column\">\n          <mat-form-field>\n              <mat-select placeholder=\"Status\" [(ngModel)]=\"driver.status\">\n                  <mat-option value=\"ATIVO\" >ATIVO</mat-option>\n                  <mat-option value=\"INATIVO\">INATIVO</mat-option>\n              </mat-select>\n          </mat-form-field>\n      </div>\n\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab (click)=\"save()\"> \n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/driver/form.driver/form.driver.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/driver/form.driver/form.driver.component.scss ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/driver/form.driver/form.driver.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/components/driver/form.driver/form.driver.component.ts ***!
+  \************************************************************************/
+/*! exports provided: FormDriverComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDriverComponent", function() { return FormDriverComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_driver_driver_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/driver/driver.service */ "./src/app/services/driver/driver.service.ts");
+/* harmony import */ var _services_driver_driver_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/driver/driver.model */ "./src/app/services/driver/driver.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormDriverComponent = /** @class */ (function () {
+    function FormDriverComponent(route, router, driverService) {
+        this.route = route;
+        this.router = router;
+        this.driverService = driverService;
+        this.driver = new _services_driver_driver_model__WEBPACK_IMPORTED_MODULE_3__["Driver"]();
+    }
+    FormDriverComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.subscribe(function (params) {
+            if (params.get('id')) {
+                _this.driverId = Number(params.get('id'));
+                _this.driverService.getDriverById(_this.driverId).subscribe(function (d) {
+                    _this.driver = d;
+                });
+            }
+            else {
+                _this.driver = new _services_driver_driver_model__WEBPACK_IMPORTED_MODULE_3__["Driver"]();
+            }
+        });
+    };
+    FormDriverComponent.prototype.save = function () {
+        if (this.driver.id) {
+            this.upDateDriver();
+        }
+        else {
+            this.createDriver();
+        }
+    };
+    FormDriverComponent.prototype.createDriver = function () {
+        var _this = this;
+        this.driverService.createDriver(this.driver).subscribe(function (u) {
+            _this.router.navigate(['/driver']);
+        }, function (err) {
+            console.error(err);
+        });
+    };
+    FormDriverComponent.prototype.upDateDriver = function () {
+        var _this = this;
+        this.driverService.updateDriver(this.driverId, this.driver).subscribe(function (d) {
+            _this.router.navigate(['/driver']);
+        }, function (err) {
+            console.error(err);
+        });
+    };
+    FormDriverComponent.prototype.voltar = function () {
+        window.history.back();
+    };
+    FormDriverComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-driver',
+            template: __webpack_require__(/*! ./form.driver.component.html */ "./src/app/components/driver/form.driver/form.driver.component.html"),
+            styles: [__webpack_require__(/*! ./form.driver.component.scss */ "./src/app/components/driver/form.driver/form.driver.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_driver_driver_service__WEBPACK_IMPORTED_MODULE_2__["DriverService"]])
+    ], FormDriverComponent);
+    return FormDriverComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/driver/search.driver/search.driver.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/driver/search.driver/search.driver.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n  <mat-card>\n    <mat-card-title>\n        <button mat-icon-button color=\"accent\" (click)=\"routeFormNewDriver()\">\n            <mat-icon>perm_contact_calendar</mat-icon>\n            Add New\n        </button>\n    </mat-card-title>\n\n    <mat-card-content>\n      <div *ngIf=\"isError\">\n        <mat-chip-list >\n          <mat-chip style=\"margin-left: 30%\" color=\"warn\" selected=\"true\"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>\n        </mat-chip-list>\n      </div>\n    </mat-card-content>\n\n    <mat-card-content>\n      <mat-list-item *ngFor=\"let d of drivers\">\n        <mat-divider [inset]=\"true\"></mat-divider>\n        <h4 mat-line (click)=\"routeFormDriver(d.id)\" ><mat-icon>account_circle</mat-icon> {{d.name}} | {{d.email}}</h4>\n        <mat-divider inset *ngIf=\"!last\"></mat-divider>\n      </mat-list-item>\n    </mat-card-content>\n  </mat-card>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/driver/search.driver/search.driver.component.scss":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/driver/search.driver/search.driver.component.scss ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".demo-list {\n  display: flex;\n  flex-flow: row wrap; }\n  .demo-list .mat-list, .demo-list .mat-nav-list, .demo-list .mat-selection-list {\n    border: 1px solid rgba(0, 0, 0, 0.12);\n    width: 350px;\n    margin: 20px 20px 0 0; }\n  .demo-list h2 {\n    margin-top: 20px; }\n  .demo-list .mat-icon {\n    color: rgba(0, 0, 0, 0.12); }\n  .demo-list .mat-list-icon {\n    color: white;\n    background: rgba(0, 0, 0, 0.3); }\n  .demo-secondary-text {\n  color: rgba(0, 0, 0, 0.54); }\n"
+
+/***/ }),
+
+/***/ "./src/app/components/driver/search.driver/search.driver.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/components/driver/search.driver/search.driver.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: SearchDriverComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchDriverComponent", function() { return SearchDriverComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_driver_driver_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/driver/driver.service */ "./src/app/services/driver/driver.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SearchDriverComponent = /** @class */ (function () {
+    function SearchDriverComponent(driverService, router) {
+        this.driverService = driverService;
+        this.router = router;
+        // exibicao de mensagem de erro na tela
+        this.isError = false;
+        // exibicao de loader na tela
+        this.exibeProgress = false;
+        this.value = 0;
+    }
+    SearchDriverComponent.prototype.routeFormDriver = function (id) {
+        this.router.navigate(["/driver/form/" + id]);
+    };
+    SearchDriverComponent.prototype.routeFormNewDriver = function () {
+        this.router.navigate(["/driver/form"]);
+    };
+    SearchDriverComponent.prototype.back = function () {
+        window.history.back();
+    };
+    SearchDriverComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.driverService.getDriversMock() //getAllDrivers()
+            .subscribe(function (res) {
+            console.log('>>>> get Drivers res=', res);
+            _this.drivers = res;
+            _this.exibeProgress = false;
+            // this.router.navigate(['/Drivers'])
+        }, function (error) {
+            console.log('error service get Drivers ==>', error);
+            _this.exibeProgress = false;
+            _this.isError = true;
+            _this.error = "Have no Drivers";
+        });
+    };
+    SearchDriverComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-search-driver-component',
+            template: __webpack_require__(/*! ./search.driver.component.html */ "./src/app/components/driver/search.driver/search.driver.component.html"),
+            styles: [__webpack_require__(/*! ./search.driver.component.scss */ "./src/app/components/driver/search.driver/search.driver.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_driver_driver_service__WEBPACK_IMPORTED_MODULE_2__["DriverService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], SearchDriverComponent);
+    return SearchDriverComponent;
 }());
 
 
@@ -428,7 +749,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div>\n  <mat-card>\n    <mat-card-title><mat-card-title><mat-icon>lock</mat-icon> Login  </mat-card-title></mat-card-title>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Usuário\" id=\"user\" [(ngModel)]=\"user\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Senha\" type=\"password\" id=\"password\" [(ngModel)]=\"password\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\" *ngIf=\"loginError\">\n        <mat-chip-list>\n          <mat-chip selected=\"true\" color=\"warn\">\n            <mat-icon>warning</mat-icon>\n            {{ loginError }}\n          </mat-chip>\n        </mat-chip-list>\n      </div>\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab type=\"submit\" id=\"login\" (click)=\"login(user, password)\">\n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n\n"
+module.exports = "  <div>\n  <mat-card>\n    <mat-card-title><mat-card-title><mat-icon>lock</mat-icon> Login  </mat-card-title></mat-card-title>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"User\" id=\"user\" [(ngModel)]=\"user\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Password\" type=\"password\" id=\"password\" [(ngModel)]=\"password\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\" *ngIf=\"loginError\">\n        <mat-chip-list>\n          <mat-chip selected=\"true\" color=\"warn\">\n            <mat-icon>warning</mat-icon>\n            {{ loginError }}\n          </mat-chip>\n        </mat-chip-list>\n      </div>\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab type=\"submit\" id=\"login\" >\n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n\n"
 
 /***/ }),
 
@@ -466,11 +787,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(router) {
         this.router = router;
-        this.imgUrl = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg';
     }
     LoginComponent.prototype.login = function () {
         console.log('efetuando login');
-        this.router.navigate(['/partner']);
+        this.router.navigate(['/user']);
     };
     LoginComponent.prototype.reduceParaAgrupar = function () {
         var guias = [
@@ -528,38 +848,38 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/only-for-dev/only-for-dev.component.css":
-/*!********************************************************************!*\
-  !*** ./src/app/components/only-for-dev/only-for-dev.component.css ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".tab-solicitation{\n    width: 100%;\n}\n\n.zoom-beta-0{\n    width: 100px;\n    height: 100px;\n}\n\n.zoom-beta-1{\n    width: 100px;\n    height: 100px;\n}\n\n.zoom-beta-2{\n    width: 200px;\n    height: 200px;\n}\n\n.zoom-beta-3{\n    width: 300px;\n    height: 300px;\n}\n\n.zoom-beta-4{\n    width: 400px;\n    height: 400px;\n}\n\n.zoom-beta-5{\n    width: 500px;\n    height: 500px;\n}\n\n.zoom-beta-6{\n    width: 600px;\n    height: 600px;\n}"
-
-/***/ }),
-
-/***/ "./src/app/components/only-for-dev/only-for-dev.component.html":
+/***/ "./src/app/components/map/search.map/search.map.component.html":
 /*!*********************************************************************!*\
-  !*** ./src/app/components/only-for-dev/only-for-dev.component.html ***!
+  !*** ./src/app/components/map/search.map/search.map.component.html ***!
   \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-register\">\n\n        <!-- <app-imageviewer [urlSrc]=\"imgUrl\"></app-imageviewer> -->\n \n   <div style=\"width: 350px; height: 350px; overflow: scroll;\">\n    <img [src]=\"imgSrc\" id=\"imgTeste\" name=\"imgTeste\" class=\"zoom-beta-0\"  >\n   </div>\n    \n    \n    <div>\n        <button mat-button warn color=\"warn\" (click)=\"zoomLess()\">\n            <mat-icon>zoom_out</mat-icon>\n          </button>\n  \n          <button mat-button primary color=\"primary\" (click)=\"zoomMore()\" >\n            <mat-icon>zoom_in</mat-icon>\n          </button>\n    </div>\n\n\n\n</div>"
+module.exports = "<div>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n<agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n</agm-map>\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components/only-for-dev/only-for-dev.component.ts":
+/***/ "./src/app/components/map/search.map/search.map.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/map/search.map/search.map.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "agm-map {\n  height: 680px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/components/map/search.map/search.map.component.ts":
 /*!*******************************************************************!*\
-  !*** ./src/app/components/only-for-dev/only-for-dev.component.ts ***!
+  !*** ./src/app/components/map/search.map/search.map.component.ts ***!
   \*******************************************************************/
-/*! exports provided: OnlyForDevComponent */
+/*! exports provided: SearchMapComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnlyForDevComponent", function() { return OnlyForDevComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchMapComponent", function() { return SearchMapComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -571,64 +891,43 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var OnlyForDevComponent = /** @class */ (function () {
-    // './assets/img/interfile-site.png';
-    function OnlyForDevComponent() {
-        this.zoomIndex = 1;
-        this.imgSrc = 'https://1.bp.blogspot.com/-3-AeZEPxb74/VD_YJB2D0ZI/AAAAAAAAABU/JWQpPf9BPw8/s1600/IMG_41862524318112.jpeg';
+var SearchMapComponent = /** @class */ (function () {
+    function SearchMapComponent() {
+        this.title = 'My first AGM project';
+        this.lat = 51.678418;
+        this.lng = 7.809007;
     }
-    OnlyForDevComponent.prototype.ngOnInit = function () {
+    SearchMapComponent.prototype.ngOnInit = function () {
     };
-    OnlyForDevComponent.prototype.zoomMore = function () {
-        console.log('CHAMOU ZOOM+');
-        var imgTeste = document.getElementsByName('imgTeste')[0];
-        this.zoomIndex++;
-        imgTeste.classList.add("zoom-beta-" + this.zoomIndex);
-    };
-    OnlyForDevComponent.prototype.zoomLess = function () {
-        console.log('CHAMOU ZOOM-');
-        var imgTeste = document.getElementsByName('imgTeste')[0];
-        console.log('imgTeste', imgTeste);
-        imgTeste.classList.remove("zoom-beta-" + this.zoomIndex);
-        this.zoomIndex--;
-    };
-    OnlyForDevComponent.prototype.zoom = function (e) {
-        if (e.deltaY < 0) {
-            this.zoomLess();
-        }
-        else {
-            this.zoomMore();
-        }
-    };
-    OnlyForDevComponent = __decorate([
+    SearchMapComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-only-for-dev',
-            template: __webpack_require__(/*! ./only-for-dev.component.html */ "./src/app/components/only-for-dev/only-for-dev.component.html"),
-            styles: [__webpack_require__(/*! ./only-for-dev.component.css */ "./src/app/components/only-for-dev/only-for-dev.component.css")]
+            selector: 'app-search-map-component',
+            template: __webpack_require__(/*! ./search.map.component.html */ "./src/app/components/map/search.map/search.map.component.html"),
+            styles: [__webpack_require__(/*! ./search.map.component.scss */ "./src/app/components/map/search.map/search.map.component.scss")]
         }),
         __metadata("design:paramtypes", [])
-    ], OnlyForDevComponent);
-    return OnlyForDevComponent;
+    ], SearchMapComponent);
+    return SearchMapComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/components/partner/form.partner/form.partner.component.html":
+/***/ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.html":
 /*!*****************************************************************************!*\
-  !*** ./src/app/components/partner/form.partner/form.partner.component.html ***!
+  !*** ./src/app/components/vehicle/form.vehicle/form.vehicle.component.html ***!
   \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <mat-card-content >\n        <mat-card-title >\n          Partner\n        </mat-card-title>\n    </mat-card-content>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Name\" id=\"name\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Description\" id=\"description\" required>\n        </mat-form-field>\n      </div>\n\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab> \n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n"
+module.exports = "<div>\n  <mat-card>\n    <mat-card-content >\n        <mat-card-title >\n          <button mat-icon-button color=\"accent\" (click)=\"voltar()\"><mat-icon>keyboard_backspace</mat-icon> </button>\n          &nbsp;Vehicle\n        </mat-card-title>\n    </mat-card-content>\n\n    <mat-card-content>\n        <div fxLayout=\"row\" fxLayout=\"column\">\n            <mat-form-field>\n              <input matInput placeholder=\"Brand\" id=\"brand\" [(ngModel)]=\"vehicle.brand\" required>\n            </mat-form-field>\n        </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Name\" id=\"name\" [(ngModel)]=\"vehicle.name\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n            <textarea matInput placeholder=\"Model\" id=\"model\" [(ngModel)]=\"vehicle.model\" required></textarea>\n        </mat-form-field>\n      </div>\n      <!-- <div fxLayout=\"row\" fxLayout=\"column\" *ngIf=\"!vehicle.idUserFinishedBy\">\n          <button mat-button color=\"accent\" (click)=\"save()\"> \n              <mat-icon>save</mat-icon> Save\n          </button>\n      </div> -->\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab (click)=\"save()\"> \n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
-/***/ "./src/app/components/partner/form.partner/form.partner.component.scss":
+/***/ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.scss":
 /*!*****************************************************************************!*\
-  !*** ./src/app/components/partner/form.partner/form.partner.component.scss ***!
+  !*** ./src/app/components/vehicle/form.vehicle/form.vehicle.component.scss ***!
   \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -637,17 +936,21 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/components/partner/form.partner/form.partner.component.ts":
+/***/ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts":
 /*!***************************************************************************!*\
-  !*** ./src/app/components/partner/form.partner/form.partner.component.ts ***!
+  !*** ./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts ***!
   \***************************************************************************/
-/*! exports provided: FormPartnerComponent */
+/*! exports provided: FormVehicleComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormPartnerComponent", function() { return FormPartnerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormVehicleComponent", function() { return FormVehicleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_vehicle_vehicle_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/vehicle/vehicle.service */ "./src/app/services/vehicle/vehicle.service.ts");
+/* harmony import */ var _services_vehicle_vehicle_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/vehicle/vehicle.model */ "./src/app/services/vehicle/vehicle.model.ts");
+/* harmony import */ var _services_driver_driver_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/driver/driver.service */ "./src/app/services/driver/driver.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -658,43 +961,92 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var FormPartnerComponent = /** @class */ (function () {
-    function FormPartnerComponent() {
+
+
+
+
+var FormVehicleComponent = /** @class */ (function () {
+    function FormVehicleComponent(route, router, vehicleService, driverService) {
+        this.route = route;
+        this.router = router;
+        this.vehicleService = vehicleService;
+        this.driverService = driverService;
+        this.vehicle = new _services_vehicle_vehicle_model__WEBPACK_IMPORTED_MODULE_3__["Vehicle"]();
     }
-    FormPartnerComponent.prototype.ngOnInit = function () {
+    FormVehicleComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.subscribe(function (params) {
+            if (params.get('id')) {
+                _this.vehicleId = Number(params.get('id'));
+                _this.vehicleService.getVehicleById(_this.vehicleId).subscribe(function (v) {
+                    console.log('getvehicleById==>', v);
+                    _this.vehicle = v;
+                });
+            }
+            else {
+                _this.vehicle = new _services_vehicle_vehicle_model__WEBPACK_IMPORTED_MODULE_3__["Vehicle"]();
+            }
+        });
     };
-    FormPartnerComponent.prototype.voltar = function () {
+    FormVehicleComponent.prototype.save = function () {
+        if (this.vehicle.id) {
+            this.upDatevehicle();
+        }
+        else {
+            this.createvehicle();
+        }
+    };
+    FormVehicleComponent.prototype.createvehicle = function () {
+        var _this = this;
+        this.vehicleService.createVehicle(this.vehicle).subscribe(function (u) {
+            _this.router.navigate(['/vehicle']);
+        }, function (err) {
+            console.error(err);
+        });
+    };
+    FormVehicleComponent.prototype.upDatevehicle = function () {
+        var _this = this;
+        this.vehicleService.updateVehicle(this.vehicleId, this.vehicle).subscribe(function (p) {
+            _this.router.navigate(['/vehicle']);
+        }, function (err) {
+            console.error(err);
+        });
+    };
+    FormVehicleComponent.prototype.voltar = function () {
         window.history.back();
     };
-    FormPartnerComponent = __decorate([
+    FormVehicleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-form-partner',
-            template: __webpack_require__(/*! ./form.partner.component.html */ "./src/app/components/partner/form.partner/form.partner.component.html"),
-            styles: [__webpack_require__(/*! ./form.partner.component.scss */ "./src/app/components/partner/form.partner/form.partner.component.scss")]
+            selector: 'app-form-vehicle',
+            template: __webpack_require__(/*! ./form.vehicle.component.html */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.html"),
+            styles: [__webpack_require__(/*! ./form.vehicle.component.scss */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
-    ], FormPartnerComponent);
-    return FormPartnerComponent;
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_vehicle_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"],
+            _services_driver_driver_service__WEBPACK_IMPORTED_MODULE_4__["DriverService"]])
+    ], FormVehicleComponent);
+    return FormVehicleComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/components/partner/search.partner/search.partner.component.html":
+/***/ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.html":
 /*!*********************************************************************************!*\
-  !*** ./src/app/components/partner/search.partner/search.partner.component.html ***!
+  !*** ./src/app/components/vehicle/search.vehicle/search.vehicle.component.html ***!
   \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <mat-card-title>\n        <button mat-icon-button color=\"accent\" (click)=\"routeCadastroPessoa()\">\n            <mat-icon>person_add</mat-icon>\n            Adicionar Pessoa\n        </button>\n    </mat-card-title>\n\n    <mat-card-content>\n      <div *ngIf=\"isError\">\n        <mat-chip-list >\n          <mat-chip style=\"margin-left: 30%\" color=\"warn\" selected=\"true\"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>\n        </mat-chip-list>\n      </div>\n      <form class=\"form\">\n        <mat-form-field color=\"accent\" style=\"width: 80%\">\n          <input matInput type=\"text\" placeholder=\"Pesquisar Pessoas\" style=\"width: 80%\">\n        </mat-form-field>\n        <mat-spinner diameter=\"55\" ></mat-spinner>\n        <button mat-fab color=\"primary\" style=\"margin: 5px\">\n          <mat-icon>search</mat-icon>\n        </button>\n      </form>\n    </mat-card-content>\n\n    <mat-card-content>\n      <!-- <mat-list-item *ngFor=\"let p of pessoas\">\n        <mat-divider [inset]=\"true\"></mat-divider>\n        <h4 mat-line (click)=\"routeCadastroPessoa()\" >{{p.nome}}</h4>\n        <mat-divider inset *ngIf=\"!last\"></mat-divider>\n      </mat-list-item> -->\n    </mat-card-content>\n  </mat-card>\n</div>"
+module.exports = "<div>\n  <mat-card>\n    <mat-card-title>\n        <button mat-icon-button color=\"accent\" (click)=\"routeFormNewVehicles()\">\n            <mat-icon>directions_bus</mat-icon>\n            Add New\n        </button>\n    </mat-card-title>\n\n    <mat-card-content>\n      <div *ngIf=\"isError\">\n        <mat-chip-list >\n          <mat-chip style=\"margin-left: 30%\" color=\"warn\" selected=\"true\"><mat-chip-avatar> <mat-icon>error</mat-icon></mat-chip-avatar> {{ error }}</mat-chip>\n        </mat-chip-list>\n      </div>\n    </mat-card-content>\n\n    <mat-card-content>\n      <mat-list-item *ngFor=\"let v of vehicles\">\n        <mat-divider [inset]=\"true\"></mat-divider>\n        <h4 mat-line (click)=\"routeFormVehicles(v.id)\" ><mat-icon>directions_bus</mat-icon> {{v.name}} </h4>\n        <mat-divider inset *ngIf=\"!last\"></mat-divider>\n      </mat-list-item>\n    </mat-card-content>\n  </mat-card>\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/components/partner/search.partner/search.partner.component.scss":
+/***/ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.scss":
 /*!*********************************************************************************!*\
-  !*** ./src/app/components/partner/search.partner/search.partner.component.scss ***!
+  !*** ./src/app/components/vehicle/search.vehicle/search.vehicle.component.scss ***!
   \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -703,19 +1055,19 @@ module.exports = ".demo-list {\n  display: flex;\n  flex-flow: row wrap; }\n  .d
 
 /***/ }),
 
-/***/ "./src/app/components/partner/search.partner/search.partner.component.ts":
+/***/ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts":
 /*!*******************************************************************************!*\
-  !*** ./src/app/components/partner/search.partner/search.partner.component.ts ***!
+  !*** ./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts ***!
   \*******************************************************************************/
-/*! exports provided: SearchPartnerComponent */
+/*! exports provided: SearchVehicleComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPartnerComponent", function() { return SearchPartnerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchVehicleComponent", function() { return SearchVehicleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_pessoa_pessoa_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/pessoa/pessoa.service */ "./src/app/services/pessoa/pessoa.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_vehicle_vehicle_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/vehicle/vehicle.service */ "./src/app/services/vehicle/vehicle.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -728,68 +1080,90 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var SearchPartnerComponent = /** @class */ (function () {
-    function SearchPartnerComponent(pessoaService, router) {
-        this.pessoaService = pessoaService;
+var SearchVehicleComponent = /** @class */ (function () {
+    function SearchVehicleComponent(vehicleService, router) {
+        this.vehicleService = vehicleService;
         this.router = router;
-        this.pessoas = [];
         // exibicao de mensagem de erro na tela
         this.isError = false;
         // exibicao de loader na tela
         this.exibeProgress = false;
         this.value = 0;
     }
-    SearchPartnerComponent.prototype.routeCadastroPessoa = function () {
-        this.router.navigate(['/partner/form']);
+    SearchVehicleComponent.prototype.routeFormVehicles = function (id) {
+        this.router.navigate(["/vehicle/form/" + id]);
     };
-    SearchPartnerComponent.prototype.voltar = function () {
+    SearchVehicleComponent.prototype.routeFormNewVehicles = function () {
+        this.router.navigate(["/vehicle/form"]);
+    };
+    SearchVehicleComponent.prototype.back = function () {
         window.history.back();
     };
-    SearchPartnerComponent.prototype.ngOnInit = function () {
+    SearchVehicleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var isMobile = /Android|iPhone/i.test(window.navigator.userAgent);
-        console.log("Plataforma " + window.navigator.userAgent);
-        this.pessoas =
-            this.pessoaService.getPessoas()
-                .subscribe(function (res) {
-                console.log('>>>> get pessoas res=', res);
-                _this.exibeProgress = false;
-                // this.router.navigate(['/pessoa'])
-            }, function (error) {
-                console.log('erro ao chamar o servico get pessoas ==>', error);
-                _this.exibeProgress = false;
-                _this.isError = true;
-                _this.error = "N\u00E3o foi poss\u00EDvel consutar pessoas";
-            });
+        this.vehicleService.getAllVehiclees()
+            .subscribe(function (res) {
+            console.log('>>>> get vehicles res=', res);
+            _this.vehicles = res;
+            _this.exibeProgress = false;
+            // this.router.navigate(['/users'])
+        }, function (error) {
+            console.log('error service get vehicles ==>', error);
+            _this.exibeProgress = false;
+            _this.isError = true;
+            _this.error = "N\u00E3o h\u00E1 vehicleos para ser exibido";
+        });
     };
-    SearchPartnerComponent = __decorate([
+    SearchVehicleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-search-partner-component',
-            template: __webpack_require__(/*! ./search.partner.component.html */ "./src/app/components/partner/search.partner/search.partner.component.html"),
-            styles: [__webpack_require__(/*! ./search.partner.component.scss */ "./src/app/components/partner/search.partner/search.partner.component.scss")]
+            selector: 'app-search-vehicle-component',
+            template: __webpack_require__(/*! ./search.vehicle.component.html */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.html"),
+            styles: [__webpack_require__(/*! ./search.vehicle.component.scss */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_pessoa_pessoa_service__WEBPACK_IMPORTED_MODULE_1__["PessoaService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
-    ], SearchPartnerComponent);
-    return SearchPartnerComponent;
+        __metadata("design:paramtypes", [_services_vehicle_vehicle_service__WEBPACK_IMPORTED_MODULE_2__["VehicleService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], SearchVehicleComponent);
+    return SearchVehicleComponent;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/services/pessoa/pessoa.service.ts":
-/*!***************************************************!*\
-  !*** ./src/app/services/pessoa/pessoa.service.ts ***!
-  \***************************************************/
-/*! exports provided: PessoaService */
+/***/ "./src/app/services/driver/driver.model.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/driver/driver.model.ts ***!
+  \*************************************************/
+/*! exports provided: Driver */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PessoaService", function() { return PessoaService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Driver", function() { return Driver; });
+var Driver = /** @class */ (function () {
+    function Driver() {
+    }
+    return Driver;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/driver/driver.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/driver/driver.service.ts ***!
+  \***************************************************/
+/*! exports provided: DriverService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DriverService", function() { return DriverService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_env_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/env-config */ "./src/app/shared/env-config.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -801,30 +1175,182 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-var PessoaService = /** @class */ (function () {
-    function PessoaService() {
+
+
+var URL = _shared_env_config__WEBPACK_IMPORTED_MODULE_3__["default"].api.url + "/api/v1/Drivers";
+var DriverService = /** @class */ (function () {
+    function DriverService(http) {
+        this.http = http;
     }
-    PessoaService.prototype.getPessoas = function () {
-        var pessoasMocked = [
-            { id: '1', nome: 'Danilo', enderecos: [{ cep: '03090020', rua: 'rua xyz' }, { cep: '03090020', rua: 'rua xyz' }, { cep: '03090020', rua: 'rua xyz' }], sobrenome: 'sobrenome' },
-            { id: '1', nome: 'Luana', enderecos: [{ cep: '03090020', rua: 'rua xyz' }, { cep: '03090020', rua: 'rua xyz' }], sobrenome: 'sobrenome' },
-            { id: '7', nome: 'Maria', enderecos: [{ cep: '03090020', rua: 'rua xyz' }], sobrenome: 'sobrenome' },
-            { id: '7', nome: 'Joao', enderecos: [{ cep: '03090020', rua: 'rua xyz' }], sobrenome: 'sobrenome' }
-        ];
-        return rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].create(function (observer) {
-            observer.next(pessoasMocked);
+    DriverService.prototype.getAllDrivers = function () {
+        console.log('getAllDrivers URL=>', URL);
+        return this.getDriversMock(); //this.http.get<Driver[]>(`${URL}`);
+    };
+    DriverService.prototype.getDriverById = function (id) {
+        console.log('getAllDrivers URL=>', URL);
+        return this.getOneDriversMock(); //this.http.get<Driver>(`${URL}/${id}`);
+    };
+    DriverService.prototype.createDriver = function (driver) {
+        console.log('Driver=>', driver);
+        console.log('createDriver URL=>', URL);
+        return this.getOneDriversMock(); //this.http.post(`${URL}`, driver);
+    };
+    DriverService.prototype.updateDriver = function (id, driver) {
+        console.log('Driver=>', driver);
+        console.log('updateDriver URL=>', URL + "/" + id);
+        return this.getOneDriversMock(); //this.http.post(`${URL}/${id}`, driver);
+    };
+    DriverService.prototype.getOneDriversMock = function () {
+        var drivers = { id: '1', name: 'Danilo de Jesus', email: 'danilo@gmail.com', cellPhoneNumber: '+5511961692905', status: 'ATIVO' };
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+            observer.next(drivers);
             observer.complete();
         });
     };
-    PessoaService = __decorate([
+    DriverService.prototype.getDriversMock = function () {
+        var drivers = [
+            { id: '1', name: 'Danilo de Jesus', email: 'danilo@gmail.com', cellPhoneNumber: '+5511961692905' }
+        ];
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+            observer.next(drivers);
+            observer.complete();
+        });
+    };
+    DriverService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
-    ], PessoaService);
-    return PessoaService;
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], DriverService);
+    return DriverService;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/services/vehicle/vehicle.model.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/vehicle/vehicle.model.ts ***!
+  \***************************************************/
+/*! exports provided: GeoLocation, Vehicle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeoLocation", function() { return GeoLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Vehicle", function() { return Vehicle; });
+var GeoLocation = /** @class */ (function () {
+    function GeoLocation() {
+    }
+    return GeoLocation;
+}());
+
+var Vehicle = /** @class */ (function () {
+    function Vehicle() {
+    }
+    return Vehicle;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/vehicle/vehicle.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/vehicle/vehicle.service.ts ***!
+  \*****************************************************/
+/*! exports provided: VehicleService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VehicleService", function() { return VehicleService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_env_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/env-config */ "./src/app/shared/env-config.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var URL = _shared_env_config__WEBPACK_IMPORTED_MODULE_3__["default"].api.url + "/api/v1/vehicles";
+var VehicleService = /** @class */ (function () {
+    function VehicleService(http) {
+        this.http = http;
+    }
+    VehicleService.prototype.getAllVehiclees = function () {
+        console.log('getAllVehiclees URL=>', URL);
+        return this.getVehiclesMock(); //this.http.get<Vehicle[]>(`${URL}`);
+    };
+    VehicleService.prototype.getVehiclesMock = function () {
+        var vehicles = [
+            { id: '1', identification: 'ASD-3658', name: 'Mercedes-Benz Sprinter Executiva Van', model: 'Sprinter', brand: 'Mercedes', category: 'VAN', status: 'ATIVO', geoLocation: { lat: '', lon: '' } }
+        ];
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+            observer.next(vehicles);
+            observer.complete();
+        });
+    };
+    VehicleService.prototype.getOneVehiclesMock = function () {
+        var vehicles = { id: '1', identification: 'ASD-3658', name: 'Mercedes-Benz Sprinter Executiva Van', model: 'Sprinter', brand: 'Mercedes', category: 'VAN', status: 'ATIVO', geoLocation: { lat: '', lon: '' } };
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+            observer.next(vehicles);
+            observer.complete();
+        });
+    };
+    VehicleService.prototype.getVehicleById = function (id) {
+        console.log('getVehicleById URL=>', URL);
+        return this.getOneVehiclesMock(); // this.http.get<Vehicle>(`${URL}/${id}`);
+    };
+    VehicleService.prototype.createVehicle = function (vehicle) {
+        console.log('user=>', vehicle);
+        console.log('createVehicle URL=>', URL);
+        return this.getOneVehiclesMock(); // this.http.post(`${URL}`, vehicle);
+    };
+    VehicleService.prototype.updateVehicle = function (id, vehicle) {
+        console.log('user=>', vehicle);
+        console.log('updateVehicle URL=>', URL + "/" + id);
+        return this.getOneVehiclesMock(); // this.http.post(`${URL}/${id}`, vehicle);
+    };
+    VehicleService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], VehicleService);
+    return VehicleService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/env-config.ts":
+/*!**************************************!*\
+  !*** ./src/app/shared/env-config.ts ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    api: {
+        url: _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].apiUrl
+    }
+});
 
 
 /***/ }),
@@ -839,19 +1365,10 @@ var PessoaService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    apiUrl: "http://localhost:3000"
 };
-/*
- * In development mode, to ignore zone related error stack frames such as
- * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
- * import the following file, but please comment it out in production mode
- * because it will have performance impact when throw error
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
 
 /***/ }),
@@ -869,6 +1386,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -889,7 +1409,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/danilopaixao/repositorio-github/sistemaprocesso/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/danilopaixao/repositorio-github/NodeJS-Angular-MaterialDesign/client/src/main.ts */"./src/main.ts");
 
 
 /***/ })

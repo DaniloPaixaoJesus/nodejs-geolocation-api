@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/danilopaixao/repositorio-github/sistemaprocesso/client/src/styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! /Users/danilopaixao/repositorio-github/angular-materialdesign/client/src/styles.scss */"./src/styles.scss");
 
 
 /***/ })

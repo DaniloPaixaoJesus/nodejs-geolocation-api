@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sistemaprocesso": {
+    "angular-materialdesign": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sistemaprocesso",
+            "outputPath": "dist/angular-materialdesign",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sistemaprocesso:build"
+            "browserTarget": "angular-materialdesign:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sistemaprocesso:build:production"
+              "browserTarget": "angular-materialdesign:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sistemaprocesso:build"
+            "browserTarget": "angular-materialdesign:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "sistemaprocesso-e2e": {
+    "angular-materialdesign-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sistemaprocesso:serve"
+            "devServerTarget": "angular-materialdesign:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sistemaprocesso:serve:production"
+              "devServerTarget": "angular-materialdesign:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "sistemaprocesso"
+  "defaultProject": "angular-materialdesign"
 }
