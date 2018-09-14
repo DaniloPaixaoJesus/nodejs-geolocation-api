@@ -16,17 +16,22 @@
       <mat-icon class="icon">directions_bus</mat-icon>  
       &nbsp;<span class="label">Vehicle</span>
     </a>
+    <a mat-list-item
+      routerLink="/logout" (click)="sidenav.close()">
+      <mat-icon class="icon">exit_to_app</mat-icon>  
+      &nbsp;<span class="label">Logout</span>
+    </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" *ngIf="loggedUser()">
      <div fxHide.gt-xs>
        <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
      <div>
-       <a routerLink="/">
+       <a routerLink="/home">
           Where is my VAN ?
        </a>
      </div>
@@ -53,6 +58,13 @@
                     &nbsp;<span class="label">Vehicle</span>
                 </a>
             </li>
+            <li>
+              <a
+                routerLink="/logout">
+                  <mat-icon class="icon">exit_to_app</mat-icon>
+                  &nbsp;<span class="label">Logout</span>
+              </a>
+          </li>
         </ul>
      </div>
     </mat-toolbar>

@@ -42,7 +42,7 @@ trigger('routerTransition', [
 ])
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [ routerTransition ],
@@ -57,7 +57,17 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
+    localStorage.setItem('loggedUser', 'false');
+  }
 
+  loggedUser(): Boolean{
+    if(!localStorage.getItem('loggedUser')){
+      return false;
+    };
+    if(localStorage.getItem('loggedUser') == 'false'){
+      return false;
+    };
+    return true;
   }
 
   voltar() {

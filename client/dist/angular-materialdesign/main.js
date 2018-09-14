@@ -35,11 +35,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/driver/search.driver/search.driver.component */ "./src/app/components/driver/search.driver/search.driver.component.ts");
-/* harmony import */ var _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/driver/form.driver/form.driver.component */ "./src/app/components/driver/form.driver/form.driver.component.ts");
-/* harmony import */ var _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/vehicle/search.vehicle/search.vehicle.component */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts");
-/* harmony import */ var _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/vehicle/form.vehicle/form.vehicle.component */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts");
-/* harmony import */ var _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/map/search.map/search.map.component */ "./src/app/components/map/search.map/search.map.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/driver/search.driver/search.driver.component */ "./src/app/components/driver/search.driver/search.driver.component.ts");
+/* harmony import */ var _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/driver/form.driver/form.driver.component */ "./src/app/components/driver/form.driver/form.driver.component.ts");
+/* harmony import */ var _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/vehicle/search.vehicle/search.vehicle.component */ "./src/app/components/vehicle/search.vehicle/search.vehicle.component.ts");
+/* harmony import */ var _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/vehicle/form.vehicle/form.vehicle.component */ "./src/app/components/vehicle/form.vehicle/form.vehicle.component.ts");
+/* harmony import */ var _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/map/search.map/search.map.component */ "./src/app/components/map/search.map/search.map.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,40 +54,51 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
     {
         path: '',
         // component: LoginComponent
-        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__["SearchMapComponent"]
+        component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
+    },
+    {
+        path: 'logout',
+        // component: LoginComponent
+        component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
+    },
+    {
+        path: 'home',
+        // component: LoginComponent
+        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_7__["SearchMapComponent"]
     },
     {
         path: 'map',
         // component: LoginComponent
-        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_6__["SearchMapComponent"]
+        component: _components_map_search_map_search_map_component__WEBPACK_IMPORTED_MODULE_7__["SearchMapComponent"]
     },
     {
         path: 'driver',
-        component: _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_2__["SearchDriverComponent"]
+        component: _components_driver_search_driver_search_driver_component__WEBPACK_IMPORTED_MODULE_3__["SearchDriverComponent"]
     },
     {
         path: 'driver/form',
-        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__["FormDriverComponent"]
+        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_4__["FormDriverComponent"]
     },
     {
         path: 'driver/form/:id',
-        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_3__["FormDriverComponent"]
+        component: _components_driver_form_driver_form_driver_component__WEBPACK_IMPORTED_MODULE_4__["FormDriverComponent"]
     },
     {
         path: 'vehicle',
-        component: _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_4__["SearchVehicleComponent"]
+        component: _components_vehicle_search_vehicle_search_vehicle_component__WEBPACK_IMPORTED_MODULE_5__["SearchVehicleComponent"]
     },
     {
         path: 'vehicle/form',
-        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__["FormVehicleComponent"]
+        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_6__["FormVehicleComponent"]
     },
     {
         path: 'vehicle/form/:id',
-        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_5__["FormVehicleComponent"]
+        component: _components_vehicle_form_vehicle_form_vehicle_component__WEBPACK_IMPORTED_MODULE_6__["FormVehicleComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -117,7 +129,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n  <mat-sidenav  #sidenav role=\"navigation\">\n   <mat-nav-list>\n    <a mat-list-item\n      routerLink=\"/map\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">map</mat-icon>  \n      &nbsp;<span class=\"label\">Map</span>\n    </a>\n    <a mat-list-item\n        routerLink=\"/driver\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>  \n      &nbsp;<span class=\"label\">Driver</span>\n    </a>\n    <a mat-list-item\n      routerLink=\"/vehicle\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">directions_bus</mat-icon>  \n      &nbsp;<span class=\"label\">Vehicle</span>\n    </a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\">\n     <div fxHide.gt-xs>\n       <button mat-icon-button (click)=\"sidenav.toggle()\">\n        <mat-icon>menu</mat-icon>\n      </button>\n    </div>\n     <div>\n       <a routerLink=\"/\">\n          Where is my VAN ?\n       </a>\n     </div>\n     <div fxFlex fxLayout fxLayoutAlign=\"flex-end\"  fxHide.xs>\n        <ul fxLayout fxLayoutGap=\"20px\" class=\"navigation-items\">\n            <li>\n                <a\n                  routerLink=\"/map\">\n                    <mat-icon class=\"icon\">map</mat-icon>\n                    &nbsp;<span class=\"label\">Map</span>\n                </a>\n            </li>\n            <li>\n              <a\n                routerLink=\"/driver\">\n                  <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>\n                  &nbsp;<span class=\"label\">Driver</span>\n              </a>\n            </li>\n            <li>\n                <a\n                  routerLink=\"/vehicle\">\n                    <mat-icon class=\"icon\">directions_bus</mat-icon>\n                    &nbsp;<span class=\"label\">Vehicle</span>\n                </a>\n            </li>\n        </ul>\n     </div>\n    </mat-toolbar>\n    <main>\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </main>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+module.exports = "<mat-sidenav-container>\n  <mat-sidenav  #sidenav role=\"navigation\">\n   <mat-nav-list>\n    <a mat-list-item\n      routerLink=\"/map\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">map</mat-icon>  \n      &nbsp;<span class=\"label\">Map</span>\n    </a>\n    <a mat-list-item\n        routerLink=\"/driver\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>  \n      &nbsp;<span class=\"label\">Driver</span>\n    </a>\n    <a mat-list-item\n      routerLink=\"/vehicle\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">directions_bus</mat-icon>  \n      &nbsp;<span class=\"label\">Vehicle</span>\n    </a>\n    <a mat-list-item\n      routerLink=\"/logout\" (click)=\"sidenav.close()\">\n      <mat-icon class=\"icon\">exit_to_app</mat-icon>  \n      &nbsp;<span class=\"label\">Logout</span>\n    </a>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <mat-toolbar color=\"primary\" *ngIf=\"loggedUser()\">\n     <div fxHide.gt-xs>\n       <button mat-icon-button (click)=\"sidenav.toggle()\">\n        <mat-icon>menu</mat-icon>\n      </button>\n    </div>\n     <div>\n       <a routerLink=\"/home\">\n          Where is my VAN ?\n       </a>\n     </div>\n     <div fxFlex fxLayout fxLayoutAlign=\"flex-end\"  fxHide.xs>\n        <ul fxLayout fxLayoutGap=\"20px\" class=\"navigation-items\">\n            <li>\n                <a\n                  routerLink=\"/map\">\n                    <mat-icon class=\"icon\">map</mat-icon>\n                    &nbsp;<span class=\"label\">Map</span>\n                </a>\n            </li>\n            <li>\n              <a\n                routerLink=\"/driver\">\n                  <mat-icon class=\"icon\">perm_contact_calendar</mat-icon>\n                  &nbsp;<span class=\"label\">Driver</span>\n              </a>\n            </li>\n            <li>\n                <a\n                  routerLink=\"/vehicle\">\n                    <mat-icon class=\"icon\">directions_bus</mat-icon>\n                    &nbsp;<span class=\"label\">Vehicle</span>\n                </a>\n            </li>\n            <li>\n              <a\n                routerLink=\"/logout\">\n                  <mat-icon class=\"icon\">exit_to_app</mat-icon>\n                  &nbsp;<span class=\"label\">Logout</span>\n              </a>\n          </li>\n        </ul>\n     </div>\n    </mat-toolbar>\n    <main>\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </main>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -185,6 +197,18 @@ var AppComponent = /** @class */ (function () {
         this.loading = false;
     }
     AppComponent.prototype.ngOnInit = function () {
+        localStorage.setItem('loggedUser', 'false');
+    };
+    AppComponent.prototype.loggedUser = function () {
+        if (!localStorage.getItem('loggedUser')) {
+            return false;
+        }
+        ;
+        if (localStorage.getItem('loggedUser') == 'false') {
+            return false;
+        }
+        ;
+        return true;
     };
     AppComponent.prototype.voltar = function () {
         window.history.back();
@@ -749,7 +773,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div>\n  <mat-card>\n    <mat-card-title><mat-card-title><mat-icon>lock</mat-icon> Login  </mat-card-title></mat-card-title>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"User\" id=\"user\" [(ngModel)]=\"user\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Password\" type=\"password\" id=\"password\" [(ngModel)]=\"password\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\" *ngIf=\"loginError\">\n        <mat-chip-list>\n          <mat-chip selected=\"true\" color=\"warn\">\n            <mat-icon>warning</mat-icon>\n            {{ loginError }}\n          </mat-chip>\n        </mat-chip-list>\n      </div>\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab type=\"submit\" id=\"login\" >\n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n\n"
+module.exports = "  <div>\n  <mat-card>\n    <mat-card-title><mat-card-title><mat-icon>lock</mat-icon> Login  </mat-card-title></mat-card-title>\n\n    <mat-card-content>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"User\" id=\"user\" [(ngModel)]=\"user\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\">\n        <mat-form-field>\n          <input matInput placeholder=\"Password\" type=\"password\" id=\"password\" [(ngModel)]=\"password\" required>\n        </mat-form-field>\n      </div>\n      <div fxLayout=\"row\" fxLayout=\"column\" *ngIf=\"loginError\">\n        <mat-chip-list>\n          <mat-chip selected=\"true\" color=\"warn\">\n            <mat-icon>warning</mat-icon>\n            {{ loginError }}\n          </mat-chip>\n        </mat-chip-list>\n      </div>\n      <div fxLayout=\"row\" fxLayoutAlign=\"end\">\n        <span class=\"send\">\n          <button mat-fab type=\"submit\" id=\"login\" (click)=\"login()\">\n            <mat-icon>send</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n\n"
 
 /***/ }),
 
@@ -757,14 +781,16 @@ module.exports = "  <div>\n  <mat-card>\n    <mat-card-title><mat-card-title><ma
 /*!*****************************************************!*\
   !*** ./src/app/components/login/login.component.ts ***!
   \*****************************************************/
-/*! exports provided: LoginComponent */
+/*! exports provided: routerTransition, LoginComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routerTransition", function() { return routerTransition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -784,13 +810,41 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+var routerTransition = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["trigger"])('routerTransition', [
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["transition"])('* <=> *', [
+        // Initial state of new route
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["query"])(':enter', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({
+            position: 'fixed',
+            width: '100%',
+            transform: 'translateX(100%)',
+            opacity: 1
+        }), { optional: true }),
+        // move page off screen right on leave
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["query"])(':leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('300ms ease-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({
+            position: 'fixed',
+            width: '100%',
+            transform: 'translateX(-100%)',
+            opacity: 1
+        })), { optional: true }),
+        // move page in screen from left to right
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["query"])(':enter', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('300ms ease-in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({
+            opacity: 1,
+            transform: 'translateX(0%)'
+        })), { optional: true }),
+    ])
+]);
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(router) {
         this.router = router;
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        localStorage.setItem('loggedUser', 'false');
+    };
     LoginComponent.prototype.login = function () {
         console.log('efetuando login');
-        this.router.navigate(['/user']);
+        localStorage.setItem('loggedUser', '1243908352309570342-50-235-028134535');
+        this.router.navigate(['/home']);
     };
     LoginComponent.prototype.reduceParaAgrupar = function () {
         var guias = [
@@ -834,12 +888,12 @@ var LoginComponent = /** @class */ (function () {
         console.log(novoArray);
     };
     LoginComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-login',
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-root-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/components/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/components/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -855,7 +909,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n<agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n</agm-map>\n</div>"
+module.exports = "<div>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n<agm-map \n    [latitude]=\"lat\" \n    [longitude]=\"lng\"\n    [zoom]=\"zoomValue\"\n  >\n  <agm-marker \n  [latitude]=\"lat\" \n  [longitude]=\"lng\"\n  [iconUrl]=\"markerIcon\"\n  ></agm-marker>\n\n\n  <agm-marker \n  [latitude]=\"lat2\" \n  [longitude]=\"lng2\"\n  [iconUrl]=\"markerIcon\"\n  ></agm-marker>\n\n  <agm-marker \n  [latitude]=\"lat3\" \n  [longitude]=\"lng3\"\n  [iconUrl]=\"markerIcon\"\n  ></agm-marker>\n  \n</agm-map>\n</div>"
 
 /***/ }),
 
@@ -893,9 +947,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var SearchMapComponent = /** @class */ (function () {
     function SearchMapComponent() {
-        this.title = 'My first AGM project';
-        this.lat = 51.678418;
-        this.lng = 7.809007;
+        this.title = 'Maps';
+        this.zoomValue = 17;
+        this.lat = -23.554251;
+        this.lng = -46.632033;
+        this.lat2 = -23.554231; //-23.554231, -46.633138
+        this.lng2 = -46.633138;
+        this.lat3 = -23.554556; //-23.554556, -46.631958
+        this.lng3 = -46.631958;
+        this.markerIcon = 'assets/images/baseline_directions_bus_black_18dp.png';
     }
     SearchMapComponent.prototype.ngOnInit = function () {
     };

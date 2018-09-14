@@ -1,14 +1,51 @@
+import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core'
+import {trigger, animate, style, group, animateChild, query, stagger, transition} from '@angular/animations'
 
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+export const routerTransition =
+trigger('routerTransition', [
+      transition('* <=> *', [
+        // Initial state of new route
+        query(':enter',
+          style({
+            position: 'fixed',
+            width:'100%',
+            transform: 'translateX(100%)',
+            opacity: 1
+          }),
+          {optional:true}),
+        // move page off screen right on leave
+        query(':leave',
+          animate('300ms ease-out',
+            style({
+              position: 'fixed',
+              width:'100%',
+              transform: 'translateX(-100%)',
+              opacity: 1
+            })
+          ),
+        {optional:true}),
+
+        // move page in screen from left to right
+        query(':enter',
+          animate('300ms ease-in',
+            style({
+              opacity: 1,
+              transform: 'translateX(0%)'
+            })
+          ),
+        {optional:true}),
+        // -- 
+    ])
+])
+
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-root-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   user: String;
   password: String;
@@ -18,9 +55,14 @@ export class LoginComponent {
     private router: Router,
   ) { }
 
+  ngOnInit(){
+    localStorage.setItem('loggedUser','false');
+  }
+
   login() {
     console.log('efetuando login');
-    this.router.navigate(['/user']);
+    localStorage.setItem('loggedUser', '1243908352309570342-50-235-028134535');
+    this.router.navigate(['/home']);
   }
 
   reduceParaAgrupar() {

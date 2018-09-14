@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMapComponent implements OnInit {
 
-  title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  title: string = 'Maps';
+  zoomValue: number = 17;
+  lat: number = -23.554251;
+  lng: number = -46.632033;
+
+  lat2: number = -23.554231; //-23.554231, -46.633138
+  lng2: number = -46.633138;
+
+  lat3: number = -23.554556; //-23.554556, -46.631958
+  lng3: number = -46.631958;
+
+
+  markerIcon: string = 'assets/images/baseline_directions_bus_black_18dp.png';
 
   constructor() {}
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
 import {SearchDriverComponent} from './components/driver/search.driver/search.driver.component';
 import {FormDriverComponent} from './components/driver/form.driver/form.driver.component';
 import {SearchVehicleComponent} from './components/vehicle/search.vehicle/search.vehicle.component';
@@ -11,6 +11,16 @@ import {SearchMapComponent} from './components/map/search.map/search.map.compone
 const appRoutes: Routes = [
   {
     path: '',
+    // component: LoginComponent
+     component: LoginComponent
+  },
+  {
+    path: 'logout',
+    // component: LoginComponent
+     component: LoginComponent
+  },
+  {
+    path: 'home',
     // component: LoginComponent
      component: SearchMapComponent
   },
