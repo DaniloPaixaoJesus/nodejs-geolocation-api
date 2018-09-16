@@ -1,17 +1,4 @@
 module.exports = (app)=>{
-  
-  //Content negotiation -> ver retornos de formatos json e xml
-  /**
-  res.status(400)
-  res.format({
-    html: function(){
-        res.render("produtos/form",{validationErrors:errors,produto:produto})
-    },
-    json: function(){
-      res.send(errors)
-    }
-  })
-  */
  
   const API_URL = '/api/partners'
  

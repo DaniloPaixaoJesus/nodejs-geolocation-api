@@ -19,8 +19,8 @@ module.exports = ()=>{
     }
   }))
 
-  app.set('view engine','ejs') //set EJS module as a PAGE DYNAMIC ENGINE
-  app.set('views','./static') //set onde estao as VIEWS - O default é sempre /views
+  //app.set('view engine','ejs') //set EJS module as a PAGE DYNAMIC ENGINE
+  //app.set('views','./static') //set onde estao as VIEWS - O default é sempre /views
   //mantive o default
 
   app.use(bodyParser.urlencoded({extended: true}))
@@ -34,10 +34,11 @@ module.exports = ()=>{
 
 
   consign()
-   .include('controllers')
+   .include('api')
    .then('persistence')
    .then('models')
    .then('service')
+   //.then('service/vehicle')
    //.then('util')
    .into(app)
    //a ordem do consign deve seguir a ordem de 'dependencia'
@@ -58,7 +59,7 @@ module.exports = ()=>{
   //tem que colocar na ordem, caso contrário ele passa pelo middleware e 
   //ainda não vai ter acontecido nenhum erro.
 
-  app.persistence.connectionFactoryMongoDb()
+  //app.persistence.connectionFactoryMongoDb()
   
   return app
 }
