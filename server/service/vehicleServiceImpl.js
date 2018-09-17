@@ -1,10 +1,11 @@
 
-function VehicleServiceImpl() {
-  this._client = 'some initialized value, could be DAO';
+function VehicleServiceImpl(app) {
+  this._app = app;
+  this._dao = new app.persistence.VehicleMongoDao();
 }
 VehicleServiceImpl.prototype.findAll = 
-                ()=>{
-                    let posts = [{nome:'danilo 22222 ALL=>'},{nome: 'nnn nnnnn nnnn  nn'}];
+                function (){
+                    let posts = this._dao.getAll();
                     return posts;
                 }
 
