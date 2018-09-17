@@ -38,7 +38,6 @@ module.exports = ()=>{
    .then('persistence')
    .then('models')
    .then('service')
-   //.then('service/vehicle')
    //.then('util')
    .into(app)
    //a ordem do consign deve seguir a ordem de 'dependencia'

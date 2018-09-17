@@ -11,9 +11,10 @@ VehicleMongoDao.prototype.findAll = function() {
     return posts;
 }
 
-VehicleMongoDao.prototype.findById = function (id) {
+VehicleMongoDao.prototype.findById = function (id, callback) {
     let posts = [{nome:'VehicleMongoDao.prototype.findById('+id+')'},{nome: 'VehicleMongoDao.prototype.findById'}];
-    return posts;
+    callback(null, posts);
+    return;
 }
 
 VehicleMongoDao.prototype.update = function(partner,callback) {
