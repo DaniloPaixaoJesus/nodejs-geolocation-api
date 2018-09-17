@@ -118,3 +118,16 @@
 {"level":"info","message":"::1 - - [16/Sep/2018:21:08:19 +0000] \"GET /vehicles HTTP/1.1\" 200 57\n","timestamp":"2018-09-16T21:08:19.783Z"}
 {"level":"info","message":"::1 - - [16/Sep/2018:21:09:14 +0000] \"GET /api/vehicles HTTP/1.1\" 404 4747\n","timestamp":"2018-09-16T21:09:14.818Z"}
 {"level":"info","message":"::1 - - [16/Sep/2018:21:09:55 +0000] \"GET /api/vehicles HTTP/1.1\" 200 57\n","timestamp":"2018-09-16T21:09:55.985Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:24:28 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4780\n","timestamp":"2018-09-17T01:24:28.605Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:24:59 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4784\n","timestamp":"2018-09-17T01:24:59.279Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:26:22 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4780\n","timestamp":"2018-09-17T01:26:22.601Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:31:08 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4780\n","timestamp":"2018-09-17T01:31:08.848Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:36:10 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4780\n","timestamp":"2018-09-17T01:36:10.369Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:37:42 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4784\n","timestamp":"2018-09-17T01:37:42.826Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:38:21 +0000] \"GET /api2/vehicles HTTP/1.1\" 500 4746\n","timestamp":"2018-09-17T01:38:21.876Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:41:59 +0000] \"GET /api2/vehicles HTTP/1.1\" 200 58\n","timestamp":"2018-09-17T01:41:59.812Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:43:03 +0000] \"GET /api2/vehicles HTTP/1.1\" 200 67\n","timestamp":"2018-09-17T01:43:03.732Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:43:30 +0000] \"GET /api2/vehicles HTTP/1.1\" 200 69\n","timestamp":"2018-09-17T01:43:30.995Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:46:21 +0000] \"GET /api2/vehicles HTTP/1.1\" 200 61\n","timestamp":"2018-09-17T01:46:21.347Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:46:25 +0000] \"GET /api2/vehicles/77777 HTTP/1.1\" 500 4756\n","timestamp":"2018-09-17T01:46:25.893Z"}
+{"level":"info","message":"::1 - - [17/Sep/2018:01:47:11 +0000] \"GET /api2/vehicles/77777 HTTP/1.1\" 200 69\n","timestamp":"2018-09-17T01:47:11.520Z"}
