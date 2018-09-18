@@ -61,8 +61,8 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
 }
 
 VehicleMongoDao.prototype.findDataForTest = function(callback) {
-    if(app.persistence.connectionFactoryMongoDb().readyState){
-        app.models.Vehicle.find({}).then((vehicles) => {
+    if(this._app.persistence.connectionFactoryMongoDb().readyState){
+        this._app.models.Vehicle.find({}).then((vehicles) => {
                 callback(null, vehicles);
             });
     }else{
