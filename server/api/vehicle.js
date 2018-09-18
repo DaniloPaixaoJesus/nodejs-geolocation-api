@@ -44,7 +44,7 @@ module.exports = (app)=>{
     return;
   });
 
-  app.get('/api/vehicles/data', (req, res)=>{
+  app.get('/api/vehicles/loaddata/data', (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     service.findDataForTest(
               function (erro, result){

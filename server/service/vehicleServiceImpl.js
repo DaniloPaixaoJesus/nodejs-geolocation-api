@@ -1,7 +1,7 @@
 
 function VehicleServiceImpl(app) {
   this._app = app;
-  this._dao = new app.persistence.VehicleMongoDao();
+  this._dao = new app.persistence.VehicleMongoDao(app);
 }
 VehicleServiceImpl.prototype.findAll = function (){
                 let posts = this._dao.findAll();
