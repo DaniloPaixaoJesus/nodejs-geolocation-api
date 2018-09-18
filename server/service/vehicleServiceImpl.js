@@ -9,7 +9,6 @@ VehicleServiceImpl.prototype.findAll = function (){
             }
 
 VehicleServiceImpl.prototype.findById = function (id, callback) {
-                let posts = null;
                 return this._dao.findById(id, function (erro, result){
                     if(erro){
                         console.log('api-vehicle-> dao error=>', erro)
@@ -20,5 +19,30 @@ VehicleServiceImpl.prototype.findById = function (id, callback) {
                     return;
                 });
             }
+
+VehicleServiceImpl.prototype.loadDataForTest = function (callback) {
+                return this._dao.loadDataForTest(function (erro, result){
+                    if(erro){
+                        console.log('api-vehicle-> dao error=>', erro)
+                        res.status(500).send(erro)
+                        return
+                    }
+                    callback(null, result)
+                    return;
+                });
+            }
+
+VehicleServiceImpl.prototype.findDataForTest = function (callback) {
+                return this._dao.findDataForTest(function (erro, result){
+                    if(erro){
+                        console.log('api-vehicle-> dao error=>', erro)
+                        res.status(500).send(erro)
+                        return
+                    }
+                    callback(null, result)
+                    return;
+                });
+            }
+
 
 module.exports = ()=>VehicleServiceImpl

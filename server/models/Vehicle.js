@@ -10,6 +10,18 @@ module.exports = (app)=>{
             required: true,
             type: String        
         },
+        city: {
+            required: true,
+            type: String        
+        },
+        state: {
+            required: true,
+            type: String        
+        },
+        country: {
+            required: true,
+            type: String        
+        },
         model: {
             required: true,
             type: String        

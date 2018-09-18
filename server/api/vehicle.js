@@ -28,4 +28,36 @@ module.exports = (app)=>{
     return;
   });
 
+  app.get('/api/vehicles/load', (req, res)=>{
+    let service = new app.service.vehicleServiceImpl(app);
+    service.loadDataForTest(
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return
+                }
+                res.status(200).send(result);
+                return;
+              }
+            );
+    return;
+  });
+
+  app.get('/api/vehicles/data', (req, res)=>{
+    let service = new app.service.vehicleServiceImpl(app);
+    service.findDataForTest(
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return
+                }
+                res.status(200).send(result);
+                return;
+              }
+            );
+    return;
+  });
+
 }
