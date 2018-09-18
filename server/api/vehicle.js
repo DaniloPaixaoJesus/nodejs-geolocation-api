@@ -28,7 +28,7 @@ module.exports = (app)=>{
     return;
   });
 
-  app.get('/api/vehicles/load', (req, res)=>{
+  app.get('/api/vehicles/loaddata/init', (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     service.loadDataForTest(
               function (erro, result){
