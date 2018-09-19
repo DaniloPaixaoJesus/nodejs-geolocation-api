@@ -18,9 +18,9 @@ module.exports = (app)=>{
   
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
-    let page = req.param('page');
-    console.log('PAGE=====>',req.param('page'));
-    if(!req.param('page')){
+    let page = req.query.page;
+    console.log('PAGE=====>', page);
+    if(!page){
       page = 0;
     }
     service.findAll( page,
