@@ -16,7 +16,7 @@ module.exports = (app)=>{
     res.status(200).send(reponse);
   });
 
-  app.get(`/api/v${version}/vehicles/:page/page/:limit`, (req, res)=>{
+  app.get(`/api/v${version}/vehicles/page/:page/limit/:limit`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     let page = req.params.page;
     let limit = req.params.limit;
