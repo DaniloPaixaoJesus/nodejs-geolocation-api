@@ -6,9 +6,18 @@ module.exports = (app)=>{
 
   app.get('/api/vehicles', (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
-    let posts = service.findAll();
-    res.status(200).send(posts);
-    return 
+    service.findAll(
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return
+                }
+                res.status(200).send(result);
+                return;
+              }
+            );
+    return;
   });
   
   app.get('/api/vehicles/:id', (req, res)=>{
@@ -44,20 +53,20 @@ module.exports = (app)=>{
     return;
   });
 
-  app.get('/api/vehicles/loaddata/data', (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
-    service.findDataForTest(
-              function (erro, result){
-                if(erro){
-                  console.log('api-vehicle-> service error=>', erro)
-                  res.status(500).send(erro)
-                  return
-                }
-                res.status(200).send(result);
-                return;
-              }
-            );
-    return;
-  });
+  // app.get('/api/vehicles/loaddata/data', (req, res)=>{
+  //   let service = new app.service.vehicleServiceImpl(app);
+  //   service.findDataForTest(
+  //             function (erro, result){
+  //               if(erro){
+  //                 console.log('api-vehicle-> service error=>', erro)
+  //                 res.status(500).send(erro)
+  //                 return
+  //               }
+  //               res.status(200).send(result);
+  //               return;
+  //             }
+  //           );
+  //   return;
+  // });
 
 }
