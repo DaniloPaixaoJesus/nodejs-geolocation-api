@@ -6,15 +6,24 @@ VehicleMongoDao.prototype.save = function(partner,callback) {
 
 }
 
-VehicleMongoDao.prototype.findAll = function() {
-    let posts = [{nome:'VehicleMongoDao.prototype.findAll'},{nome: 'VehicleMongoDao.prototype.findAll'}];
-    return posts;
+VehicleMongoDao.prototype.findAll = function(callback) {
+    if(this._app.persistence.connectionFactoryMongoDb().readyState){
+        this._app.models.Vehicle.find({}).then((vehicles) => {
+                callback(null, vehicles);
+            });
+    }else{
+        callback('database connection error', null);
+    }
 }
 
 VehicleMongoDao.prototype.findById = function (id, callback) {
-    let posts = [{nome:'VehicleMongoDao.prototype.findById('+id+')'},{nome: 'VehicleMongoDao.prototype.findById'}];
-    callback(null, posts);
-    return;
+    if(this._app.persistence.connectionFactoryMongoDb().readyState){
+        this._app.models.Vehicle.findById(id).then((vehicle) => {
+                callback(null, vehicle);
+            });
+    }else{
+        callback('database connection error', null);
+    }
 }
 
 VehicleMongoDao.prototype.loadDataForTest = function(callback) {
