@@ -20,7 +20,7 @@ VehicleMongoDao.prototype.findAll =  function(callback) {
 
 VehicleMongoDao.prototype.findAllPaginated =  function(pagination, limit, callback) {
     if(this._app.persistence.connectionFactoryMongoDb().readyState){
-        let perPage = limit;
+        let perPage = Math.max(0, limit);
         let page = Math.max(0, pagination);
         this._app.models.Vehicle
             .find({})
