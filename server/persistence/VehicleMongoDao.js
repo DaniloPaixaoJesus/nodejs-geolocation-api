@@ -29,14 +29,13 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
             brand: 'Mercedes',
             category: 'VAN',
             status: 'ATIVO',
-            geoLocation: { 
-                latitude: '-23.554251',
-                longitude: '-46.632033'
+            geoLocation: {
+                coordinates: [-23.554251, -46.632033]
             }
         }),
         new this._app.models.Vehicle({
             name: 'Mercedes-Benz Sprinter Executiva Van',
-            identification: 'JPP-9658',
+            identification: 'ASD-3658',
             city: 'Salvador',
             state: 'Bahia',
             country: 'BR',
@@ -44,9 +43,8 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
             brand: 'Mercedes',
             category: 'VAN',
             status: 'ATIVO',
-            geoLocation: { 
-                latitude: '-23.554231',
-                longitude: '-46.633138'
+            geoLocation: {
+                coordinates: [-23.554251, -46.632033]
             }
         })
       ];

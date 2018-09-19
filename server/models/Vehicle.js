@@ -39,17 +39,20 @@ module.exports = (app)=>{
             type: String        
         },
         geoLocation: {
-            required: true,
+            time: {
+                type: Date,
+                default: Date.now
+            },
             type: {
-                latitude: {
-                    required: true,
-                    type: String        
-                },
-                longitude: {
-                    required: true,
-                    type: String        
-                },
-            }        
+                type: String,
+                enum: 'Point',
+                default: 'Point'
+            },
+            coordinates: { 
+                type: [Number], 
+                default: [0, 0],
+                index: '2dsphere'
+            }     
         }
     });
     return mongoose.model('Vehicle', schema);
