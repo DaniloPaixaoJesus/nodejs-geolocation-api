@@ -19,6 +19,7 @@ module.exports = (app)=>{
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     let page = req.param('page');
+    console.log('PAGE=====>',req.param('page'));
     if(!req.param('page')){
       page = 0;
     }

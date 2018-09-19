@@ -9,6 +9,13 @@ VehicleMongoDao.prototype.save = function(partner,callback) {
 VehicleMongoDao.prototype.findAll =  function(pagination, callback) {
     //var page = pagination;
     if(this._app.persistence.connectionFactoryMongoDb().readyState){
+        if(pagination == 'all'){
+            this._app.models.Vehicle
+            .find({})
+            .then((vehicles) => {
+                callback(null, vehicles);
+            });
+        }
         let perPage = 10;
         let page = Math.max(0, pagination);
         this._app.models.Vehicle
