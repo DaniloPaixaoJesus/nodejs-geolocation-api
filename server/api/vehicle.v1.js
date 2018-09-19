@@ -1,10 +1,28 @@
 module.exports = (app)=>{
 
   let version = 1;
+
+  app.get(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
+    let reponse = { 
+      todo:'api return geolocation data'
+    }
+    res.status(200).send(reponse);
+  });
+
+  app.put(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
+    let reponse = { 
+      todo:'api insert new geolocation data'
+    }
+    res.status(200).send(reponse);
+  });
   
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
-    service.findAll(
+    let page = req.param('page');
+    if(!req.param('page')){
+      page = 10;
+    }
+    service.findAll( page,
               function (erro, result){
                 if(erro){
                   console.log('api-vehicle-> service error=>', erro)
@@ -18,7 +36,7 @@ module.exports = (app)=>{
     return;
   });
   
-  app.get('/api/v1/vehicles/:id', (req, res)=>{
+  app.get(`/api/v${version}/vehicles/:id`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     service.findById(
               req.params.id, 
@@ -35,7 +53,7 @@ module.exports = (app)=>{
     return;
   });
 
-  app.get('/api/v1/vehicles/loaddata/init', (req, res)=>{
+  app.get(`/api/v${version}/vehicles/loaddata/init`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     service.loadDataForTest(
               function (erro, result){
@@ -50,21 +68,5 @@ module.exports = (app)=>{
             );
     return;
   });
-
-  // app.get('/api/vehicles/loaddata/data', (req, res)=>{
-  //   let service = new app.service.vehicleServiceImpl(app);
-  //   service.findDataForTest(
-  //             function (erro, result){
-  //               if(erro){
-  //                 console.log('api-vehicle-> service error=>', erro)
-  //                 res.status(500).send(erro)
-  //                 return
-  //               }
-  //               res.status(200).send(result);
-  //               return;
-  //             }
-  //           );
-  //   return;
-  // });
 
 }

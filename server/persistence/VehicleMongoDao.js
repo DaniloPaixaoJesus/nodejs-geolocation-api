@@ -6,9 +6,15 @@ VehicleMongoDao.prototype.save = function(partner,callback) {
 
 }
 
-VehicleMongoDao.prototype.findAll =  function(callback) {
+VehicleMongoDao.prototype.findAll =  function(page, callback) {
     if(this._app.persistence.connectionFactoryMongoDb().readyState){
-        this._app.models.Vehicle.find({}).then((vehicles) => {
+        let perPage = 10, 
+        page = Math.max(0, page);
+        this._app.models.Vehicle
+            .find({})
+            .limit(perPage)
+            .skip(perPage * page)
+            .then((vehicles) => {
                 callback(null, vehicles);
             });
     }else{
@@ -66,16 +72,6 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
       callback(null, vehicles);
       return;
 }
-
-// VehicleMongoDao.prototype.findDataForTest = function(callback) {
-//     if(this._app.persistence.connectionFactoryMongoDb().readyState){
-//         this._app.models.Vehicle.find({}).then((vehicles) => {
-//                 callback(null, vehicles);
-//             });
-//     }else{
-//         callback('database connection error', null);
-//     }
-// }
 
 module.exports = function(){
     return VehicleMongoDao

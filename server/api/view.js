@@ -8,7 +8,8 @@ module.exports = (app)=>{
   app.get('/api', (req, res)=>{
     let reponse = { 
       name:'API Commute Project',
-      version:'1.0.0.1',
+      currentVersion:'1.0.0.3',
+      versions: ['1.0.0.0', '1.0.0.1', '1.0.0.3'],
       status:'ONLINE'
     }
     res.status(200).send(reponse);
