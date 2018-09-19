@@ -16,14 +16,16 @@ module.exports = (app)=>{
     res.status(200).send(reponse);
   });
 
-  app.get(`/api/v${version}/vehicles/:page/pagination`, (req, res)=>{
+  app.get(`/api/v${version}/vehicles/:page/pagination/:limit`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
     let page = req.params.page;
-    console.log('PAGE=====>', page);
+    let limit = req.params.limit;
+    console.log('page=>', page);
+    console.log('limit=>', limit);
     if(!page){
       page = 0;
     }
-    service.findAll( page,
+    service.findAllPaginated( page, limit,
               function (erro, result){
                 if(erro){
                   console.log('api-vehicle-> service error=>', erro)
@@ -39,12 +41,7 @@ module.exports = (app)=>{
   
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
-    let page = req.query.page;
-    console.log('PAGE=====>', page);
-    if(!page){
-      page = 0;
-    }
-    service.findAll( page,
+    service.findAll( 
               function (erro, result){
                 if(erro){
                   console.log('api-vehicle-> service error=>', erro)

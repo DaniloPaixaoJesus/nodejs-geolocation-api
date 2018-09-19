@@ -6,17 +6,21 @@ VehicleMongoDao.prototype.save = function(partner,callback) {
 
 }
 
-VehicleMongoDao.prototype.findAll =  function(pagination, callback) {
-    //var page = pagination;
+VehicleMongoDao.prototype.findAll =  function(callback) {
     if(this._app.persistence.connectionFactoryMongoDb().readyState){
-        if(pagination == 'all'){
-            this._app.models.Vehicle
-            .find({})
-            .then((vehicles) => {
-                callback(null, vehicles);
-            });
-        }
-        let perPage = 10;
+        this._app.models.Vehicle
+        .find({})
+        .then((vehicles) => {
+            callback(null, vehicles);
+        });
+    }else{
+        callback('database connection error', null);
+    }
+}
+
+VehicleMongoDao.prototype.findAllPaginated =  function(pagination, limit, callback) {
+    if(this._app.persistence.connectionFactoryMongoDb().readyState){
+        let perPage = limit;
         let page = Math.max(0, pagination);
         this._app.models.Vehicle
             .find({})

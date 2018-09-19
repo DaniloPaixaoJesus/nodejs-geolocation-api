@@ -3,8 +3,20 @@ function VehicleServiceImpl(app) {
   this._app = app;
   this._dao = new app.persistence.VehicleMongoDao(app);
 }
-VehicleServiceImpl.prototype.findAll = function (page, callback) {
-    return this._dao.findAll(page, function (erro, result){
+VehicleServiceImpl.prototype.findAllPaginated = function (page, limit, callback) {
+    return this._dao.findAllPaginated(page, limit, function (erro, result){
+        if(erro){
+            console.log('api-vehicle-> dao error=>', erro)
+            res.status(500).send(erro)
+            return
+        }
+        callback(null, result)
+        return;
+    });
+}
+
+VehicleServiceImpl.prototype.findAll = function (callback) {
+    return this._dao.findAll(function (erro, result){
         if(erro){
             console.log('api-vehicle-> dao error=>', erro)
             res.status(500).send(erro)
