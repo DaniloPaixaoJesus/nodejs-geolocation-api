@@ -15,6 +15,27 @@ module.exports = (app)=>{
     }
     res.status(200).send(reponse);
   });
+
+  app.get(`/api/v${version}/vehicles/:page/pagination`, (req, res)=>{
+    let service = new app.service.vehicleServiceImpl(app);
+    let page = req.params.page;
+    console.log('PAGE=====>', page);
+    if(!page){
+      page = 0;
+    }
+    service.findAll( page,
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return
+                }
+                res.status(200).send(result);
+                return;
+              }
+            );
+    return;
+  });
   
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
