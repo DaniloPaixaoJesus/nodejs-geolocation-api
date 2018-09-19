@@ -20,7 +20,7 @@ module.exports = (app)=>{
     let service = new app.service.vehicleServiceImpl(app);
     let page = req.param('page');
     if(!req.param('page')){
-      page = 10;
+      page = 0;
     }
     service.findAll( page,
               function (erro, result){
