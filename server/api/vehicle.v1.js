@@ -3,10 +3,20 @@ module.exports = (app)=>{
   let version = 1;
 
   app.get(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
-    let reponse = { 
-      todo:'api return geolocation data'
-    }
-    res.status(200).send(reponse);
+    let service = new app.service.vehicleServiceImpl(app);
+    service.findById(
+              req.params.id, 
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return
+                }
+                res.status(200).send(result.geoLocation);
+                return;
+              }
+            );
+    return;
   });
 
   app.put(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
