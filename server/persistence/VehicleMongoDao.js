@@ -2,8 +2,50 @@
 function VehicleMongoDao(app) {
     this._app = app;
 }
-VehicleMongoDao.prototype.save = function(partner,callback) {
 
+VehicleMongoDao.prototype.updateGeoLocation = function(id, geoLocation, callback) {
+    this._app.models.Vehicle.findByIdAndUpdate(
+            id, 
+            { 
+                geoLocation: {
+                    time: Date.now,
+                    type: 'Point',
+                    coordinates: [geoLocation.latitude, geoLocation.longitude]
+                }
+            }, 
+            function(err, updatedObject){
+                if(err){
+                    callback(err, null);
+                    return;
+                }
+                callback(null, updatedObject);
+            }
+    );
+
+
+    // this._app.models.Vehicle.findOne(
+    //         {_id:id}, 
+    //         function (err, vehicle){
+    //             if(err){
+    //                 callback(err, null);
+    //                 return;
+    //             }
+    //             if(!vehicle){
+    //                 callback('404 not found', null);
+    //                 return;
+    //             }
+    //             vehicle.geoLocation.coordinates = [geoLocation.lat, geoLocation.lon];
+    //             vehicle.save(
+    //                 function(err, updatedObject){
+    //                     if(err){
+    //                         callback(err, null);
+    //                         return;
+    //                     }
+    //                     callback(null, updatedObject);
+    //                 }
+    //             );
+    //         }
+    // );
 }
 
 VehicleMongoDao.prototype.findAll =  function(callback) {

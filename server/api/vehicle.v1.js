@@ -10,10 +10,25 @@ module.exports = (app)=>{
   });
 
   app.put(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
-    let reponse = { 
-      todo:'api insert new geolocation data'
-    }
-    res.status(200).send(reponse);
+    let service = new app.service.vehicleServiceImpl(app);
+    let id = req.params.id;
+    const geoLocation = req.body.geoLocation;
+    console.log('req.params.id=>', req.params.id);
+    console.log('req.body.geoLocation=>', req.body.geoLocation);
+    service.updateGeoLocation( 
+              id,
+              geoLocation,
+              function (erro, result){
+                if(erro){
+                  console.log('api-vehicle-> service error=>', erro)
+                  res.status(500).send(erro)
+                  return;
+                }
+                res.status(200).send(result);
+                return;
+              }
+            );
+    return;
   });
 
   app.get(`/api/v${version}/vehicles/page/:page/limit/:limit`, (req, res)=>{

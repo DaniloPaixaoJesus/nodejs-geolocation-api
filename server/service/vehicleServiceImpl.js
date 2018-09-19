@@ -3,6 +3,19 @@ function VehicleServiceImpl(app) {
   this._app = app;
   this._dao = new app.persistence.VehicleMongoDao(app);
 }
+
+VehicleServiceImpl.prototype.updateGeoLocation = function (id, geoLocation, callback) {
+    return this._dao.updateGeoLocation(id, geoLocation, function (erro, result){
+        if(erro){
+            console.log('api-vehicle-> dao error=>', erro)
+            res.status(500).send(erro)
+            return
+        }
+        callback(null, result)
+        return;
+    });
+}
+
 VehicleServiceImpl.prototype.findAllPaginated = function (page, limit, callback) {
     return this._dao.findAllPaginated(page, limit, function (erro, result){
         if(erro){
