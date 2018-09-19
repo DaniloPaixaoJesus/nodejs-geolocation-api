@@ -3,7 +3,7 @@ function VehicleServiceImpl(app) {
   this._app = app;
   this._dao = new app.persistence.VehicleMongoDao(app);
 }
-VehicleServiceImpl.prototype.findAll = function (){
+VehicleServiceImpl.prototype.findAll = function (callback) {
     return this._dao.findAll(function (erro, result){
         if(erro){
             console.log('api-vehicle-> dao error=>', erro)
@@ -39,17 +39,17 @@ VehicleServiceImpl.prototype.loadDataForTest = function (callback) {
                 });
             }
 
-VehicleServiceImpl.prototype.findDataForTest = function (callback) {
-                return this._dao.findDataForTest(function (erro, result){
-                    if(erro){
-                        console.log('api-vehicle-> dao error=>', erro)
-                        res.status(500).send(erro)
-                        return
-                    }
-                    callback(null, result)
-                    return;
-                });
-            }
+// VehicleServiceImpl.prototype.findDataForTest = function (callback) {
+//                 return this._dao.findDataForTest(function (erro, result){
+//                     if(erro){
+//                         console.log('api-vehicle-> dao error=>', erro)
+//                         res.status(500).send(erro)
+//                         return
+//                     }
+//                     callback(null, result)
+//                     return;
+//                 });
+//             }
 
 
 module.exports = ()=>VehicleServiceImpl

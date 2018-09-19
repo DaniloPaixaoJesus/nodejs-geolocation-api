@@ -6,7 +6,7 @@ VehicleMongoDao.prototype.save = function(partner,callback) {
 
 }
 
-VehicleMongoDao.prototype.findAll = function(callback) {
+VehicleMongoDao.prototype.findAll =  function(callback) {
     if(this._app.persistence.connectionFactoryMongoDb().readyState){
         this._app.models.Vehicle.find({}).then((vehicles) => {
                 callback(null, vehicles);
@@ -67,15 +67,15 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
       return;
 }
 
-VehicleMongoDao.prototype.findDataForTest = function(callback) {
-    if(this._app.persistence.connectionFactoryMongoDb().readyState){
-        this._app.models.Vehicle.find({}).then((vehicles) => {
-                callback(null, vehicles);
-            });
-    }else{
-        callback('database connection error', null);
-    }
-}
+// VehicleMongoDao.prototype.findDataForTest = function(callback) {
+//     if(this._app.persistence.connectionFactoryMongoDb().readyState){
+//         this._app.models.Vehicle.find({}).then((vehicles) => {
+//                 callback(null, vehicles);
+//             });
+//     }else{
+//         callback('database connection error', null);
+//     }
+// }
 
 module.exports = function(){
     return VehicleMongoDao
