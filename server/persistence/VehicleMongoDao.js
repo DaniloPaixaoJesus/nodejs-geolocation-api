@@ -8,7 +8,7 @@ VehicleMongoDao.prototype.updateGeoLocation = function(id, geoLocation, callback
             id, 
             { 
                 geoLocation: {
-                    time: Date.now,
+                    time: Date.now(),
                     type: 'Point',
                     coordinates: [geoLocation.latitude, geoLocation.longitude]
                 }

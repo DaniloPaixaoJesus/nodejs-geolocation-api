@@ -22,11 +22,14 @@ module.exports = (app)=>{
   app.put(`/api/v${version}/vehicles/:id/geolocation`, function(req, res){
     let service = new app.service.vehicleServiceImpl(app);
     let id = req.params.id;
-    const geoLocation = {longitude: 0, latitude: 0};
+    const geoLocation = {
+                longitude: req.body["geoLocation"].longitude, 
+                latitude: req.body["geoLocation"].latitude
+          };
     //req.body.geoLocation;
-    console.log('req=>', req);
+    //console.log('req=>', req);
     console.log('req.params.id=>', req.params.id);
-    console.log('req.body.geoLocation=>', req.body.geoLocation);
+    console.log('req.body.geoLocation=>', req.body["geoLocation"]);
     service.updateGeoLocation( 
               id,
               geoLocation,
