@@ -32,7 +32,7 @@ VehicleMongoDao.prototype.updateGeoLocation = function(id, geoLocation, callback
                 geoLocation: {
                     time: Date.now(),
                     type: 'Point',
-                    coordinates: [geoLocation.latitude, geoLocation.longitude]
+                    coordinates: [geoLocation.longitude, geoLocation.latitude]
                 }
             }, 
             function(err, updatedObject){
@@ -84,29 +84,24 @@ VehicleMongoDao.prototype.findById = function (id, callback) {
 }
 
 VehicleMongoDao.prototype.findByGeoLocation = function (latitude, longitude, callback) {
-    this._app.models.Vehicle.aggregate(
-        [{ "$geoNear": {
-                "near": {
-                    "type": "Point",
-                    "coordinates": [latitude,longitude]
-                },
-                "distanceField": "distance",
-                "spherical": true,
-                "maxDistance": 3000
+    console.log('latitude=>', latitude);
+    console.log('longitude=>', longitude);
+    Message.find({
+        location: {
+            $near: {
+                $maxDistance: 5000,
+                $geometry: {
+                    type: "Point",
+                    coordinates: [longitude, latitude]
+                }
             }
-        },
-        { $limit: 100},
-        { $skip: 1 }],
-        function(err,results) {
-            if(err){
-                callback(err, null);
-                return;
-            }
-            callback(null, results);
-            return;
         }
-    )
-    
+    }).find((error, results) => {
+        if (error) console.log(error);
+        callback(null, results);
+        //console.log(JSON.stringify(results, 0, 2));
+        return;
+    });    
 }
 
 
