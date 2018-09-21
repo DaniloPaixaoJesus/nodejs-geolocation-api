@@ -3,6 +3,28 @@ function VehicleMongoDao(app) {
     this._app = app;
 }
 
+VehicleMongoDao.prototype.create = function(vehicle, callback) {
+    console.log('VehicleMongoDao.prototype.create->vehicle=>', vehicle);
+    this._app.models.Vehicle.create(
+        {
+            name: vehicle.name,
+            identification: vehicle.identification,
+            city: vehicle.city,
+            state: vehicle.state,
+            country: vehicle.country,
+            model: vehicle.model,
+            brand: vehicle.brand,
+            category: vehicle.category,
+            status: vehicle.status
+        },
+        function (err, newVehicle) {
+            if (err) return handleError(err);
+            callback(null, newVehicle);
+            return;
+        }
+    );
+}
+
 VehicleMongoDao.prototype.updateGeoLocation = function(id, geoLocation, callback) {
     this._app.models.Vehicle.findByIdAndUpdate(
             id, 
@@ -21,31 +43,6 @@ VehicleMongoDao.prototype.updateGeoLocation = function(id, geoLocation, callback
                 callback(null, updatedObject);
             }
     );
-
-
-    // this._app.models.Vehicle.findOne(
-    //         {_id:id}, 
-    //         function (err, vehicle){
-    //             if(err){
-    //                 callback(err, null);
-    //                 return;
-    //             }
-    //             if(!vehicle){
-    //                 callback('404 not found', null);
-    //                 return;
-    //             }
-    //             vehicle.geoLocation.coordinates = [geoLocation.lat, geoLocation.lon];
-    //             vehicle.save(
-    //                 function(err, updatedObject){
-    //                     if(err){
-    //                         callback(err, null);
-    //                         return;
-    //                     }
-    //                     callback(null, updatedObject);
-    //                 }
-    //             );
-    //         }
-    // );
 }
 
 VehicleMongoDao.prototype.findAll =  function(callback) {
@@ -85,6 +82,33 @@ VehicleMongoDao.prototype.findById = function (id, callback) {
         callback('database connection error', null);
     }
 }
+
+VehicleMongoDao.prototype.findByGeoLocation = function (latitude, longitude, callback) {
+    this._app.models.Vehicle.aggregate(
+        [{ "$geoNear": {
+                "near": {
+                    "type": "Point",
+                    "coordinates": [latitude,longitude]
+                },
+                "distanceField": "distance",
+                "spherical": true,
+                "maxDistance": 3000
+            }
+        },
+        { $limit: 100},
+        { $skip: 1 }],
+        function(err,results) {
+            if(err){
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+            return;
+        }
+    )
+    
+}
+
 
 VehicleMongoDao.prototype.loadDataForTest = function(callback) {
     let vehicles = [

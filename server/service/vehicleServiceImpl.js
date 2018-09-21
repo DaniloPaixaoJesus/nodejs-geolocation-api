@@ -4,6 +4,19 @@ function VehicleServiceImpl(app) {
   this._dao = new app.persistence.VehicleMongoDao(app);
 }
 
+VehicleServiceImpl.prototype.create = function (vehicle, callback) {
+    console.log('VehicleServiceImpl.prototype.create->vehicle=>', vehicle);
+    return this._dao.create(vehicle, function (erro, result){
+        if(erro){
+            console.log('api-vehicle-> dao error=>', erro)
+            res.status(500).send(erro)
+            return
+        }
+        callback(null, result)
+        return;
+    });
+}
+
 VehicleServiceImpl.prototype.updateGeoLocation = function (id, geoLocation, callback) {
     return this._dao.updateGeoLocation(id, geoLocation, function (erro, result){
         if(erro){
@@ -42,6 +55,18 @@ VehicleServiceImpl.prototype.findAll = function (callback) {
 
 VehicleServiceImpl.prototype.findById = function (id, callback) {
     return this._dao.findById(id, function (erro, result){
+        if(erro){
+            console.log('api-vehicle-> dao error=>', erro)
+            res.status(500).send(erro)
+            return
+        }
+        callback(null, result)
+        return;
+    });
+}
+
+VehicleServiceImpl.prototype.findByGeoLocation = function (latitude, longitude, callback) {
+    return this._dao.findByGeoLocation(latitude, longitude, function (erro, result){
         if(erro){
             console.log('api-vehicle-> dao error=>', erro)
             res.status(500).send(erro)

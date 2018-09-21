@@ -34,7 +34,7 @@ module.exports = ()=>{
 
 
   consign()
-   .include('api')
+   .include('api-v1')
    .then('persistence')
    .then('models')
    .then('service')
