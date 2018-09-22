@@ -9,7 +9,8 @@
 /server/node_modules
 
 # data
-/data/*
+# /data/*
+# /e2e
 
 # IDEs and editors
 /.idea
