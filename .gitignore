@@ -11,6 +11,8 @@
 # data
 # /data/*
 # /e2e
+# /client/dist
+# /client/e2e
 
 # IDEs and editors
 /.idea
