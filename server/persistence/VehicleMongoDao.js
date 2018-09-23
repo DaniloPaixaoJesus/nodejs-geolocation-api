@@ -84,24 +84,25 @@ VehicleMongoDao.prototype.findById = function (id, callback) {
 }
 
 VehicleMongoDao.prototype.findByGeoLocation = function (latitude, longitude, callback) {
+    console.log('VehicleMongoDao.prototype.findByGeoLocation====>');
     console.log('latitude=>', latitude);
     console.log('longitude=>', longitude);
-    Message.find({
-        location: {
-            $near: {
-                $maxDistance: 5000,
-                $geometry: {
-                    type: "Point",
-                    coordinates: [longitude, latitude]
-                }
-            }
+
+    this._app.models.Vehicle.aggregate([
+            { "$geoNear": {
+                "near": {
+                    "type": "Point",
+                    "coordinates": [-23.5640265, -46.6527128]
+                },
+                "distanceField": "distance",
+                "spherical": true
+            }}
+        ],
+        function(err,results) {
+            console.log('results=======>', results);
+            callback(null, results);
         }
-    }).find((error, results) => {
-        if (error) console.log(error);
-        callback(null, results);
-        //console.log(JSON.stringify(results, 0, 2));
-        return;
-    });    
+    );
 }
 
 
@@ -118,7 +119,7 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
             category: 'VAN',
             status: 'ATIVO',
             geoLocation: {
-                coordinates: [-23.554251, -46.632033]
+                coordinates: [-46.636402, -23.548370] 
             }
         }),
         new this._app.models.Vehicle({
@@ -132,7 +133,7 @@ VehicleMongoDao.prototype.loadDataForTest = function(callback) {
             category: 'VAN',
             status: 'ATIVO',
             geoLocation: {
-                coordinates: [-23.554251, -46.632033]
+                coordinates: [-46.637346, -23.548380]
             }
         })
       ];

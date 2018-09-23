@@ -2,6 +2,7 @@ module.exports = (app)=>{
     var mongoose = require('mongoose');
     // var mongoosePaginate = require('mongoose-paginate');
     var schema = mongoose.Schema({
+        created_at: { type: Date, default: Date.now },
         name: { 
             type: String, 
             required: true
@@ -50,10 +51,10 @@ module.exports = (app)=>{
             },
             coordinates: { 
                 type: [Number], 
-                default: [0, 0],
-                index: '2dsphere'
+                default: [0, 0]
             }     
         }
     });
+    schema.index({geoLocation: '2dsphere'});
     return mongoose.model('Vehicle', schema);
 }

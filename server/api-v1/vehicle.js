@@ -107,8 +107,9 @@ module.exports = (app)=>{
 
   app.get(`/api/v${version}/vehicles/geolocation`, (req, res)=>{
     let service = new app.service.vehicleServiceImpl(app);
-    let latitude = -112.110492;
-    let longitude = 36.098948;
+    console.log('geolocation-get-api===inicio===>');
+    let latitude = -23.554827;
+    let longitude = -46.639073;
     service.findByGeoLocation( latitude, longitude,
               function (erro, result){
                 if(erro){
