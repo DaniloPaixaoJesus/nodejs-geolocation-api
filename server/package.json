@@ -6,6 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test node_modules/mocha/bin/mocha",
     "start": "node cluster NODE_ENV=production",
+    "dev": "nodemon app.js",
     "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
   "engines": {
