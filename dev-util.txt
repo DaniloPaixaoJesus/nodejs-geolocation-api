@@ -1,2 +1,5 @@
+
+instalar mongodb compass
+
 docker run --name mongodbcommute -e MONGO_INITDB_DATABASE=cummutedb -d -p 27017:27107 mongo
 docker run -d -p 27017:27107 -v ~/data:/data/db mongo
