@@ -1,5 +1,5 @@
 {
-    "forma_de_pagamento":"payfast",
+    "forma_de_pagamento":"geolocation-api",
     "valor":98.53 ,
     "moeda":"USD",
     "descricao":"criando um pagamento"

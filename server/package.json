@@ -1,5 +1,5 @@
 {
-  "name": "payfast",
+  "name": "geolocation-api",
   "version": "1.0.0",
   "description": "api para teste do nodejs",
   "main": "index.js",

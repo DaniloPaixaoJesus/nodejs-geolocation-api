@@ -5,7 +5,7 @@ function createDBConnectionMySql(){
 			host: 'localhost',
 			user: 'root',
 			password: 'root',
-			database: 'payfast'
+			database: 'geolocationdb'
 		})
 }
 
