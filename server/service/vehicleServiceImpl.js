@@ -6,10 +6,10 @@ function VehicleServiceImpl(app) {
 
 VehicleServiceImpl.prototype.create = function (vehicle, callback) {
     console.log('VehicleServiceImpl.prototype.create->vehicle=>', vehicle);
-    return this._dao.create(vehicle, function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro)
-            res.status(500).send(erro)
+    return this._dao.create(vehicle, function (err, result){
+        if(err){
+            console.log('api-vehicle-> dao err=>', err)
+            res.status(500).send(err)
             return
         }
         callback(null, result)
@@ -66,28 +66,24 @@ VehicleServiceImpl.prototype.findById = function (id, callback) {
 }
 
 VehicleServiceImpl.prototype.findByGeoLocation = function (latitude, longitude, callback) {
-    console.log('VehicleServiceImpl.prototype.findByGeoLocation====>');
-    return this._dao.findByGeoLocation(latitude, longitude, function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro)
-            res.status(500).send(erro)
+    return this._dao.findByGeoLocation(latitude, longitude, function (err, result){
+        if(err){
+            console.log('api-vehicle-> dao error=>', err)
+            res.status(500).send(err)
             return
         }
         callback(null, result)
-        return;
     });
 }
 
 VehicleServiceImpl.prototype.loadDataForTest = function (callback) {
-                return this._dao.loadDataForTest(function (erro, result){
-                    if(erro){
-                        console.log('api-vehicle-> dao error=>', erro)
-                        res.status(500).send(erro)
-                        return
-                    }
-                    callback(null, result)
-                    return;
-                });
-            }
+    return this._dao.loadDataForTest(function (err, result){
+        if(err){
+            console.log('api-vehicle-> dao error=>', err);
+            res.status(500).send(err);
+        }
+        callback(null, result);
+    });
+}
 
 module.exports = ()=>VehicleServiceImpl

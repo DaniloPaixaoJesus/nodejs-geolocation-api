@@ -4,13 +4,17 @@ if(!env){
 }
 var config = require(`../config/config.${env}.json`);
 	
-function connectionFactoryMongoDbDriver(){//callback
-	var MongoClient = require('mongodb').MongoClient;
+async function connectionFactoryMongoDriver(){//callback
+	var mongoClient = require('mongodb').MongoClient;
 	const uri = `mongodb://${config.databaseConfig.host}:27017/${config.databaseConfig.database}`;
-	//MongoClient.connect(uri, callback);
-	return MongoClient.connect(uri);
+	var mongoClient = require('mongodb').MongoClient;
+	const client = await mongoClient.connect(uri);
+	const db = client.db(`${config.databaseConfig.database}`);
+	return new Promise((resolve, reject) => {
+							resolve(db);
+						});
 }
 
 module.exports = function() {
-	return connectionFactoryMongoDbDriver;
+	return connectionFactoryMongoDriver;
 }

@@ -105,20 +105,4 @@ module.exports = (app)=>{
     return;
   });
 
-  app.get(`/api/v${version}/vehicles/loaddata/init`, (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
-    service.loadDataForTest(
-              function (erro, result){
-                if(erro){
-                  console.log('api-vehicle-> service error=>', erro)
-                  res.status(500).send(erro)
-                  return
-                }
-                res.status(200).send(result);
-                return;
-              }
-            );
-    return;
-  });
-
 }
