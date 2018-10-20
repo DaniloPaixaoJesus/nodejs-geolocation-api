@@ -115,3 +115,14 @@
 {"level":"info","message":"::1 - - [19/Oct/2018:21:37:12 +0000] \"PUT /api/v2/vehicles/5bca458011d7a234bf4bbd40/geolocation HTTP/1.1\" 200 28\n","timestamp":"2018-10-19T21:37:12.732Z"}
 {"level":"info","message":"::1 - - [19/Oct/2018:21:38:40 +0000] \"PUT /api/v2/vehicles/5bca458011d7a234bf4bbd40/geolocation HTTP/1.1\" 200 28\n","timestamp":"2018-10-19T21:38:40.030Z"}
 {"level":"info","message":"::1 - - [19/Oct/2018:21:43:36 +0000] \"GET /api/v2/vehicles HTTP/1.1\" 200 1558\n","timestamp":"2018-10-19T21:43:36.783Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:18:59:37 +0000] \"GET /api/v2/vehicles HTTP/1.1\" 200 761\n","timestamp":"2018-10-20T18:59:37.211Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:18:59:37 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150\n","timestamp":"2018-10-20T18:59:37.411Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:18:59:43 +0000] \"GET /api/v2/vehicles/geolocation HTTP/1.1\" 200 2\n","timestamp":"2018-10-20T18:59:43.839Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:00:50 +0000] \"GET /api/v2/vehicles/loaddata/init HTTP/1.1\" 200 886\n","timestamp":"2018-10-20T19:00:50.588Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:00:53 +0000] \"GET /api/v2/vehicles/loaddata/init HTTP/1.1\" 200 886\n","timestamp":"2018-10-20T19:00:53.224Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:01:31 +0000] \"GET /api/v2/vehicles/geolocation HTTP/1.1\" 304 -\n","timestamp":"2018-10-20T19:01:31.958Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:06:04 +0000] \"GET /api/v2/vehicles/geolocation HTTP/1.1\" 200 649\n","timestamp":"2018-10-20T19:06:04.127Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:10:44 +0000] \"GET /api/v2/5ba6bf0afc20c60018447690/vehicles HTTP/1.1\" 404 179\n","timestamp":"2018-10-20T19:10:44.762Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:10:55 +0000] \"GET /api/v2/vehicles/5ba6bf0afc20c60018447690 HTTP/1.1\" 404 179\n","timestamp":"2018-10-20T19:10:55.832Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:12:18 +0000] \"GET /api/v2/vehicles/5ba6bf0afc20c60018447690 HTTP/1.1\" 200 379\n","timestamp":"2018-10-20T19:12:18.336Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:19:14:20 +0000] \"GET /api/v2/vehicles/5ba6bf0afc20c60018447690/geolocation HTTP/1.1\" 200 87\n","timestamp":"2018-10-20T19:14:20.027Z"}

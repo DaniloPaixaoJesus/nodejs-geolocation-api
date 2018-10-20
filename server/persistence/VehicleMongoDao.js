@@ -55,31 +55,19 @@ VehicleMongoDao.prototype.findAll =  async function(callback) {
     const conn = await this._app.persistence.connectionFactoryMongoDriver();
     return await conn.collection('vehicles').find().toArray((err, result) => {
         callback(null, result);
-      });
+    });
+}
+
+VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit, callback) {
+    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    return await conn.collection('vehicles').find().toArray((err, result) => {
+        callback(null, result);
+    });
 }
 
 
-// VehicleMongoDao.prototype.findAllPaginated =  function(pagination, limit, callback) {
-//     if(this._app.persistence.connectionFactoryMongoDb().readyState){
-//         let perPage = Math.max(0, limit);
-//         let page = Math.max(0, pagination);
-//         this._app.models.Vehicle
-//             .find({})
-//             .limit(perPage)
-//             .skip(perPage * page)
-//             .then((vehicles) => {
-//                 callback(null, vehicles);
-//             });
-//     }else{
-//         callback('database connection error', null);
-//     }
-// }
-
-
 VehicleMongoDao.prototype.findById = async function (id, callback) {
-
     const conn = await this._app.persistence.connectionFactoryMongoDriver();
-    // Peform a simple find and return all the documents
     conn.collection('vehicles').findOne( {'_id': this._ObjectID(id)}, (err, vehicle) => {
         callback(null, vehicle);
     });
@@ -108,45 +96,45 @@ VehicleMongoDao.prototype.loadDataForTest = async function(callback) {
         {
             name: 'Mercedes-Benz Sprinter Executiva Van',
             identification: 'ASD-3658',
-            city: 'Salvador',
-            state: 'Bahia',
+            city: 'São Paulo',
+            state: 'São Paulo',
             country: 'BR',
             model: 'Sprinter',
             brand: 'Mercedes',
             category: 'VAN',
             status: 'ATIVO',
             location: {
-                coordinates: [-23.548370, -46.636402],
+                coordinates: [-23.559421, -46.638310],
                 type: 'Point'
             }
         },
         {
             name: 'Mercedes-Benz Sprinter Executiva Van',
             identification: 'ASD-3658',
-            city: 'Salvador',
-            state: 'Bahia',
+            city: 'São Paulo',
+            state: 'São Paulo',
             country: 'BR',
             model: 'Sprinter',
             brand: 'Mercedes',
             category: 'VAN',
             status: 'ATIVO',
             location: {
-                coordinates: [-23.548370, -46.636402],
+                coordinates: [-23.559421, -46.638310],
                 type: 'Point'
             }
         },
         {
             name: 'Mercedes-Benz Sprinter Executiva Van',
             identification: 'ASD-3658',
-            city: 'Salvador',
-            state: 'Bahia',
+            city: 'São Paulo',
+            state: 'São Paulo',
             country: 'BR',
             model: 'Sprinter',
             brand: 'Mercedes',
             category: 'VAN',
             status: 'ATIVO',
             location: {
-                coordinates: [-23.548370, -46.636402],
+                coordinates: [-23.559421, -46.638310],
                 type: 'Point'
             }
         }
