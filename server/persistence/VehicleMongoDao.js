@@ -74,14 +74,14 @@ VehicleMongoDao.prototype.findById = async function (id, callback) {
 }
 
 
-VehicleMongoDao.prototype.findByGeoLocation = async function (latitude, longitude, callback) {
+VehicleMongoDao.prototype.findByGeoLocation = async function (latitude, longitude, distance, callback) {
     const conn = await this._app.persistence.connectionFactoryMongoDriver();
     const result = await conn.collection('vehicles').aggregate( 
         [{
             $geoNear: {
                 near: {type:"Point",coordinates:[latitude, longitude]},
                 distanceField: "distance",
-                maxDistance: 500000,
+                maxDistance: distance,
                 num: 2,
                 spherical: true
             }

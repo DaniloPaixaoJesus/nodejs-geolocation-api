@@ -55,8 +55,8 @@ VehicleServiceImpl.prototype.findById = function (id, callback) {
     });
 }
 
-VehicleServiceImpl.prototype.findByGeoLocation = function (latitude, longitude, callback) {
-    return this._dao.findByGeoLocation(latitude, longitude, function (err, result){
+VehicleServiceImpl.prototype.findByGeoLocation = function (latitude, longitude, distance, callback) {
+    return this._dao.findByGeoLocation(latitude, longitude, distance, function (err, result){
         if(err){
             console.log('api-vehicle-> dao error=>', err);
             res.status(500).send(err);

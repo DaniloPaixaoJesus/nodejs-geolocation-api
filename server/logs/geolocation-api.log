@@ -169,3 +169,7 @@
 {"level":"info","message":"::1 - - [20/Oct/2018:20:20:22 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073 HTTP/1.1\" 304 -\n","timestamp":"2018-10-20T20:20:22.354Z"}
 {"level":"info","message":"::1 - - [20/Oct/2018:20:20:25 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073 HTTP/1.1\" 304 -\n","timestamp":"2018-10-20T20:20:25.648Z"}
 {"level":"info","message":"::1 - - [20/Oct/2018:20:20:33 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073 HTTP/1.1\" 304 -\n","timestamp":"2018-10-20T20:20:33.299Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:20:23:25 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/5 HTTP/1.1\" 200 2\n","timestamp":"2018-10-20T20:23:25.436Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:20:23:28 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/50 HTTP/1.1\" 200 2\n","timestamp":"2018-10-20T20:23:28.796Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:20:23:32 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/500 HTTP/1.1\" 200 663\n","timestamp":"2018-10-20T20:23:32.516Z"}
+{"level":"info","message":"::1 - - [20/Oct/2018:20:23:36 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/5000 HTTP/1.1\" 200 663\n","timestamp":"2018-10-20T20:23:36.522Z"}

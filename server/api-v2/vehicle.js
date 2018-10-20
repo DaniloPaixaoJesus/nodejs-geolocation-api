@@ -90,14 +90,14 @@ module.exports = (app)=>{
             );
   });
 
-  app.get(`/api/v${version}/vehicles/:lat/:lon`, (req, res)=>{
-    //http://localhost:3000/api/v2/vehicles/-23.554827/-46.639073
+  app.get(`/api/v${version}/vehicles/:lat/:lon/:distance`, (req, res)=>{
+    //http://localhost:3000/api/v2/vehicles/-23.554827/-46.639073/5000
     let service = new app.service.vehicleServiceImpl(app);
     let latitude = Number(req.params.lat);
     let longitude = Number(req.params.lon);
-    console.log(Number(req.params.lat));
-    console.log(Number(req.params.lon));
-    service.findByGeoLocation( latitude, longitude,
+    let distance = Number(req.params.distance);
+    
+    service.findByGeoLocation( latitude, longitude, distance, 
               function (err, result){
                 if(err){
                   console.log('api-vehicle-> service err=>', err)
