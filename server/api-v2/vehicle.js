@@ -14,8 +14,8 @@ module.exports = (app)=>{
               vehicle,
               function (erro, result){
                 if(erro){
-                  console.log('api-vehicle-> service error=>', erro)
-                  res.status(500).send(erro)
+                  console.log('api-vehicle-> service error=>', erro);
+                  res.status(500).send(erro);
                 }
                 res.status(200).send(result);
               }
@@ -37,8 +37,8 @@ module.exports = (app)=>{
               geoLocation,
               function (err, result){
                 if(err){
-                  console.log('api-vehicle-> service err=>', err)
-                  res.status(500).send(err)
+                  console.log('api-vehicle-> service err=>', err);
+                  res.status(500).send(err);
                 }
                 res.status(200).send(result);
               }
@@ -55,15 +55,12 @@ module.exports = (app)=>{
     service.findAllPaginated( page, limit,
               function (erro, result){
                 if(erro){
-                  console.log('api-vehicle-> service error=>', erro)
-                  res.status(500).send(erro)
-                  return
+                  console.log('api-vehicle-> service error=>', erro);
+                  res.status(500).send(erro);
                 }
                 res.status(200).send(result);
-                return;
               }
             );
-    return;
   });
 
   app.get(`/api/v${version}/vehicles/:id`, (req, res)=>{
@@ -72,15 +69,12 @@ module.exports = (app)=>{
               req.params.id, 
               function (erro, result){
                 if(erro){
-                  console.log('api-vehicle-> service error=>', erro)
-                  res.status(500).send(erro)
-                  return
+                  console.log('api-vehicle-> service error=>', erro);
+                  res.status(500).send(erro);
                 }
                 res.status(200).send(result);
-                return;
               }
             );
-    return;
   });
 
   app.get(`/api/v${version}/vehicles`, (req, res)=>{
@@ -89,29 +83,29 @@ module.exports = (app)=>{
               function (err, result){
                 if(err){
                   console.log('api-vehicle-> service err=>', err)
-                  res.status(500).send(err)
+                  res.status(500).send(err);
                 }
                 res.status(200).send(result);
               }
             );
   });
 
-  app.get(`/api/v${version}/vehicles/geolocation`, (req, res)=>{
+  app.get(`/api/v${version}/vehicles/:lat/:lon`, (req, res)=>{
+    //http://localhost:3000/api/v2/vehicles/-23.554827/-46.639073
     let service = new app.service.vehicleServiceImpl(app);
-    let latitude = -23.554827;
-    let longitude = -46.639073;
+    let latitude = Number(req.params.lat);
+    let longitude = Number(req.params.lon);
+    console.log(Number(req.params.lat));
+    console.log(Number(req.params.lon));
     service.findByGeoLocation( latitude, longitude,
               function (err, result){
                 if(err){
                   console.log('api-vehicle-> service err=>', err)
-                  res.status(500).send(err)
-                  return
+                  res.status(500).send(err);
                 }
                 res.status(200).send(result);
-                return;
               }
             );
-    return;
   });
 
   app.get(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
@@ -123,7 +117,7 @@ module.exports = (app)=>{
                   console.log('api-vehicle-> service err=>', err);
                   res.status(500).send(err);
                 }
-                res.status(200).send(result.geoLocation);
+                res.status(200).send(result);
               }
           );
   });
@@ -134,8 +128,7 @@ module.exports = (app)=>{
               function (err, result){
                 if(err){
                   console.log('api-vehicle-> service error=>', err)
-                  res.status(500).send(err)
-                  return
+                  res.status(500).send(err);
                 }
                 res.status(200).send(result);
               }
