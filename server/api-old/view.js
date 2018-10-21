@@ -25,18 +25,4 @@ module.exports = (app)=>{
     res.status(200).send(reponse);
   });
 
-
-  //       const client = await MongoClient.connect(mongoUrl);
-  //       return client.db('refricode').collection(db_collection).aggregate(
-  //           [{
-  //               $geoNear: {
-  //                   near: {type:"Point",coordinates:[args.lat,args.long]},
-  //                   distanceField: "dist",
-  //                   maxDistance: 50000,
-  //                   num: 2,
-  //                   spherical: true
-  //               }
-  //           }]
-  //       ).toArray();
-
 }

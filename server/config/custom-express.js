@@ -10,7 +10,7 @@ var customLogger = require('../middleware/middleware.logger');
 module.exports = ()=>{
   var app = express();
 
-  //Middleware do Morgan
+  //Middleware do Morgan para Log
   app.use(morgan("common", {
     stream: {
       write: function(mensagem){
@@ -34,8 +34,8 @@ module.exports = ()=>{
 
 
   consign()
-   //.include('api-v1')
-   .include('api-v2')
+   .include('api-old')
+   .include('api-v1')
    .then('persistence')
    //.then('models')
    .then('service')
