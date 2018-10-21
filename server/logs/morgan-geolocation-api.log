@@ -26,3 +26,8 @@
 {"level":"info","message":"::1 - - [21/Oct/2018:04:11:04 +0000] \"POST /api/v2/images HTTP/1.1\" 200 140\n","timestamp":"2018-10-21T04:11:04.764Z"}
 {"level":"info","message":"::1 - - [21/Oct/2018:04:11:05 +0000] \"POST /api/v2/images HTTP/1.1\" 200 140\n","timestamp":"2018-10-21T04:11:05.374Z"}
 {"level":"info","message":"::1 - - [21/Oct/2018:04:11:05 +0000] \"POST /api/v2/images HTTP/1.1\" 200 140\n","timestamp":"2018-10-21T04:11:05.914Z"}
+{"level":"info","message":"::1 - - [21/Oct/2018:04:12:19 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/50 HTTP/1.1\" 304 -\n","timestamp":"2018-10-21T04:12:19.947Z"}
+{"level":"info","message":"::1 - - [21/Oct/2018:04:12:24 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/500 HTTP/1.1\" 304 -\n","timestamp":"2018-10-21T04:12:24.106Z"}
+{"level":"info","message":"::1 - - [21/Oct/2018:04:20:13 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/500 HTTP/1.1\" 304 -\n","timestamp":"2018-10-21T04:20:13.883Z"}
+{"level":"info","message":"::1 - - [21/Oct/2018:04:20:14 +0000] \"GET /api/v2/vehicles/-23.554827/-46.639073/500 HTTP/1.1\" 304 -\n","timestamp":"2018-10-21T04:20:14.773Z"}
+{"level":"info","message":"::1 - - [21/Oct/2018:04:28:11 +0000] \"GET /api/v2/vehicles HTTP/1.1\" 304 -\n","timestamp":"2018-10-21T04:28:11.881Z"}

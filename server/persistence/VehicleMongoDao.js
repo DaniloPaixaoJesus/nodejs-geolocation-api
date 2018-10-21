@@ -17,7 +17,7 @@ VehicleMongoDao.prototype.create = async function(vehicle, callback) {
             category: vehicle.category,
             status: vehicle.status
         };
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
 
     return await conn.collection('vehicles')
                         .insertOne(newVehicle)
@@ -32,7 +32,7 @@ VehicleMongoDao.prototype.create = async function(vehicle, callback) {
 
 
 VehicleMongoDao.prototype.updateGeoLocation = async function(id, geoLocation, callback) {
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     console.log('id', id);
     return await conn.collection('vehicles')
                             .updateOne(
@@ -52,14 +52,14 @@ VehicleMongoDao.prototype.updateGeoLocation = async function(id, geoLocation, ca
 
 
 VehicleMongoDao.prototype.findAll =  async function(callback) {
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     return await conn.collection('vehicles').find().toArray((err, result) => {
         callback(null, result);
     });
 }
 
 VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit, callback) {
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     return await conn.collection('vehicles').find().toArray((err, result) => {
         callback(null, result);
     });
@@ -67,7 +67,7 @@ VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit, c
 
 
 VehicleMongoDao.prototype.findById = async function (id, callback) {
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     conn.collection('vehicles').findOne( {'_id': this._ObjectID(id)}, (err, vehicle) => {
         callback(null, vehicle);
     });
@@ -75,7 +75,7 @@ VehicleMongoDao.prototype.findById = async function (id, callback) {
 
 
 VehicleMongoDao.prototype.findByGeoLocation = async function (latitude, longitude, distance, callback) {
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     const result = await conn.collection('vehicles').aggregate( 
         [{
             $geoNear: {
@@ -139,7 +139,7 @@ VehicleMongoDao.prototype.loadDataForTest = async function(callback) {
             }
         }
       ];
-    const conn = await this._app.persistence.connectionFactoryMongoDriver();
+    const conn = await this._app.database.connectionFactoryMongoDriver();
     const result = await conn.collection('vehicles').insertMany(vehicles);
     callback(null, vehicles);
 }

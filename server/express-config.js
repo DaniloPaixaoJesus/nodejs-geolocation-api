@@ -4,8 +4,8 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
 var morgan = require('morgan');
-var logger = require('../service/logger.js');
-var customLogger = require('../middleware/middleware.logger');
+var logger = require('./service/logger.js');
+var customLogger = require('./middleware/middleware.logger');
 
 module.exports = ()=>{
   var app = express();
@@ -36,6 +36,7 @@ module.exports = ()=>{
   consign()
    .include('api-old')
    .include('api-v1')
+   .then('database')
    .then('persistence')
    //.then('models')
    .then('service')
@@ -59,7 +60,7 @@ module.exports = ()=>{
   //tem que colocar na ordem, caso contrário ele passa pelo middleware e 
   //ainda não vai ter acontecido nenhum erro.
 
-  app.persistence.connectionFactoryMongoDb()
+  app.database.connectionFactoryMongoDb()
   
   return app;
 }
