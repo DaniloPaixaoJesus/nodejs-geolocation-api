@@ -52,9 +52,15 @@ module.exports = (app)=>{
     if(!page){
       page = 0;
     }
-    let result = await service.findAllPaginated( page, limit);
-    if(!result){
-      res.status(404).send(result);
+    let result = await service
+                            .findAllPaginated( page, limit)
+                            .catch(err => {
+                              res.status(500).send();
+                              return;
+                            }
+                          );
+    if(!result || Number(result.length) === 0){
+      res.status(404).send();
       return;
     }
     res.status(200).send(result);

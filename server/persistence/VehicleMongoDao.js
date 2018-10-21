@@ -4,63 +4,64 @@ function VehicleMongoDao(app) {
     this._ObjectID = require('mongodb').ObjectID;
 }
 
-VehicleMongoDao.prototype.create = async function(vehicle, callback) {
+VehicleMongoDao.prototype.create = async function (vehicle, callback) {
     console.log('VehicleMongoDao.prototype.create->vehicle=>', vehicle);
     const newVehicle = {
-            name: vehicle.name,
-            identification: vehicle.identification,
-            city: vehicle.city,
-            state: vehicle.state,
-            country: vehicle.country,
-            model: vehicle.model,
-            brand: vehicle.brand,
-            category: vehicle.category,
-            status: vehicle.status
-        };
+        name: vehicle.name,
+        identification: vehicle.identification,
+        city: vehicle.city,
+        state: vehicle.state,
+        country: vehicle.country,
+        model: vehicle.model,
+        brand: vehicle.brand,
+        category: vehicle.category,
+        status: vehicle.status
+    };
     const conn = await this._app.database.connectionFactoryMongoDriver();
 
     return await conn.collection('vehicles')
-                        .insertOne(newVehicle)
-                        .then(result => {
-                                    const { insertedId } = result;
-                                    // Do something with the insertedId
-                                    console.log(`Inserted document with _id: ${insertedId}`);
-                                    callback(null, result);
-                                });
-    
+        .insertOne(newVehicle)
+        .then(result => {
+            const { insertedId } = result;
+            // Do something with the insertedId
+            console.log(`Inserted document with _id: ${insertedId}`);
+            callback(null, result);
+        });
+
 }
 
 
-VehicleMongoDao.prototype.updateGeoLocation = async function(id, geoLocation, callback) {
+VehicleMongoDao.prototype.updateGeoLocation = async function (id, geoLocation, callback) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
     console.log('id', id);
     return await conn.collection('vehicles')
-                            .updateOne(
-                                    {'_id': this._ObjectID(id)}, 
-                                    {$set: {
-                                                'location':{
-                                                    type: 'Point',
-                                                    coordinates: [geoLocation.longitude, geoLocation.latitude]
-                                                }
-                                            } 
-                                    }
-                            ).then(result => {
-                                callback(null, result);
-                                return result;
-                            });
+        .updateOne(
+            { '_id': this._ObjectID(id) },
+            {
+                $set: {
+                    'location': {
+                        type: 'Point',
+                        coordinates: [geoLocation.longitude, geoLocation.latitude]
+                    }
+                }
+            }
+        ).then(result => {
+            callback(null, result);
+            return result;
+        });
 }
 
 
-VehicleMongoDao.prototype.findAll =  async function(callback) {
+VehicleMongoDao.prototype.findAll = async function (callback) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
     return await conn.collection('vehicles').find().toArray((err, result) => {
         callback(null, result);
     });
 }
 
-VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit) {
+VehicleMongoDao.prototype.findAllPaginated = async function (pagination, limit) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
-    let result = await conn.collection('vehicless').find().toArray();
+    let result = await conn.collectin('vehicles').find().toArray();
     return new Promise((resolve, reject) => {
         resolve(result);
     });
@@ -69,7 +70,7 @@ VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit) {
 
 VehicleMongoDao.prototype.findById = async function (id, callback) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
-    conn.collection('vehicles').findOne( {'_id': this._ObjectID(id)}, (err, vehicle) => {
+    conn.collection('vehicles').findOne({ '_id': this._ObjectID(id) }, (err, vehicle) => {
         callback(null, vehicle);
     });
 }
@@ -77,10 +78,10 @@ VehicleMongoDao.prototype.findById = async function (id, callback) {
 
 VehicleMongoDao.prototype.findByGeoLocation = async function (latitude, longitude, distance, callback) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
-    const result = await conn.collection('vehicles').aggregate( 
+    const result = await conn.collection('vehicles').aggregate(
         [{
             $geoNear: {
-                near: {type:"Point",coordinates:[latitude, longitude]},
+                near: { type: "Point", coordinates: [latitude, longitude] },
                 distanceField: "distance",
                 maxDistance: distance,
                 num: 2,
@@ -92,7 +93,7 @@ VehicleMongoDao.prototype.findByGeoLocation = async function (latitude, longitud
 }
 
 
-VehicleMongoDao.prototype.loadDataForTest = async function(callback) {
+VehicleMongoDao.prototype.loadDataForTest = async function (callback) {
     let vehicles = [
         {
             name: 'Mercedes-Benz Sprinter Executiva Van',
@@ -139,12 +140,12 @@ VehicleMongoDao.prototype.loadDataForTest = async function(callback) {
                 type: 'Point'
             }
         }
-      ];
+    ];
     const conn = await this._app.database.connectionFactoryMongoDriver();
     const result = await conn.collection('vehicles').insertMany(vehicles);
     callback(null, vehicles);
 }
 
-module.exports = function(){
+module.exports = function () {
     return VehicleMongoDao
 }
