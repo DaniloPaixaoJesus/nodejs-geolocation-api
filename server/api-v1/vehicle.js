@@ -45,22 +45,19 @@ module.exports = (app)=>{
         );
   });
 
-  app.get(`/api/v${version}/vehicles/page/:page/limit/:limit`, (req, res)=>{
+  app.get(`/api/v${version}/vehicles/page/:page/limit/:limit`, async function(req, res){
     let service = new app.service.vehicleServiceImpl(app);
     let page = req.params.page;
     let limit = req.params.limit;
     if(!page){
       page = 0;
     }
-    service.findAllPaginated( page, limit,
-              function (erro, result){
-                if(erro){
-                  console.log('api-vehicle-> service error=>', erro);
-                  res.status(500).send(erro);
-                }
-                res.status(200).send(result);
-              }
-            );
+    let result = await service.findAllPaginated( page, limit);
+    if(!result){
+      res.status(404).send(result);
+      return;
+    }
+    res.status(200).send(result);
   });
 
   app.get(`/api/v${version}/vehicles/:id`, (req, res)=>{

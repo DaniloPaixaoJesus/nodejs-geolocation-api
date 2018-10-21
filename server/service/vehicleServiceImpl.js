@@ -25,13 +25,10 @@ VehicleServiceImpl.prototype.updateGeoLocation = function (id, geoLocation, call
     });
 }
 
-VehicleServiceImpl.prototype.findAllPaginated = function (page, limit, callback) {
-    return this._dao.findAllPaginated(page, limit, function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro);
-            res.status(500).send(erro);
-        }
-        callback(null, result);
+VehicleServiceImpl.prototype.findAllPaginated = async function (page, limit) {
+    let result = await this._dao.findAllPaginated(page, limit);
+    return new Promise((resolve, reject) => {
+        resolve(result);
     });
 }
 

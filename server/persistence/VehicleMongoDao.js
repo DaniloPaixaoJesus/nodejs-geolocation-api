@@ -58,10 +58,11 @@ VehicleMongoDao.prototype.findAll =  async function(callback) {
     });
 }
 
-VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit, callback) {
+VehicleMongoDao.prototype.findAllPaginated = async function(pagination, limit) {
     const conn = await this._app.database.connectionFactoryMongoDriver();
-    return await conn.collection('vehicles').find().toArray((err, result) => {
-        callback(null, result);
+    let result = await conn.collection('vehicless').find().toArray();
+    return new Promise((resolve, reject) => {
+        resolve(result);
     });
 }
 
