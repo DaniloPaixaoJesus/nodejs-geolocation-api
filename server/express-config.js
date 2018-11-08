@@ -7,8 +7,18 @@ var morgan = require('morgan');
 var logger = require('./service/logger.js');
 var customLogger = require('./middleware/middleware.logger');
 
+const ExpressOAuthServer = require('express-oauth-server');
+const cors = require('cors');
+
 module.exports = ()=>{
   var app = express();
+
+  app.oauth = new ExpressOAuthServer({
+    model: require('./oauth_model'),
+    accessTokenLifetime: 31536000
+  });
+
+  //app.use(cors());
 
   //Middleware do Morgan para Log
   app.use(morgan("common", {

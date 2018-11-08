@@ -109,3 +109,16 @@
 {"level":"info","message":"::1 - - [21/Oct/2018:05:24:46 +0000] \"GET /api/v2/vehicles/page/1/limit/1 HTTP/1.1\" 404 -\n","timestamp":"2018-10-21T05:24:46.565Z"}
 {"level":"info","message":"::1 - - [21/Oct/2018:05:24:46 +0000] \"GET /api/v2/vehicles/page/1/limit/1 HTTP/1.1\" 404 -\n","timestamp":"2018-10-21T05:24:46.771Z"}
 {"level":"info","message":"::1 - - [21/Oct/2018:05:24:46 +0000] \"GET /api/v2/vehicles/page/1/limit/1 HTTP/1.1\" 404 -\n","timestamp":"2018-10-21T05:24:46.914Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:04:18 +0000] \"POST /api/v2/registerUser HTTP/1.1\" 200 119\n","timestamp":"2018-11-08T22:04:18.955Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:06:18 +0000] \"POST /api/v2/registerUser HTTP/1.1\" 400 116\n","timestamp":"2018-11-08T22:06:18.282Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:07:43 +0000] \"POST /api/v2/registerUser HTTP/1.1\" 400 116\n","timestamp":"2018-11-08T22:07:43.091Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:13:03 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 2\n","timestamp":"2018-11-08T22:13:03.256Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:13:10 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 2\n","timestamp":"2018-11-08T22:13:10.209Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:13:25 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 2\n","timestamp":"2018-11-08T22:13:25.237Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:13:29 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 2\n","timestamp":"2018-11-08T22:13:29.177Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:16:00 +0000] \"POST /api/v2/metodo HTTP/1.1\" 401 86\n","timestamp":"2018-11-08T22:16:00.412Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:16:46 +0000] \"POST /api/v2/registerUser HTTP/1.1\" 200 119\n","timestamp":"2018-11-08T22:16:46.024Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:17:21 +0000] \"POST /api/v2/metodo HTTP/1.1\" 401 86\n","timestamp":"2018-11-08T22:17:21.721Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:18:58 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 12\n","timestamp":"2018-11-08T22:18:58.417Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:19:08 +0000] \"POST /api/v2/metodo HTTP/1.1\" 200 12\n","timestamp":"2018-11-08T22:19:08.253Z"}
+{"level":"info","message":"::1 - - [08/Nov/2018:22:22:18 +0000] \"POST /api/v2/registerUser HTTP/1.1\" 200 119\n","timestamp":"2018-11-08T22:22:18.737Z"}
