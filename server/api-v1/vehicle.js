@@ -1,118 +1,141 @@
 module.exports = (app)=>{
 
-  let version = 2;
+  const version = 1;
 
-  app.post(`/api/v${version}/vehicles`, (req, res)=>{
+  app.post(`/api/v${version}/vehicles`, async function(req, res){
     /**   PAYLOAD Exemplo
           {"vehicle":{"name": "Kombi VW","identification": "PJD 9865","city": "São Paulo","state": "São Paulo","country": "BR","model": "Kombi","brand": "Volkswagen","category": "VAN","status": "ATIVO"}}
      */
-    let service = new app.service.vehicleServiceImpl(app);
-    let vehicle = req.body["vehicle"];
-    console.log('req.body=>', req.body);
-    console.log('vehicle=>', vehicle);
-    service.create(
-              vehicle,
-              function (erro, result){
-                if(erro){
-                  console.log('api-vehicle-> service error=>', erro);
-                  res.status(500).send(erro);
-                }
-                res.status(200).send(result);
-              }
-            );
+    const service = new app.service.vehicleServiceImpl(app);
+    const vehicle = req.body["vehicle"];
+    service
+          .create(vehicle)
+          .then(result =>{
+            const { insertedId } = result;
+            const retorno = {
+              insertedId: insertedId,
+              result: result
+            }
+            if(!result){
+              res.status(404).send();
+            }else{
+              res.status(200).send(retorno);
+            }
+          })
+          .catch(err => {
+            res.status(500).send(err);
+            return;
+          }
+        );
   });
 
-  app.put(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
+  app.put(`/api/v${version}/vehicles/:id/geolocation`, async function(req, res){
     /**   PAYLOAD Exemplo
           {"geoLocation":{"latitude":0, "longitude":0}}
     */
-    let service = new app.service.vehicleServiceImpl(app);
-    let id = req.params.id;
+    const service = new app.service.vehicleServiceImpl(app);
+    const id = req.params.id;
     const geoLocation = {
                 longitude: req.body["geoLocation"].longitude, 
                 latitude: req.body["geoLocation"].latitude
           };
-    service.updateGeoLocation( 
-              id,
-              geoLocation,
-              function (err, result){
-                if(err){
-                  console.log('api-vehicle-> service err=>', err);
-                  res.status(500).send(err);
-                }
-                res.status(200).send(result);
-              }
+    await service
+          .updateGeoLocation(id, geoLocation)
+          .then(result =>{
+            if(!result){
+              res.status(404).send();
+            }else{
+              res.status(200).send(result);
+            }
+          })
+          .catch(err => {
+            res.status(500).send();
+            return;
+          }
         );
   });
 
   app.get(`/api/v${version}/vehicles/page/:page/limit/:limit`, async function(req, res){
-    let service = new app.service.vehicleServiceImpl(app);
-    let page = req.params.page;
-    let limit = req.params.limit;
+    const service = new app.service.vehicleServiceImpl(app);
+    const page = req.params.page;
+    const limit = req.params.limit;
     if(!page){
       page = 0;
     }
-    let result = await service
-                            .findAllPaginated( page, limit)
-                            .catch(err => {
-                              res.status(500).send();
-                              return;
-                            }
-                          );
-    if(!result || Number(result.length) === 0){
-      res.status(404).send();
-      return;
-    }
-    res.status(200).send(result);
-  });
-
-  app.get(`/api/v${version}/vehicles/:id`, (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
-    service.findById(
-              req.params.id, 
-              function (erro, result){
-                if(erro){
-                  console.log('api-vehicle-> service error=>', erro);
-                  res.status(500).send(erro);
+    await service
+              .findAllPaginated( page, limit)
+              .then(result =>{
+                if(!result || Number(result.length) === 0){
+                  res.status(404).send();
+                }else{
+                  res.status(200).send(result);
                 }
-                res.status(200).send(result);
+              })
+              .catch(err => {
+                res.status(500).send();
+                return;
               }
             );
   });
 
-  app.get(`/api/v${version}/vehicles`, (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
-    service.findAll( 
-              function (err, result){
-                if(err){
-                  console.log('api-vehicle-> service err=>', err)
-                  res.status(500).send(err);
+  app.get(`/api/v${version}/vehicles/:id`, async (req, res)=>{
+    const service = new app.service.vehicleServiceImpl(app);
+    await service
+              .findById(req.params.id)
+              .then(result =>{
+                if(!result){
+                  res.status(404).send();
+                }else{
+                  res.status(200).send(result);
                 }
-                res.status(200).send(result);
+              })
+              .catch(err => {
+                res.status(500).send();
               }
             );
   });
 
-  app.get(`/api/v${version}/vehicles/:lat/:lon/:distance`, (req, res)=>{
+  app.get(`/api/v${version}/vehicles`,  async function(req, res){
+    const service = new app.service.vehicleServiceImpl(app);
+    service.findAll()
+            .then(result =>{
+              if(!result || Number(result.length) === 0){
+                res.status(404).send();
+              }else{
+                res.status(200).send(result);
+              }
+            })
+            .catch(err => {
+              res.status(500).send();
+            }
+          );
+  });
+
+  app.get(`/api/v${version}/vehicles/:lat/:lon/:distance`, async function (req, res){
     //http://localhost:3000/api/v2/vehicles/-23.554827/-46.639073/5000
-    let service = new app.service.vehicleServiceImpl(app);
-    let latitude = Number(req.params.lat);
-    let longitude = Number(req.params.lon);
-    let distance = Number(req.params.distance);
+    const service = new app.service.vehicleServiceImpl(app);
+    const latitude = Number(req.params.lat);
+    const longitude = Number(req.params.lon);
+    const distance = Number(req.params.distance)
+    ;
     
-    service.findByGeoLocation( latitude, longitude, distance, 
-              function (err, result){
-                if(err){
-                  console.log('api-vehicle-> service err=>', err)
-                  res.status(500).send(err);
-                }
-                res.status(200).send(result);
-              }
-            );
+    service
+          .findByGeoLocation( latitude, longitude, distance)
+          .then(result =>{
+            if(!result || Number(result.length) === 0){
+              res.status(404).send();
+            }else{
+              res.status(200).send(result);
+            }
+          })
+          .catch(err => {
+            res.status(500).send();
+          }
+        );
   });
 
   app.get(`/api/v${version}/vehicles/:id/geolocation`, (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
+    const service = new app.service.vehicleServiceImpl(app);
     service.findById(
               req.params.id, 
               function (err, result){
@@ -125,15 +148,19 @@ module.exports = (app)=>{
           );
   });
 
-  app.get(`/api/v${version}/vehicles/loaddata/init`, (req, res)=>{
-    let service = new app.service.vehicleServiceImpl(app);
-    service.loadDataForTest(
-              function (err, result){
-                if(err){
-                  console.log('api-vehicle-> service error=>', err)
-                  res.status(500).send(err);
+  app.get(`/api/v${version}/vehicles/loaddata/init`, async (req, res)=>{
+    const service = new app.service.vehicleServiceImpl(app);
+    await service
+              .loadDataForTest()
+              .then(result =>{
+                if(!result){
+                  res.status(404).send();
+                }else{
+                  res.status(200).send(result);
                 }
-                res.status(200).send(result);
+              })
+              .catch(err => {
+                res.status(500).send();
               }
             );
   });

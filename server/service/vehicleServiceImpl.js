@@ -4,72 +4,32 @@ function VehicleServiceImpl(app) {
   this._dao = new app.persistence.VehicleMongoDao(app);
 }
 
-VehicleServiceImpl.prototype.create = function (vehicle, callback) {
-    console.log('VehicleServiceImpl.prototype.create->vehicle=>', vehicle);
-    return this._dao.create(vehicle, function (err, result){
-        if(err){
-            console.log('api-vehicle-> dao err=>', err);
-            res.status(500).send(err);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.create = async function(vehicle) {
+    return await this._dao.create(vehicle);
 }
 
-VehicleServiceImpl.prototype.updateGeoLocation = function (id, geoLocation, callback) {
-    return this._dao.updateGeoLocation(id, geoLocation, function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro);
-            res.status(500).send(erro);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.updateGeoLocation = async function (id, geoLocation) {
+    return await this._dao.updateGeoLocation(id, geoLocation);
 }
 
 VehicleServiceImpl.prototype.findAllPaginated = async function (page, limit) {
-    let result = await this._dao.findAllPaginated(page, limit);
-    return new Promise((resolve, reject) => {
-        resolve(result);
-    });
+    return await this._dao.findAllPaginated(page, limit);
 }
 
-VehicleServiceImpl.prototype.findAll = function (callback) {
-    return this._dao.findAll(function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro);
-            res.status(500).send(erro);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.findAll = async function() {
+    return await this._dao.findAll();
 }
 
-VehicleServiceImpl.prototype.findById = function (id, callback) {
-    return this._dao.findById(id, function (erro, result){
-        if(erro){
-            console.log('api-vehicle-> dao error=>', erro);
-            res.status(500).send(erro);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.findById = async function(id) {
+    return await this._dao.findById(id);
 }
 
-VehicleServiceImpl.prototype.findByGeoLocation = function (latitude, longitude, distance, callback) {
-    return this._dao.findByGeoLocation(latitude, longitude, distance, function (err, result){
-        if(err){
-            console.log('api-vehicle-> dao error=>', err);
-            res.status(500).send(err);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.findByGeoLocation = async function(latitude, longitude, distance) {
+    return await this._dao.findByGeoLocation(latitude, longitude, distance);
 }
 
-VehicleServiceImpl.prototype.loadDataForTest = function (callback) {
-    return this._dao.loadDataForTest(function (err, result){
-        if(err){
-            console.log('api-vehicle-> dao error=>', err);
-            res.status(500).send(err);
-        }
-        callback(null, result);
-    });
+VehicleServiceImpl.prototype.loadDataForTest = async function(){
+    return await this._dao.loadDataForTest();
 }
 
 module.exports = ()=>VehicleServiceImpl

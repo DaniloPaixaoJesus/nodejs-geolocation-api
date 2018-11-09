@@ -2,7 +2,7 @@ var fs = require('fs')
 
 module.exports = (app) => {
 
-  let version = 2;
+  let version = 1;
 
   app.post(`/api/v${version}/registerUser`, app.oauth.token());
 

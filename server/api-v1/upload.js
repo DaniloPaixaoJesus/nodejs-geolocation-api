@@ -2,7 +2,7 @@ var fs = require('fs')
 
 module.exports = (app) => {
 
-  let version = 2;
+  let version = 1;
 
   var multer = require('multer');
 
