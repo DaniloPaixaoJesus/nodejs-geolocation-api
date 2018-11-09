@@ -9,6 +9,7 @@ var customLogger = require('./middleware/middleware.logger');
 
 const ExpressOAuthServer = require('express-oauth-server');
 const cors = require('cors');
+const accesscontrol = require('./accesscontrol');
 
 module.exports = ()=>{
   var app = express();
@@ -18,6 +19,7 @@ module.exports = ()=>{
     accessTokenLifetime: 31536000
   });
 
+  app.accesscontrol = accesscontrol;
   //app.use(cors());
 
   //Middleware do Morgan para Log

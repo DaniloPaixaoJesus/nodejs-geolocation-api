@@ -159,3 +159,11 @@
 {"level":"info","message":"::1 - - [09/Nov/2018:13:11:47 +0000] \"GET /api/v2/vehicles HTTP/1.1\" 404 154\n","timestamp":"2018-11-09T13:11:47.907Z"}
 {"level":"info","message":"::1 - - [09/Nov/2018:13:11:52 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 12380\n","timestamp":"2018-11-09T13:11:52.618Z"}
 {"level":"info","message":"::1 - - [09/Nov/2018:13:12:14 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 12380\n","timestamp":"2018-11-09T13:12:14.792Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:00:18 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:00:18.252Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:00:54 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:00:54.816Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:02:25 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:02:25.713Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:03:12 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 29\n","timestamp":"2018-11-09T15:03:12.665Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:04:12 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:04:12.960Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:04:28 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:04:28.539Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:04:31 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:04:31.973Z"}
+{"level":"info","message":"::1 - - [09/Nov/2018:15:05:00 +0000] \"POST /api/v1/metodo HTTP/1.1\" 200 39\n","timestamp":"2018-11-09T15:05:00.814Z"}
