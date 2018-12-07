@@ -46,8 +46,8 @@ module.exports = ()=>{
 
 
   consign()
-   .include('api-old')
-   .include('api-v1')
+   //.include('api-old')
+   .include('api')
    .then('database')
    .then('persistence')
    //.then('models')
