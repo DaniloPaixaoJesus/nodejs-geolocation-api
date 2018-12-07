@@ -8,7 +8,7 @@ module.exports = (app) => {
 
   var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'public/images/uploads')
+      cb(null, 'static/public/images/uploads')
     },
     filename: (req, file, cb) => {
       // cb(null, file.fieldname + '-' + Date.now())

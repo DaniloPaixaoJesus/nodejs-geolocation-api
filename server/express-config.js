@@ -4,18 +4,18 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
 var morgan = require('morgan');
-var logger = require('./service/logger.js');
-var customLogger = require('./middleware/middleware.logger');
+var logger = require('./src/service/logger.js');
+var customLogger = require('./src/middleware/middleware.logger');
 
 const ExpressOAuthServer = require('express-oauth-server');
 const cors = require('cors');
-const accesscontrol = require('./accesscontrol');
+const accesscontrol = require('./src/security/accesscontrol');
 
 module.exports = ()=>{
   var app = express();
 
   app.oauth = new ExpressOAuthServer({
-    model: require('./oauth_model'),
+    model: require('./src/security/oauth_model'),
     accessTokenLifetime: 31536000
   });
 
@@ -45,7 +45,7 @@ module.exports = ()=>{
   //antes era usado o express-load, evitando-se assim tanto require na pagina inicial do app
 
 
-  consign()
+  consign({cwd: 'src'})
    //.include('api-old')
    .include('api')
    .then('database')

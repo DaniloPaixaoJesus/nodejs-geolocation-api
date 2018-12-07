@@ -2,7 +2,7 @@ let env = process.env.NODE_ENV;
 if(!env){
 	env = 'development';
 }
-var config = require(`../environment/env.${env}.json`);
+var config = require(`../../environment/env.${env}.json`);
 	
 async function connectionFactoryMongoDriver(){//callback
 	var mongoClient = require('mongodb').MongoClient;
