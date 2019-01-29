@@ -11,4 +11,5 @@ export class Driver {
     emailVerify: string
     cellPhoneNumber: string
     email: string
+    status: string
 }
