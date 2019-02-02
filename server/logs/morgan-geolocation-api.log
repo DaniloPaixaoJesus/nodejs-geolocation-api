@@ -200,3 +200,10 @@
 {"level":"info","message":"::1 - - [07/Dec/2018:14:32:25 +0000] \"POST /api/v1/images HTTP/1.1\" 500 7758\n","timestamp":"2018-12-07T14:32:25.679Z"}
 {"level":"info","message":"::1 - - [07/Dec/2018:14:34:40 +0000] \"POST /api/v1/images HTTP/1.1\" 413 5292\n","timestamp":"2018-12-07T14:34:40.499Z"}
 {"level":"info","message":"::1 - - [07/Dec/2018:14:36:09 +0000] \"POST /api/v1/images HTTP/1.1\" 200 140\n","timestamp":"2018-12-07T14:36:09.591Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:02:51 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:02:51.270Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:19:38 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:19:38.609Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:21:30 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:21:30.578Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:21:32 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:21:32.857Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:21:35 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:21:35.910Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:25:46 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 14816\n","timestamp":"2019-02-02T12:25:46.089Z"}
+{"level":"info","message":"::1 - - [02/Feb/2019:12:28:16 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 404 -\n","timestamp":"2019-02-02T12:28:16.420Z"}
