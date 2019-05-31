@@ -17,7 +17,7 @@
     "gateway",
     "javascript"
   ],
-  "author": "juliocvidal",
+  "author": "danilopaixao",
   "license": "ISC",
   "dependencies": {
     "accesscontrol": "^2.2.0",
