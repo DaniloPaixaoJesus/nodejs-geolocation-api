@@ -1,4 +1,10 @@
 
+
+I didn't use Mongoose due to difficulties with geolocation queries
+It still here, but not in use. The "models" directory is not load on the "consign" dependency.
+
+
+
 instalar mongodb compass to access mongodb database
 
 #####################################################################################################

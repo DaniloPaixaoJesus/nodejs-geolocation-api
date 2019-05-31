@@ -36,6 +36,7 @@
     "express-oauth-server": "^2.0.0",
     "pg": "^7.4.3",
     "restify": "^7.2.1",
+    "restify-clients": "2.6.6",
     "soap": "^0.24.0",
     "winston": "^2.2.0"
   },

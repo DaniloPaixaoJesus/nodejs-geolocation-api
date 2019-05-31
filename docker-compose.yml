@@ -14,17 +14,17 @@ services:
             - './data/monbodb:/data/db'
         networks: 
             - commute-network
-    node:
-        build:
-            dockerfile: ./docker/node-api.dockerfile
-            context: .
-        container_name: node-api
-        ports:
-            - "8088:3000"
-        networks: 
-            - commute-network
-        depends_on:
-            - "mongodb"
+    # node:
+    #     build:
+    #         dockerfile: ./docker/node-api.dockerfile
+    #         context: .
+    #     container_name: node-api
+    #     ports:
+    #         - "8088:3000"
+    #     networks: 
+    #         - commute-network
+    #     depends_on:
+    #         - "mongodb"
 
 networks: 
     commute-network:
