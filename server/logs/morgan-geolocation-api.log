@@ -210,3 +210,5 @@
 {"level":"info","message":"::1 - - [02/Feb/2019:13:41:13 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 404 -\n","timestamp":"2019-02-02T13:41:13.162Z"}
 {"level":"info","message":"::1 - - [02/Feb/2019:13:41:26 +0000] \"GET /api/v1/vehicles/loaddata/init HTTP/1.1\" 200 1066\n","timestamp":"2019-02-02T13:41:26.671Z"}
 {"level":"info","message":"::1 - - [02/Feb/2019:13:41:32 +0000] \"GET /api/v1/vehicles HTTP/1.1\" 200 907\n","timestamp":"2019-02-02T13:41:32.483Z"}
+{"level":"info","message":"::1 - - [31/May/2019:15:50:05 +0000] \"GET /posts HTTP/1.1\" 200 1381\n","timestamp":"2019-05-31T15:50:05.166Z"}
+{"level":"info","message":"::1 - - [31/May/2019:15:50:05 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150\n","timestamp":"2019-05-31T15:50:05.560Z"}

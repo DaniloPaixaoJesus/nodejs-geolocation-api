@@ -1,5 +1,8 @@
 
-instalar mongodb compass
+instalar mongodb compass to access mongodb database
 
-docker run --name mongodbcommute -e MONGO_INITDB_DATABASE=cummutedb -d -p 27017:27107 mongo
+#####################################################################################################
+### I don`t know why, when I create mongodb from here, I cannot access with mongodb compass tool ####
+#####################################################################################################
+docker run --name mongodbgeoloc -e MONGO_INITDB_DATABASE=geolocdb -d -p 27017:27107 mongo
 docker run -d -p 27017:27107 -v ~/data:/data/db mongo
