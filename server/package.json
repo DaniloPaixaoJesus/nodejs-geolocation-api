@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test node_modules/mocha/bin/mocha",
-    "start": "node cluster NODE_ENV=development",
-    "dev": "nodemon app.js",
+    "_start": "node app.js",
+    "local": "nodemon app.js NODE_ENV=local",
+    "start": "node cluster",
     "_comments": "npm install -g nodemon para ativar o WATCH do node.js"
   },
   "engines": {

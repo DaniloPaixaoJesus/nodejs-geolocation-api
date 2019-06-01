@@ -3,6 +3,7 @@ services:
     mongodb:
         image: mongo
         container_name: mongodb
+        restart: always
         environment:
             MONGO_INITDB_DATABASE: geolocdb
         #    MONGO_INITDB_ROOT_USERNAME: root
@@ -14,17 +15,20 @@ services:
             - './data/monbodb:/data/db'
         networks: 
             - commute-network
-    # node:
-    #     build:
-    #         dockerfile: ./docker/node-api.dockerfile
-    #         context: .
-    #     container_name: node-api
-    #     ports:
-    #         - "8088:3000"
-    #     networks: 
-    #         - commute-network
-    #     depends_on:
-    #         - "mongodb"
+    node:
+        restart: always
+        build:
+            dockerfile: ./docker/node-api.dockerfile
+            context: .
+        container_name: node-api
+        links:
+            - mongodb
+        ports:
+            - "8088:8088"
+        networks: 
+            - commute-network
+        depends_on:
+            - "mongodb"
 
 networks: 
     commute-network:

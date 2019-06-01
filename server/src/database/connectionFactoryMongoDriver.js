@@ -1,6 +1,6 @@
 let env = process.env.NODE_ENV;
 if(!env){
-	env = 'development';
+	env = 'local';
 }
 var config = require(`../../environment/env.${env}.json`);
 	
